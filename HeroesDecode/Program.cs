@@ -56,7 +56,14 @@ namespace HeroesDecode
                     _showPlayerStats = showPlayerStats;
                 }
 
-                if (File.Exists(replayPath))
+                string? fileName = Path.GetFileName(replayPath);
+                string? topDirectory = Path.GetDirectoryName(replayPath);
+                if (!string.IsNullOrWhiteSpace(fileName) && !string.IsNullOrWhiteSpace(topDirectory) && fileName == "[last]")
+                {
+                    string lastFile = new DirectoryInfo(topDirectory).GetFiles("*.StormReplay").OrderByDescending(x => x.LastWriteTimeUtc).FirstOrDefault().FullName;
+                    Parse(lastFile, resultOnly);
+                }
+                else if (File.Exists(replayPath))
                 {
                     Parse(replayPath, resultOnly);
                 }
