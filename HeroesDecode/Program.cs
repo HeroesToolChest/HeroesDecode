@@ -227,7 +227,10 @@ namespace HeroesDecode
                     playerBuilder.Append($"{"[-]"}");
 
                 // battletag
-                playerBuilder.Append($" {player.BattleTagName,-22}");
+                if (!string.IsNullOrEmpty(player.BattleTagName))
+                    playerBuilder.Append($" {player.BattleTagName,-22}");
+                else
+                    playerBuilder.Append($" {player.Name,-22}");
 
                 // account level
                 if (player.AccountLevel.HasValue && player.AccountLevel.Value > 0)
