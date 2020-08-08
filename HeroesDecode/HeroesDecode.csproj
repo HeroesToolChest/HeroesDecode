@@ -14,7 +14,7 @@
     <Product>HeroesDecode</Product>
     <PackageProjectUrl>https://github.com/HeroesToolChest/HeroesDecode</PackageProjectUrl>
     <RepositoryUrl>https://github.com/HeroesToolChest/HeroesDecode</RepositoryUrl>
-    <Description>Dotnet global tool to parse Heroes of the Storm replay files (.StormReplay) and provide quick data to the console.</Description>
+    <Description>Dotnet global tool to parse Heroes of the Storm replay files (.StormReplay) and provide quick information to the console.</Description>
     <PackageReleaseNotes>https://github.com/HeroesToolChest/HeroesDecode/releases</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
