@@ -68,6 +68,12 @@ namespace HeroesDecode
                             Parse(replayFile, resultOnly);
                     }
                 }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("No file or directory found.");
+                    Console.ResetColor();
+                }
             });
 
             return rootCommand.InvokeAsync(args).Result;
