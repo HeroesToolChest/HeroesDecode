@@ -351,7 +351,7 @@ namespace HeroesDecode
                 else
                     Console.WriteLine($"{"Damage Taken:",_statisticsFieldWidth}");
 
-                if (player.ScoreResult.DamageTaken > 0)
+                if (player.ScoreResult.Healing > 0)
                     Console.WriteLine($"{"Healing/Shielding:",_statisticsFieldWidth} {player.ScoreResult.Healing}");
                 else
                     Console.WriteLine($"{"Healing/Shielding:",_statisticsFieldWidth}");
