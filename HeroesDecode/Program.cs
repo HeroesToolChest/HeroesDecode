@@ -262,135 +262,150 @@ namespace HeroesDecode
                     player.PlayerHero.HeroLevel = 100;
             }
 
-            // hero name
-            StringBuilder heroBuilder = new StringBuilder($"{player.PlayerHero.HeroName,-16}");
-
-            // hero level
-            if (player.IsAutoSelect)
+            if (player.PlayerType != PlayerType.Observer)
             {
-                heroBuilder.Append($"{" [Level:Auto]",-14}");
-            }
-            else
-            {
-                string level = $" [Level:{player.PlayerHero.HeroLevel}]";
-                heroBuilder.Append($"{level,-14}");
-            }
+                // hero name
+                StringBuilder heroBuilder = new StringBuilder($"{player.PlayerHero.HeroName,-16}");
 
-            // hero unit id
-            heroBuilder.Append($" [ID:{player.PlayerHero.HeroUnitId}]");
-
-            Console.WriteLine($"    Hero: {heroBuilder}");
-
-            foreach (MatchAwardType matchAwardType in player.MatchAwards!)
-            {
-                Console.WriteLine($"    Award: {matchAwardType}");
-            }
-
-            // talents
-            if (_showPlayerTalents)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Talents");
-
-                Console.Write($"{"Level 1:",10}");
-                if (player.Talents.Count >= 1)
-                    Console.WriteLine($" {player.Talents[0].TalentNameId}");
-
-                Console.Write($"{"Level 4:",10}");
-                if (player.Talents.Count >= 2)
-                    Console.WriteLine($" {player.Talents[1].TalentNameId}");
-
-                Console.Write($"{"Level 7:",10}");
-                if (player.Talents.Count >= 3)
-                    Console.WriteLine($" {player.Talents[2].TalentNameId}");
-
-                Console.Write($"{"Level 10:",10}");
-                if (player.Talents.Count >= 4)
-                    Console.WriteLine($" {player.Talents[3].TalentNameId}");
-
-                Console.Write($"{"Level 13:",10}");
-                if (player.Talents.Count >= 5)
-                    Console.WriteLine($" {player.Talents[4].TalentNameId}");
-
-                Console.Write($"{"Level 16:",10}");
-                if (player.Talents.Count >= 6)
-                    Console.WriteLine($" {player.Talents[5].TalentNameId}");
-
-                Console.Write($"{"Level 20:",10}");
-                if (player.Talents.Count >= 7)
-                    Console.WriteLine($" {player.Talents[6].TalentNameId}");
+                // hero level
+                if (player.IsAutoSelect)
+                {
+                    heroBuilder.Append($"{" [Level:Auto]",-14}");
+                }
                 else
+                {
+                    string level = $" [Level:{player.PlayerHero.HeroLevel}]";
+                    heroBuilder.Append($"{level,-14}");
+                }
+
+                // hero unit id
+                heroBuilder.Append($" [ID:{player.PlayerHero.HeroUnitId}]");
+
+                Console.WriteLine($"    Hero: {heroBuilder}");
+
+                foreach (MatchAwardType matchAwardType in player.MatchAwards!)
+                {
+                    Console.WriteLine($"    Award: {matchAwardType}");
+                }
+
+                // talents
+                if (_showPlayerTalents)
+                {
                     Console.WriteLine();
+                    Console.WriteLine("Talents");
 
-                Console.WriteLine();
-            }
+                    Console.Write($"{"Level 1:",10}");
+                    if (player.Talents.Count >= 1)
+                        Console.WriteLine($" {player.Talents[0].TalentNameId}");
+                    else
+                        Console.WriteLine();
 
-            // stats
-            if (_showPlayerStats)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Statistics");
+                    Console.Write($"{"Level 4:",10}");
+                    if (player.Talents.Count >= 2)
+                        Console.WriteLine($" {player.Talents[1].TalentNameId}");
+                    else
+                        Console.WriteLine();
 
-                Console.WriteLine("Combat");
-                Console.WriteLine($"{"Hero Kills:",_statisticsFieldWidth} {player.ScoreResult!.SoloKills}");
-                Console.WriteLine($"{"Assists:",_statisticsFieldWidth} {player.ScoreResult.Assists}");
-                Console.WriteLine($"{"Takedowns:",_statisticsFieldWidth} {player.ScoreResult.Takedowns}");
-                Console.WriteLine($"{"Deaths:",_statisticsFieldWidth} {player.ScoreResult.Deaths}");
+                    Console.Write($"{"Level 7:",10}");
+                    if (player.Talents.Count >= 3)
+                        Console.WriteLine($" {player.Talents[2].TalentNameId}");
+                    else
+                        Console.WriteLine();
 
-                Console.WriteLine("Siege");
-                Console.WriteLine($"{"Minion Damage:",_statisticsFieldWidth} {player.ScoreResult.MinionDamage}");
-                Console.WriteLine($"{"Summon Damage:",_statisticsFieldWidth} {player.ScoreResult.SummonDamage}");
-                Console.WriteLine($"{"Structure Damage:",_statisticsFieldWidth} {player.ScoreResult.StructureDamage}");
-                Console.WriteLine($"{"Total Siege Damage:",_statisticsFieldWidth} {player.ScoreResult.SiegeDamage}");
+                    Console.Write($"{"Level 10:",10}");
+                    if (player.Talents.Count >= 4)
+                        Console.WriteLine($" {player.Talents[3].TalentNameId}");
+                    else
+                        Console.WriteLine();
 
-                Console.WriteLine("Hero");
-                Console.WriteLine($"{"Hero Damage:",_statisticsFieldWidth} {player.ScoreResult.HeroDamage}");
+                    Console.Write($"{"Level 13:",10}");
+                    if (player.Talents.Count >= 5)
+                        Console.WriteLine($" {player.Talents[4].TalentNameId}");
+                    else
+                        Console.WriteLine();
 
-                if (player.ScoreResult.DamageTaken > 0)
-                    Console.WriteLine($"{"Damage Taken:",_statisticsFieldWidth} {player.ScoreResult.DamageTaken}");
-                else
-                    Console.WriteLine($"{"Damage Taken:",_statisticsFieldWidth}");
+                    Console.Write($"{"Level 16:",10}");
+                    if (player.Talents.Count >= 6)
+                        Console.WriteLine($" {player.Talents[5].TalentNameId}");
+                    else
+                        Console.WriteLine();
 
-                if (player.ScoreResult.Healing > 0)
-                    Console.WriteLine($"{"Healing/Shielding:",_statisticsFieldWidth} {player.ScoreResult.Healing}");
-                else
-                    Console.WriteLine($"{"Healing/Shielding:",_statisticsFieldWidth}");
+                    Console.Write($"{"Level 20:",10}");
+                    if (player.Talents.Count >= 7)
+                        Console.WriteLine($" {player.Talents[6].TalentNameId}");
+                    else
+                        Console.WriteLine();
 
-                if (player.ScoreResult.SelfHealing > 0)
-                    Console.WriteLine($"{"Self Healing:",_statisticsFieldWidth} {player.ScoreResult.SelfHealing}");
-                else
-                    Console.WriteLine($"{"Self Healing:",_statisticsFieldWidth}");
+                    Console.WriteLine();
+                }
 
-                Console.WriteLine($"{"Experience:",_statisticsFieldWidth} {player.ScoreResult.ExperienceContribution}");
+                // stats
+                if (_showPlayerStats)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Statistics");
 
-                Console.WriteLine("Time");
-                Console.WriteLine($"{"Spent Dead:",_statisticsFieldWidth} {player.ScoreResult.TimeSpentDead}");
-                Console.WriteLine($"{"Rooting Heroes:",_statisticsFieldWidth} {player.ScoreResult.TimeRootingEnemyHeroes}");
-                Console.WriteLine($"{"Silence Heroes:",_statisticsFieldWidth} {player.ScoreResult.TimeSilencingEnemyHeroes}");
-                Console.WriteLine($"{"Stun Heroes:",_statisticsFieldWidth} {player.ScoreResult.TimeStunningEnemyHeroes}");
-                Console.WriteLine($"{"CC Heroes:",_statisticsFieldWidth} {player.ScoreResult.TimeCCdEnemyHeroes}");
-                Console.WriteLine($"{"On Fire:",_statisticsFieldWidth} {player.ScoreResult.OnFireTimeonFire}");
+                    Console.WriteLine("Combat");
+                    Console.WriteLine($"{"Hero Kills:",_statisticsFieldWidth} {player.ScoreResult!.SoloKills}");
+                    Console.WriteLine($"{"Assists:",_statisticsFieldWidth} {player.ScoreResult.Assists}");
+                    Console.WriteLine($"{"Takedowns:",_statisticsFieldWidth} {player.ScoreResult.Takedowns}");
+                    Console.WriteLine($"{"Deaths:",_statisticsFieldWidth} {player.ScoreResult.Deaths}");
 
-                Console.WriteLine("Other");
-                if (player.ScoreResult.SpellDamage.HasValue && player.ScoreResult.SpellDamage.Value > 0)
-                    Console.WriteLine($"{"Spell Damage:",_statisticsFieldWidth} {player.ScoreResult.SpellDamage}");
-                else
-                    Console.WriteLine($"{"Spell Damage:",_statisticsFieldWidth}");
+                    Console.WriteLine("Siege");
+                    Console.WriteLine($"{"Minion Damage:",_statisticsFieldWidth} {player.ScoreResult.MinionDamage}");
+                    Console.WriteLine($"{"Summon Damage:",_statisticsFieldWidth} {player.ScoreResult.SummonDamage}");
+                    Console.WriteLine($"{"Structure Damage:",_statisticsFieldWidth} {player.ScoreResult.StructureDamage}");
+                    Console.WriteLine($"{"Total Siege Damage:",_statisticsFieldWidth} {player.ScoreResult.SiegeDamage}");
 
-                if (player.ScoreResult.PhysicalDamage.HasValue && player.ScoreResult.PhysicalDamage.Value > 0)
-                    Console.WriteLine($"{"Physical Damage:",_statisticsFieldWidth} {player.ScoreResult.PhysicalDamage}");
-                else
-                    Console.WriteLine($"{"Physical Damage:",_statisticsFieldWidth}");
+                    Console.WriteLine("Hero");
+                    Console.WriteLine($"{"Hero Damage:",_statisticsFieldWidth} {player.ScoreResult.HeroDamage}");
 
-                Console.WriteLine($"{"Merc Damage:",_statisticsFieldWidth} {player.ScoreResult.CreepDamage}");
-                Console.WriteLine($"{"Merc Camp Captures:",_statisticsFieldWidth} {player.ScoreResult.MercCampCaptures}");
-                Console.WriteLine($"{"Watch Tower Captures:",_statisticsFieldWidth} {player.ScoreResult.WatchTowerCaptures}");
-                Console.WriteLine($"{"Town Kills:",_statisticsFieldWidth} {player.ScoreResult.TownKills}");
-                Console.WriteLine($"{"Town Kills:",_statisticsFieldWidth} {player.ScoreResult.TownKills}");
-                Console.WriteLine($"{"Minion Kills:",_statisticsFieldWidth} {player.ScoreResult.MinionKills}");
-                Console.WriteLine($"{"Regen Globes:",_statisticsFieldWidth} {player.ScoreResult.RegenGlobes}");
+                    if (player.ScoreResult.DamageTaken > 0)
+                        Console.WriteLine($"{"Damage Taken:",_statisticsFieldWidth} {player.ScoreResult.DamageTaken}");
+                    else
+                        Console.WriteLine($"{"Damage Taken:",_statisticsFieldWidth}");
 
-                Console.WriteLine();
+                    if (player.ScoreResult.Healing > 0)
+                        Console.WriteLine($"{"Healing/Shielding:",_statisticsFieldWidth} {player.ScoreResult.Healing}");
+                    else
+                        Console.WriteLine($"{"Healing/Shielding:",_statisticsFieldWidth}");
+
+                    if (player.ScoreResult.SelfHealing > 0)
+                        Console.WriteLine($"{"Self Healing:",_statisticsFieldWidth} {player.ScoreResult.SelfHealing}");
+                    else
+                        Console.WriteLine($"{"Self Healing:",_statisticsFieldWidth}");
+
+                    Console.WriteLine($"{"Experience:",_statisticsFieldWidth} {player.ScoreResult.ExperienceContribution}");
+
+                    Console.WriteLine("Time");
+                    Console.WriteLine($"{"Spent Dead:",_statisticsFieldWidth} {player.ScoreResult.TimeSpentDead}");
+                    Console.WriteLine($"{"Rooting Heroes:",_statisticsFieldWidth} {player.ScoreResult.TimeRootingEnemyHeroes}");
+                    Console.WriteLine($"{"Silence Heroes:",_statisticsFieldWidth} {player.ScoreResult.TimeSilencingEnemyHeroes}");
+                    Console.WriteLine($"{"Stun Heroes:",_statisticsFieldWidth} {player.ScoreResult.TimeStunningEnemyHeroes}");
+                    Console.WriteLine($"{"CC Heroes:",_statisticsFieldWidth} {player.ScoreResult.TimeCCdEnemyHeroes}");
+                    Console.WriteLine($"{"On Fire:",_statisticsFieldWidth} {player.ScoreResult.OnFireTimeonFire}");
+
+                    Console.WriteLine("Other");
+                    if (player.ScoreResult.SpellDamage.HasValue && player.ScoreResult.SpellDamage.Value > 0)
+                        Console.WriteLine($"{"Spell Damage:",_statisticsFieldWidth} {player.ScoreResult.SpellDamage}");
+                    else
+                        Console.WriteLine($"{"Spell Damage:",_statisticsFieldWidth}");
+
+                    if (player.ScoreResult.PhysicalDamage.HasValue && player.ScoreResult.PhysicalDamage.Value > 0)
+                        Console.WriteLine($"{"Physical Damage:",_statisticsFieldWidth} {player.ScoreResult.PhysicalDamage}");
+                    else
+                        Console.WriteLine($"{"Physical Damage:",_statisticsFieldWidth}");
+
+                    Console.WriteLine($"{"Merc Damage:",_statisticsFieldWidth} {player.ScoreResult.CreepDamage}");
+                    Console.WriteLine($"{"Merc Camp Captures:",_statisticsFieldWidth} {player.ScoreResult.MercCampCaptures}");
+                    Console.WriteLine($"{"Watch Tower Captures:",_statisticsFieldWidth} {player.ScoreResult.WatchTowerCaptures}");
+                    Console.WriteLine($"{"Town Kills:",_statisticsFieldWidth} {player.ScoreResult.TownKills}");
+                    Console.WriteLine($"{"Town Kills:",_statisticsFieldWidth} {player.ScoreResult.TownKills}");
+                    Console.WriteLine($"{"Minion Kills:",_statisticsFieldWidth} {player.ScoreResult.MinionKills}");
+                    Console.WriteLine($"{"Regen Globes:",_statisticsFieldWidth} {player.ScoreResult.RegenGlobes}");
+
+                    Console.WriteLine();
+                }
             }
         }
     }
