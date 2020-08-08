@@ -283,9 +283,12 @@ namespace HeroesDecode
 
                 Console.WriteLine($"    Hero: {heroBuilder}");
 
-                foreach (MatchAwardType matchAwardType in player.MatchAwards!)
+                if (player.MatchAwards != null)
                 {
-                    Console.WriteLine($"    Award: {matchAwardType}");
+                    foreach (MatchAwardType matchAwardType in player.MatchAwards)
+                    {
+                        Console.WriteLine($"    Award: {matchAwardType}");
+                    }
                 }
 
                 // talents
