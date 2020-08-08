@@ -247,7 +247,7 @@ namespace HeroesDecode
             }
             else if (player.PlayerType == PlayerType.Computer)
             {
-                Console.WriteLine($"{player.Name}");
+                Console.WriteLine($"[-] {player.Name}");
             }
 
             if (player.HeroMasteryTiers.ToDictionary(x => x.HeroAttributeId, x => x.TierLevel).TryGetValue(player.PlayerHero.HeroAttributeId, out int tierLevel))
