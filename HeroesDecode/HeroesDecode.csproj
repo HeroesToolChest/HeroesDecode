@@ -12,10 +12,10 @@
     <Authors>Kevin Oliva</Authors>
     <PackageId>HeroesDecode</PackageId>
     <Product>HeroesDecode</Product>
-    <PackageProjectUrl>https://github.com/HeroesToolChest/Heroes.StormReplayParser</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/HeroesToolChest/Heroes.StormReplayParser</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/HeroesToolChest/HeroesDecode</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/HeroesToolChest/HeroesDecode</RepositoryUrl>
     <Description>Tool to parse Heroes of the Storm replay files (.StormReplay).</Description>
-    <PackageReleaseNotes>https://github.com/HeroesToolChest/Heroes.StormReplayParser/releases</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/HeroesToolChest/HeroesDecode/releases</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
@@ -34,6 +34,13 @@
 
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
   
 </Project>
