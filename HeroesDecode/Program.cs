@@ -23,27 +23,40 @@ namespace HeroesDecode
 
         public static int Main(string[] args)
         {
-            RootCommand rootCommand = new RootCommand()
-            {
-                new Option<string>(
+            RootCommand rootCommand = new RootCommand();
+
+            Option replayPathOption = new Option<string>(
                     "--replay-path",
                     description: "File path of a Heroes of the Storm .StormReplay file or a directory")
-                {
-                    IsRequired = true,
-                },
-                new Option<bool>(
+            {
+                IsRequired = true,
+            };
+
+            Option resultOnlyOption = new Option<bool>(
                     "--result-only",
                     getDefaultValue: () => false,
-                    description: "Will only show result of parsing, no map info or player info; --show-player-talents and --show-player-stats options will be overridden to false"),
-                new Option<bool>(
+                    description: "Will only show result of parsing, no map info or player info; --show-player-talents and --show-player-stats options will be overridden to false");
+
+            replayPathOption.AddAlias("-p");
+
+            Option showPlayerTalentsOption = new Option<bool>(
                     "--show-player-talents",
                     getDefaultValue: () => false,
-                    description: "Shows the player's talent information"),
-                new Option<bool>(
+                    description: "Shows the player's talent information");
+
+            showPlayerTalentsOption.AddAlias("-t");
+
+            Option showPlayerStatsOption = new Option<bool>(
                     "--show-player-stats",
                     getDefaultValue: () => false,
-                    description: "Shows the player's stats"),
-            };
+                    description: "Shows the player's stats");
+
+            showPlayerStatsOption.AddAlias("-s");
+
+            rootCommand.AddOption(replayPathOption);
+            rootCommand.AddOption(resultOnlyOption);
+            rootCommand.AddOption(showPlayerTalentsOption);
+            rootCommand.AddOption(showPlayerStatsOption);
 
             rootCommand.Description = "Parses Heroes of the Storm replay files";
 
