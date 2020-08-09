@@ -5,9 +5,9 @@
 
 Heroes Decode is a .NET Core command line tool that parses Heroes of the Storm replay files (.StormReplay) and provides information about the parsed replay to the console.
 
-The purpose of this tool is to provide a quick way to parse a replay and to obtain basic information at a glance. It is not meant to be used as a tool/library to obtain data from the replay (*i.e* this is not a parser).
+The purpose of this tool is to provide a quick way to parse a replay and to obtain basic information at a glance. It is not meant to be used as a tool/library to obtain data from the replay (*i.e* this is not a parsing library).
 
-The parsing is done by the libray [Heroes Storm Replay Parser](https://github.com/HeroesToolChest/Heroes.StormReplayParser).
+The parsing is done by the library [Heroes Storm Replay Parser](https://github.com/HeroesToolChest/Heroes.StormReplayParser).
 
 ## Installation
 ### Supported Operating Systems
@@ -82,20 +82,20 @@ Usage:
   heroesdecode [options]
 
 Options:
-  --replay-path <replay-path> (REQUIRED)    File path of a Heroes of the Storm .StormReplay file or a directory
-  --result-only                             Will only show result of parsing, no map info or player info; --show-player-talents
-                                            and --show-player-stats options will be overridden to false [default: False]
-  --show-player-talents                     Shows the player's talent information [default: False]
-  --show-player-stats                       Shows the player's stats [default: False]
-  --version                                 Show version information
-  -?, -h, --help                            Show help and usage information
+  -p, --replay-path <replay-path> (REQUIRED)    File path of a Heroes of the Storm .StormReplay file or a directory
+  --result-only                                 Will only show result of parsing, no map info or player info; --show-player-talents and --show-player-stats options will be overridden to false
+                                                [default: False]
+  -t, --show-player-talents                     Shows the player's talent information [default: False]
+  -s, --show-player-stats                       Shows the player's stats [default: False]
+  --version                                     Show version information
+  -?, -h, --help                                Show help and usage information
 ```
 
 Example command to parse a replay file.
 ```
 dotnet heroesdecode.dll --replay-path 'C:\ReplayFiles\2020-08-07 15.33.52 Lost Cavern.StormReplay'
 ```
-Example output from the previous command
+Example output from the previous command.
 ```
 Success
 File Name: 2020-08-07 15.33.52 Lost Cavern.StormReplay
@@ -144,19 +144,82 @@ Observers
 **Note: When using command prompt on windows, use double quotes instead of single quote when specifying filepaths.**
 
 ## Options
-### Replay Path (--replay-path)
+### Replay Path (-p, --replay-path)
+
+Can be either the path to a replay file or a directory. If a directory recommended to set the option `--result-only`.
 
 ***
 
 ### Result Only (--result-only)
 
+Only the result of the parsing as well as the file name and the replay version will be outputted. This will also override the options `--show-players-talents` and `--show-player-stats` to false.
+
+Example.
+```
+Success [2019-06-20 19.23.36 Garden of Terror.StormReplay] [2.46.0.74739]
+```
+
 ***
 
-### Show Player Talents (--show-player-talents)
+### Show Player Talents (-t, --show-player-talents)
 
+Shows the player's talents.
+
+Example.
+```
+Talents
+  Level 1: AnaShrikeVampiricRounds
+  Level 4: AnaOverdose
+  Level 7: AnaSleepDartNightTerrors
+ Level 10: AnaHeroicAbilityNanaBoost
+ Level 13: AnaHealingDartSmellingSalts
+ Level 16: AnaDetachableBoxMagazine
+ Level 20: AnaDynamicOptics
+ ```
+ 
 ***
 
-### Show Player Stats(--show-player-stats)
+### Show Player Stats(-s, --show-player-stats)
+
+Shows the player's statistics.
+
+Example.
+```
+Statistics
+Combat
+          Hero Kills: 9
+             Assists: 31
+           Takedowns: 40
+              Deaths: 2
+Siege
+       Minion Damage: 49665
+       Summon Damage: 0
+    Structure Damage: 9843
+  Total Siege Damage: 59508
+Hero
+         Hero Damage: 91884
+        Damage Taken: 119834
+   Healing/Shielding:
+        Self Healing: 33557
+          Experience: 27230
+Time
+          Spent Dead: 00:00:54
+      Rooting Heroes: 00:00:00
+      Silence Heroes: 00:00:00
+         Stun Heroes: 00:01:54
+           CC Heroes: 00:11:58
+             On Fire: 00:00:40
+Other
+        Spell Damage:
+     Physical Damage:
+         Merc Damage: 0
+  Merc Camp Captures: 0
+Watch Tower Captures: 0
+          Town Kills: 0
+          Town Kills: 0
+        Minion Kills: 0
+        Regen Globes: 0
+```
 
 ## Developing
 To build and compile the code, it is recommended to use the latest version of [Visual Studio 2019 or Visual Studio Code](https://visualstudio.microsoft.com/downloads/).
