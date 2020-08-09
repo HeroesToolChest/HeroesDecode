@@ -146,7 +146,14 @@ Observers
 ## Options
 ### Replay Path (-p, --replay-path)
 
-Can be either the path to a replay file or a directory. If a directory recommended to set the option `--result-only`.
+Can be either the path to a replay file or a directory. If set as a directory recommended to set the option `--result-only`.
+
+The file path can also be set to `[last]` to parse the latest created replay file in the directory.
+
+Example of using `[last]`.
+```
+--replay-path 'C:\ReplayFiles\[last]'
+```
 
 ***
 
