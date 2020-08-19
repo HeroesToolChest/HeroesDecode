@@ -6,7 +6,7 @@ Only create issues in this repo that are related to console output. If the issue
 - Questions, bugs, issues, features/requests are welcomed
 
 Helpful things to include
-- Version of Heroes Data Parser
+- Version of Heroes Decode
 - Operating system and version
 - Method of installation
   - dotnet global tool
