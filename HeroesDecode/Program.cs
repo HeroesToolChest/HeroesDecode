@@ -73,8 +73,15 @@ namespace HeroesDecode
                 string? topDirectory = Path.GetDirectoryName(replayPath);
                 if (!string.IsNullOrWhiteSpace(fileName) && !string.IsNullOrWhiteSpace(topDirectory) && fileName == "[last]")
                 {
-                    string lastFile = new DirectoryInfo(topDirectory).GetFiles("*.StormReplay").OrderByDescending(x => x.LastWriteTimeUtc).FirstOrDefault().FullName;
-                    Parse(lastFile, resultOnly);
+                    string? lastFile = new DirectoryInfo(topDirectory).GetFiles("*.StormReplay").OrderByDescending(x => x.LastWriteTimeUtc).FirstOrDefault()?.FullName;
+                    if (string.IsNullOrWhiteSpace(lastFile))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("No file found.");
+                        Console.ResetColor();
+                    }
+
+                    Parse(lastFile!, resultOnly);
                 }
                 else if (File.Exists(replayPath))
                 {
@@ -242,6 +249,9 @@ namespace HeroesDecode
 
         private static void PlayerInfo(StormPlayer player, PartyIconColor? partyIcon)
         {
+            if (player is null)
+                throw new ArgumentNullException(nameof(player));
+
             if (player.PlayerType != PlayerType.Computer)
             {
                 StringBuilder playerBuilder = new StringBuilder();
@@ -279,7 +289,7 @@ namespace HeroesDecode
                 Console.WriteLine($"[-] {player.Name}");
             }
 
-            if (player.HeroMasteryTiers.ToDictionary(x => x.HeroAttributeId, x => x.TierLevel).TryGetValue(player.PlayerHero.HeroAttributeId, out int tierLevel))
+            if (player.HeroMasteryTiers.ToDictionary(x => x.HeroAttributeId, x => x.TierLevel).TryGetValue(player.PlayerHero!.HeroAttributeId, out int tierLevel))
             {
                 if (tierLevel == 2 && player.PlayerHero.HeroLevel < 25)
                     player.PlayerHero.HeroLevel = 25;
@@ -294,7 +304,7 @@ namespace HeroesDecode
             if (player.PlayerType != PlayerType.Observer)
             {
                 // hero name
-                StringBuilder heroBuilder = new StringBuilder($"{player.PlayerHero.HeroName,-16}");
+                StringBuilder heroBuilder = new StringBuilder($"{player.PlayerHero!.HeroName,-16}");
 
                 // hero level
                 if (player.IsAutoSelect)
