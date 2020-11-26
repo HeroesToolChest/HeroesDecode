@@ -3,22 +3,15 @@
 [![Release](https://img.shields.io/github/release/HeroesToolChest/HeroesDecode.svg)](https://github.com/HeroesToolChest/HeroesDecode/releases/latest)
 [![NuGet](https://img.shields.io/nuget/v/HeroesDecode.svg)](https://www.nuget.org/packages/HeroesDecode/)
 
-Heroes Decode is a .NET Core command line tool that parses Heroes of the Storm replay files (.StormReplay) and provides information about the parsed replay to the console.
+Heroes Decode is a .NET command line tool that parses Heroes of the Storm replay files (.StormReplay) and provides information about the parsed replay to the console.
 
 The purpose of this tool is to provide a quick way to parse a replay and to obtain basic information at a glance. It is not meant to be used as a tool/library to obtain data from the replay (*i.e* this is not a parsing library).
 
 The parsing is done by the library [Heroes Storm Replay Parser](https://github.com/HeroesToolChest/Heroes.StormReplayParser).
 
 ## Installation
-### Supported Operating Systems
-- Windows 7 SP1 (x64) and later
-- Linux (x64)
-- macOS 10.13 (x64) and later versions
-
-***
-
 ### Dotnet Global Tool (Recommended)
-Download and install the [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download). 
+Download and install the [.NET 5.0 SDK](https://dotnet.microsoft.com/download). 
 
 Once installed, run the following command:
 ```
@@ -33,21 +26,26 @@ dotnet tool update --global HeroesDecode
 ***
 
 ### Zip File Download - Framework-Dependent Deployment (fdd)
+Portable to any operating system.
 
-Download and install the [.NET Core 3.1 Runtime or SDK](https://dotnet.microsoft.com/download). 
+Download and install the [.NET 5.0 Runtime or SDK](https://dotnet.microsoft.com/download). 
 
 Download and extract the latest `HeroesDecode.*-fdd-any` zip file from the [releases](https://github.com/HeroesToolChest/HeroesDecode/releases) page.
 
 ***
 
 ### Zip File Download - Framework-Dependent Executable (fde)
-Download and install the [.NET Core 3.1 Runtime or SDK](https://dotnet.microsoft.com/download). 
+Runs only on the selected operating system.
+
+Download and install the [.NET 5.0 Runtime or SDK](https://dotnet.microsoft.com/download). 
 
 Download and extract the latest `HeroesDecode.*-fde-<OS>-x64` zip file from the [releases](https://github.com/HeroesToolChest/HeroesDecode/releases) page for a selected operating system.
 
 ***
 
 ### Zip File Download - Self-Contained Deployment (scd)
+Runs only on the selected operating system.
+
 No runtime or SDK is required.
 
 Download and extract the latest `HeroesDecode.*-scd-<OS>-x64` zip file from the [releases](https://github.com/HeroesToolChest/HeroesDecode/releases) page for a selected operating system.
@@ -231,7 +229,7 @@ Watch Tower Captures: 0
 ## Developing
 To build and compile the code, it is recommended to use the latest version of [Visual Studio 2019 or Visual Studio Code](https://visualstudio.microsoft.com/downloads/).
 
-Another option is to use the dotnet CLI tools from the [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download).
+Another option is to use the dotnet CLI tools from the [.NET 5.0 SDK](https://dotnet.microsoft.com/download).
 
 The main project is `HeroesDecode.csproj` and the main entry point is `Program.cs`.
 
