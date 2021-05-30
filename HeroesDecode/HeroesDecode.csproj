@@ -8,7 +8,7 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>dotnet-heroes-decode</ToolCommandName>
     <Version>1.0.0-beta.3</Version>
-    <Copyright>Copyright © 2020 Kevin Oliva</Copyright>
+    <Copyright>Copyright © 2020 - 2021 Kevin Oliva</Copyright>
     <Authors>Kevin Oliva</Authors>
     <PackageId>HeroesDecode</PackageId>
     <Product>HeroesDecode</Product>
