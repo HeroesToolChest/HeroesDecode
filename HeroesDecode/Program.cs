@@ -23,7 +23,7 @@ namespace HeroesDecode
 
         public static int Main(string[] args)
         {
-            RootCommand rootCommand = new RootCommand();
+            RootCommand rootCommand = new();
 
             Option replayPathOption = new Option<string>(
                     "--replay-path",
@@ -181,7 +181,7 @@ namespace HeroesDecode
 
         private static void StormTeamDisplay(StormReplay replay, IEnumerable<StormPlayer> players, StormTeam team)
         {
-            Dictionary<long, PartyIconColor> partyPlayers = new Dictionary<long, PartyIconColor>();
+            Dictionary<long, PartyIconColor> partyPlayers = new();
             bool partyPurpleUsed = false;
             bool partyRedUsed = false;
 
@@ -254,7 +254,8 @@ namespace HeroesDecode
 
             if (player.PlayerType != PlayerType.Computer)
             {
-                StringBuilder playerBuilder = new StringBuilder();
+                StringBuilder stringBuilder = new();
+                StringBuilder playerBuilder = stringBuilder;
 
                 // party
                 if (partyIcon.HasValue)
@@ -304,7 +305,7 @@ namespace HeroesDecode
             if (player.PlayerType != PlayerType.Observer)
             {
                 // hero name
-                StringBuilder heroBuilder = new StringBuilder($"{player.PlayerHero!.HeroName,-16}");
+                StringBuilder heroBuilder = new($"{player.PlayerHero!.HeroName,-16}");
 
                 // hero level
                 if (player.IsAutoSelect)
