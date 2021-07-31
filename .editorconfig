@@ -272,3 +272,6 @@ dotnet_diagnostic.CA1819.severity = none
 
 # SA1512: Single-line comments should not be followed by blank line
 dotnet_diagnostic.SA1512.severity = none
+
+# SA1518: Use line endings correctly at end of file
+dotnet_diagnostic.SA1518.severity = none
