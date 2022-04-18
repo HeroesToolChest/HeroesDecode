@@ -141,12 +141,12 @@ static void GetInfo(StormReplayResult stormReplayResult)
 
     List<StormPlayer> players = replay.StormPlayers.ToList();
 
-    Console.WriteLine($"{"File Name: ",11}{Path.GetFileName(stormReplayResult.FileName)}");
-    Console.WriteLine($"{"Game Mode: ",11}{replay.GameMode}");
-    Console.WriteLine($"{"Map: ",11}{replay.MapInfo.MapName} [ID:{replay.MapInfo.MapId}]");
-    Console.WriteLine($"{"Version: ",11}{replay.ReplayVersion}");
-    Console.WriteLine($"{"Region: ",11}{replay.Region}");
-    Console.WriteLine($"{"Game Time: ",11}{replay.ReplayLength}");
+    Console.WriteLine($"{"File Name: ",_infoFieldWidth}{Path.GetFileName(stormReplayResult.FileName)}");
+    Console.WriteLine($"{"Game Mode: ",_infoFieldWidth}{replay.GameMode}");
+    Console.WriteLine($"{"Map: ",_infoFieldWidth}{replay.MapInfo.MapName} [ID:{replay.MapInfo.MapId}]");
+    Console.WriteLine($"{"Version: ",_infoFieldWidth}{replay.ReplayVersion}");
+    Console.WriteLine($"{"Region: ",_infoFieldWidth}{replay.Region}");
+    Console.WriteLine($"{"Game Time: ",_infoFieldWidth}{replay.ReplayLength}");
 
     if (_failed)
         Environment.Exit(1);
@@ -236,36 +236,26 @@ static void PlayerInfo(StormPlayer player, PartyIconColor? partyIcon)
 
     if (player.PlayerType != PlayerType.Computer)
     {
-        StringBuilder stringBuilder = new();
-        StringBuilder playerBuilder = stringBuilder;
-
         // party
         if (partyIcon.HasValue)
-            playerBuilder.Append($"[{(int)partyIcon}]");
+            Console.Write($"[{(int)partyIcon}]");
         else
-            playerBuilder.Append($"{"[-]"}");
+            Console.Write($"{"[-]"}");
 
         // battletag
         if (!string.IsNullOrEmpty(player.BattleTagName))
-            playerBuilder.Append($" {player.BattleTagName,-22}");
+            Console.WriteLine($"{"Player: ",_playerFieldWidth - 3}{player.BattleTagName}");
         else
-            playerBuilder.Append($" {player.Name,-22}");
+            Console.WriteLine($"{"Player: ",_playerFieldWidth - 3}{player.Name}");
 
         // account level
         if (player.AccountLevel.HasValue && player.AccountLevel.Value > 0)
-        {
-            string level = $" [Level:{player.AccountLevel.Value}]";
-            playerBuilder.Append($"{level,-14}");
-        }
+            Console.WriteLine($"{"Player Level: ",_playerFieldWidth}{player.AccountLevel.Value}");
         else
-        {
-            playerBuilder.Append($"{" [Level:???]",-14}");
-        }
+            Console.WriteLine($"{"Player Level: ",_playerFieldWidth}[Level:???]");
 
         // toon handle
-        playerBuilder.Append($" [Toon:{player.ToonHandle}]");
-
-        Console.WriteLine(playerBuilder);
+        Console.WriteLine($"{"Player Toon: ",_playerFieldWidth}{player.ToonHandle}");
     }
     else if (player.PlayerType == PlayerType.Computer)
     {
@@ -287,29 +277,19 @@ static void PlayerInfo(StormPlayer player, PartyIconColor? partyIcon)
     if (player.PlayerType != PlayerType.Observer)
     {
         // hero name
-        StringBuilder heroBuilder = new($"{player.PlayerHero!.HeroName,-16}");
+        Console.WriteLine($"{"Hero Name: ",_playerFieldWidth}{player.PlayerHero!.HeroName} [ID:{player.PlayerHero.HeroUnitId}]");
 
         // hero level
         if (player.IsAutoSelect)
-        {
-            heroBuilder.Append($"{" [Level:Auto]",-14}");
-        }
+            Console.WriteLine($"{"Hero Level: ",_playerFieldWidth}Auto");
         else
-        {
-            string level = $" [Level:{player.PlayerHero.HeroLevel}]";
-            heroBuilder.Append($"{level,-14}");
-        }
-
-        // hero unit id
-        heroBuilder.Append($" [ID:{player.PlayerHero.HeroUnitId}]");
-
-        Console.WriteLine($"    Hero: {heroBuilder}");
+            Console.WriteLine($"{"Hero Level: ",_playerFieldWidth}{player.PlayerHero.HeroLevel}");
 
         if (player.MatchAwards != null)
         {
             foreach (MatchAwardType matchAwardType in player.MatchAwards)
             {
-                Console.WriteLine($"    Award: {matchAwardType}");
+                Console.WriteLine($"{"Award: ",_playerFieldWidth}{matchAwardType}");
             }
         }
 
@@ -443,6 +423,8 @@ static void PlayerInfo(StormPlayer player, PartyIconColor? partyIcon)
 
 public partial class Program
 {
+    private const int _infoFieldWidth = 11;
+    private const int _playerFieldWidth = 14;
     private const int _statisticsFieldWidth = 21;
 
     private static bool _resultOnly = false;
