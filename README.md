@@ -11,7 +11,7 @@ The parsing is done by the library [Heroes Storm Replay Parser](https://github.c
 
 ## Installation
 ### Dotnet Global Tool (Recommended)
-Download and install the [.NET 5.0 SDK](https://dotnet.microsoft.com/download). 
+Download and install the [.NET 6.0 SDK](https://dotnet.microsoft.com/download). 
 
 Once installed, run the following command:
 ```
@@ -28,7 +28,7 @@ dotnet tool update --global HeroesDecode
 ### Zip File Download - Framework-Dependent Deployment (fdd)
 Portable to any operating system.
 
-Download and install the [.NET 5.0 Runtime or SDK](https://dotnet.microsoft.com/download). 
+Download and install the [.NET 6.0 Runtime or SDK](https://dotnet.microsoft.com/download). 
 
 Download and extract the latest `HeroesDecode.*-fdd-any` zip file from the [releases](https://github.com/HeroesToolChest/HeroesDecode/releases) page.
 
@@ -37,7 +37,7 @@ Download and extract the latest `HeroesDecode.*-fdd-any` zip file from the [rele
 ### Zip File Download - Framework-Dependent Executable (fde)
 Runs only on the selected operating system.
 
-Download and install the [.NET 5.0 Runtime or SDK](https://dotnet.microsoft.com/download). 
+Download and install the [.NET 6.0 Runtime or SDK](https://dotnet.microsoft.com/download). 
 
 Download and extract the latest `HeroesDecode.*-fde-<OS>-x64` zip file from the [releases](https://github.com/HeroesToolChest/HeroesDecode/releases) page for a selected operating system.
 
@@ -227,9 +227,9 @@ Watch Tower Captures: 0
 ```
 
 ## Developing
-To build and compile the code, it is recommended to use the latest version of [Visual Studio 2019 or Visual Studio Code](https://visualstudio.microsoft.com/downloads/).
+To build and compile the code, it is recommended to use the latest version of [Visual Studio 2022 or Visual Studio Code](https://visualstudio.microsoft.com/downloads/).
 
-Another option is to use the dotnet CLI tools from the [.NET 5.0 SDK](https://dotnet.microsoft.com/download).
+Another option is to use the dotnet CLI tools from the [.NET 6.0 SDK](https://dotnet.microsoft.com/download).
 
 The main project is `HeroesDecode.csproj` and the main entry point is `Program.cs`.
 
