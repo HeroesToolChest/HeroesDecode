@@ -3,9 +3,7 @@
 [![Release](https://img.shields.io/github/release/HeroesToolChest/HeroesDecode.svg)](https://github.com/HeroesToolChest/HeroesDecode/releases/latest)
 [![NuGet](https://img.shields.io/nuget/v/HeroesDecode.svg)](https://www.nuget.org/packages/HeroesDecode/)
 
-Heroes Decode is a .NET command line tool that parses Heroes of the Storm replay files (.StormReplay) and provides information about the parsed replay to the console.
-
-The purpose of this tool is to provide a quick way to parse a replay and to obtain basic information at a glance. It is not meant to be used as a tool/library to obtain data from the replay (*i.e* this is not a parsing library).
+Heroes Decode is a .NET command line tool that displays the basic information from Heroes of the Storm replay files (.StormReplay) to the console.
 
 The parsing is done by the library [Heroes Storm Replay Parser](https://github.com/HeroesToolChest/Heroes.StormReplayParser).
 
