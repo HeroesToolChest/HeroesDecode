@@ -59,8 +59,10 @@ rootCommand.SetHandler(
                 Console.WriteLine("No file found.");
                 Console.ResetColor();
             }
-
-            Parse(lastFile, resultOnly);
+            else
+            {
+                Parse(lastFile, resultOnly);
+            }
         }
         else if (File.Exists(replayPath))
         {
