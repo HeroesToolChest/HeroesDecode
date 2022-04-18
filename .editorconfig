@@ -286,3 +286,6 @@ dotnet_diagnostic.SA1512.severity = none
 
 # SA1518: Use line endings correctly at end of file
 dotnet_diagnostic.SA1518.severity = none
+
+# SA1601: Partial elements should be documented
+dotnet_diagnostic.SA1601.severity = none
