@@ -71,20 +71,19 @@ macOS or Linux: ./heroesdecode -h
 
 Output of the -h option
 ```
-heroesdecode:
-  Parses Heroes of the Storm replay files
+Description:
+  View Heroes of the Storm replay file game information
 
 Usage:
-  heroesdecode [options]
+  HeroesDecode [options]
 
 Options:
-  -p, --replay-path <replay-path> (REQUIRED)    File path of a Heroes of the Storm .StormReplay file or a directory
-  --result-only                                 Will only show result of parsing, no map info or player info; --show-player-talents and --show-player-stats options will be overridden to false
-                                                [default: False]
-  -t, --show-player-talents                     Shows the player's talent information [default: False]
-  -s, --show-player-stats                       Shows the player's stats [default: False]
-  --version                                     Show version information
-  -?, -h, --help                                Show help and usage information
+  -p, --replay-path <replay-path> (REQUIRED)  File path of a Heroes of the Storm .StormReplay file or a directory
+  --result-only                               Will only show result of parsing, no map info or player info; --show-player-talents and --show-player-stats options will be overridden to false [default: False]
+  -t, --show-player-talents                   Shows the player's talent information [default: False]
+  -s, --show-player-stats                     Shows the player's stats [default: False]
+  --version                                   Show version information
+  -?, -h, --help                              Show help and usage information
 ```
 
 Example command to parse a replay file.
