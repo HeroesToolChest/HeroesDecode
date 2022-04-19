@@ -6,12 +6,12 @@ Option replayPathOption = new Option<string>(
     IsRequired = true,
 };
 
+replayPathOption.AddAlias("-p");
+
 Option resultOnlyOption = new Option<bool>(
     "--result-only",
     getDefaultValue: () => false,
     description: "Will only show result of parsing, no map info or player info; --show-player-talents and --show-player-stats options will be overridden to false");
-
-replayPathOption.AddAlias("-p");
 
 Option showPlayerTalentsOption = new Option<bool>(
     "--show-player-talents",
