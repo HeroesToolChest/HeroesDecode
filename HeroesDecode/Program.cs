@@ -145,7 +145,7 @@ static void GetInfo(StormReplayResult stormReplayResult)
 
     Console.WriteLine($"{"File Name: ",_infoFieldWidth}{Path.GetFileName(stormReplayResult.FileName)}");
     Console.WriteLine($"{"Game Mode: ",_infoFieldWidth}{replay.GameMode}");
-    Console.WriteLine($"{"Map: ",_infoFieldWidth}{replay.MapInfo.MapName} [ID:{replay.MapInfo.MapId}]");
+    Console.WriteLine($"{"Map: ",_infoFieldWidth}{replay.MapInfo.MapName} [{replay.MapInfo.MapId}]");
     Console.WriteLine($"{"Version: ",_infoFieldWidth}{replay.ReplayVersion}");
     Console.WriteLine($"{"Region: ",_infoFieldWidth}{replay.Region}");
     Console.WriteLine($"{"Game Time: ",_infoFieldWidth}{replay.ReplayLength}");
@@ -223,6 +223,7 @@ static void StormTeamDisplay(StormReplay replay, IEnumerable<StormPlayer> player
             }
 
             PlayerInfo(player, partyIcon);
+            Console.WriteLine();
         }
     }
     else
@@ -246,9 +247,9 @@ static void PlayerInfo(StormPlayer player, PartyIconColor? partyIcon)
 
         // battletag
         if (!string.IsNullOrEmpty(player.BattleTagName))
-            Console.WriteLine($"{"Player: ",_playerFieldWidth - 3}{player.BattleTagName}");
+            Console.WriteLine($"\u001b[1m{"Player: ",_playerFieldWidth - 3}{player.BattleTagName}\u001b[0m");
         else
-            Console.WriteLine($"{"Player: ",_playerFieldWidth - 3}{player.Name}");
+            Console.WriteLine($"\u001b[1m{"Player: ",_playerFieldWidth - 3}{player.Name}\u001b[0m");
 
         // account level
         if (player.AccountLevel.HasValue && player.AccountLevel.Value > 0)
@@ -279,7 +280,7 @@ static void PlayerInfo(StormPlayer player, PartyIconColor? partyIcon)
     if (player.PlayerType != PlayerType.Observer)
     {
         // hero name
-        Console.WriteLine($"{"Hero Name: ",_playerFieldWidth}{player.PlayerHero!.HeroName} [ID:{player.PlayerHero.HeroUnitId}]");
+        Console.WriteLine($"{"Hero Name: ",_playerFieldWidth}{player.PlayerHero!.HeroName} [{player.PlayerHero.HeroUnitId}]");
 
         // hero level
         if (player.IsAutoSelect)
@@ -299,7 +300,7 @@ static void PlayerInfo(StormPlayer player, PartyIconColor? partyIcon)
         if (_showPlayerTalents)
         {
             Console.WriteLine();
-            Console.WriteLine("Talents");
+            Console.WriteLine(" \u001b[4mTalents\u001b[0m");
 
             Console.Write($"{"Level 1:",10}");
             if (player.Talents.Count >= 1)
@@ -350,23 +351,23 @@ static void PlayerInfo(StormPlayer player, PartyIconColor? partyIcon)
         if (_showPlayerStats)
         {
             Console.WriteLine();
-            Console.WriteLine("Statistics");
+            Console.WriteLine("\u001b[4mStatistics\u001b[0m");
 
             if (player.ScoreResult != null)
             {
-                Console.WriteLine("Combat");
+                Console.WriteLine("\u001b[4mCombat\u001b[0m");
                 Console.WriteLine($"{"Hero Kills:",_statisticsFieldWidth} {player.ScoreResult.SoloKills}");
                 Console.WriteLine($"{"Assists:",_statisticsFieldWidth} {player.ScoreResult.Assists}");
                 Console.WriteLine($"{"Takedowns:",_statisticsFieldWidth} {player.ScoreResult.Takedowns}");
                 Console.WriteLine($"{"Deaths:",_statisticsFieldWidth} {player.ScoreResult.Deaths}");
 
-                Console.WriteLine("Siege");
+                Console.WriteLine("\u001b[4mSiege\u001b[0m");
                 Console.WriteLine($"{"Minion Damage:",_statisticsFieldWidth} {player.ScoreResult.MinionDamage}");
                 Console.WriteLine($"{"Summon Damage:",_statisticsFieldWidth} {player.ScoreResult.SummonDamage}");
                 Console.WriteLine($"{"Structure Damage:",_statisticsFieldWidth} {player.ScoreResult.StructureDamage}");
                 Console.WriteLine($"{"Total Siege Damage:",_statisticsFieldWidth} {player.ScoreResult.SiegeDamage}");
 
-                Console.WriteLine("Hero");
+                Console.WriteLine("\u001b[4mHero\u001b[0m");
                 Console.WriteLine($"{"Hero Damage:",_statisticsFieldWidth} {player.ScoreResult.HeroDamage}");
 
                 if (player.ScoreResult.DamageTaken > 0)
@@ -386,7 +387,7 @@ static void PlayerInfo(StormPlayer player, PartyIconColor? partyIcon)
 
                 Console.WriteLine($"{"Experience:",_statisticsFieldWidth} {player.ScoreResult.ExperienceContribution}");
 
-                Console.WriteLine("Time");
+                Console.WriteLine("\u001b[4mTime\u001b[0m");
                 Console.WriteLine($"{"Spent Dead:",_statisticsFieldWidth} {player.ScoreResult.TimeSpentDead}");
                 Console.WriteLine($"{"Rooting Heroes:",_statisticsFieldWidth} {player.ScoreResult.TimeRootingEnemyHeroes}");
                 Console.WriteLine($"{"Silence Heroes:",_statisticsFieldWidth} {player.ScoreResult.TimeSilencingEnemyHeroes}");
@@ -394,7 +395,7 @@ static void PlayerInfo(StormPlayer player, PartyIconColor? partyIcon)
                 Console.WriteLine($"{"CC Heroes:",_statisticsFieldWidth} {player.ScoreResult.TimeCCdEnemyHeroes}");
                 Console.WriteLine($"{"On Fire:",_statisticsFieldWidth} {player.ScoreResult.OnFireTimeonFire}");
 
-                Console.WriteLine("Other");
+                Console.WriteLine("\u001b[4mOther\u001b[0m");
                 if (player.ScoreResult.SpellDamage.HasValue && player.ScoreResult.SpellDamage.Value > 0)
                     Console.WriteLine($"{"Spell Damage:",_statisticsFieldWidth} {player.ScoreResult.SpellDamage}");
                 else
