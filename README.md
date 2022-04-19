@@ -103,34 +103,72 @@ Game Time: 00:17:25
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Team Blue (Winner)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-[-] Apple#1111             [Level:897]   [Toon:1-Hero-1-123456789]
-    Hero: Rexxar           [Level:Auto]  [ID:HeroRexxar]
-    Award: MVP
-[-] Banana#2222            [Level:402]   [Toon:1-Hero-1-987654321]
-    Hero: Ragnaros         [Level:Auto]  [ID:HeroRagnaros]
-[-] Grapes#3333            [Level:2585]  [Toon:1-Hero-1-111111111]
-    Hero: Deckard          [Level:Auto]  [ID:HeroDeckard]
-    Award: MostHealing
-[-] Mango#4444             [Level:309]   [Toon:1-Hero-1-000000000]
-    Hero: Kael'thas        [Level:Auto]  [ID:HeroKaelthas]
-[-] Orange#5555            [Level:311]   [Toon:1-Hero-1-121212123]
-    Hero: Jaina            [Level:Auto]  [ID:HeroJaina]
+[-]   Player: Apple#1111
+Player Level: 1000
+ Player Toon: 1-Hero-1-1122334
+   Hero Name: Jaina [HeroJaina]
+  Hero Level: Auto
+       Award: MostVengeancesPerformed
+	   
+[0]   Player: Banana#2222
+Player Level: 500
+ Player Toon: 1-Hero-1-2121212
+   Hero Name: Li-Ming [HeroWizard]
+  Hero Level: 12
+       Award: MVP
+	   
+[0]   Player: Grapes#3333
+Player Level: 1566
+ Player Toon: 1-Hero-1-4343434
+   Hero Name: Zul'jin [HeroZuljin]
+  Hero Level: 100
+       Award: MostHeroDamageDone
+	   
+[0]   Player: Mango#4444
+Player Level: 1961
+ Player Toon: 1-Hero-1-7878788
+   Hero Name: Tychus [HeroTychus]
+  Hero Level: Auto
+  
+[-]   Player: Orange#5555
+Player Level: 633
+ Player Toon: 1-Hero-1-5454545
+   Hero Name: Stukov [HeroStukov]
+  Hero Level: Auto
+       Award: MostHealing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Team Red
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-[-] Grapefruit#6666        [Level:1071]  [Toon:1-Hero-1-23232323]
-    Hero: Arthas           [Level:Auto]  [ID:HeroArthas]
-    Award: MostRoots
-[5] Avacado#7777           [Level:1026]  [Toon:1-Hero-1-34343434]
-    Hero: Lunara           [Level:Auto]  [ID:HeroDryad]
-[5] Strawberries#8888               [Level:1209]  [Toon:1-Hero-1-45454545]
-    Hero: Lunara           [Level:Auto]  [ID:HeroDryad]
-    Award: MostTeamfightHeroDamageDone
-[-] Lemon#9999             [Level:726]   [Toon:1-Hero-1-67676767]
-    Hero: Qhira            [Level:Auto]  [ID:HeroNexusHunter]
-[-] Olive#0000             [Level:755]   [Toon:1-Hero-1-78787878]
-    Hero: Gul'dan          [Level:Auto]  [ID:HeroGuldan]
-    Award: MostHeroDamageDone
+[-]   Player: Grapefruit#6666
+Player Level: 1885
+ Player Toon: 1-Hero-1-22222
+   Hero Name: Kharazim [HeroMonk]
+  Hero Level: Auto
+  
+[5]   Player: Avacado#7777
+Player Level: 960
+ Player Toon: 1-Hero-1-4343434
+   Hero Name: Raynor [HeroRaynor]
+  Hero Level: 5
+  
+[5]   Player: Strawberries#8888
+Player Level: 637
+ Player Toon: 1-Hero-1-111111
+   Hero Name: Mephisto [HeroMephisto]
+  Hero Level: 15
+  
+[-]   Player: Lemon#9999
+Player Level: 1466
+ Player Toon: 1-Hero-1-22222
+   Hero Name: Qhira [HeroNexusHunter]
+  Hero Level: Auto
+  
+[-]   Player: Olive#0000
+Player Level: 2030
+ Player Toon: 1-Hero-1-666666
+   Hero Name: Johanna [HeroCrusader]
+  Hero Level: Auto
+       Award: MostTeamfightDamageTaken
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Observers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
