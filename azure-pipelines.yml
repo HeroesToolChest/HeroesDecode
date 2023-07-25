@@ -81,11 +81,8 @@ jobs:
     - powershell: dotnet pack $env:MAIN_PROJECT -c release --no-build -o $env:NUPKG_PATH       
       displayName: Nuget pack [fdd-any]
 
-    - task: NuGetCommand@2
+    - powershell: dotnet nuget sign $(nupkg_path)HeroesDecode.*.nupkg --certificate-path $(Agent.TempDirectory)\certificate --certificate-password '$(cert_password)' --timestamper http://ts.ssl.com/legacy      
       displayName: Sign nuget pack
-      inputs:
-        command: 'custom'
-        arguments: 'sign $(nupkg_path)HeroesDecode.*.nupkg -CertificatePath $(Agent.TempDirectory)\certificate -CertificatePassword $(cert_password) -Timestamper http://ts.ssl.com'
            
     - powershell: |
         (get-content $env:MAIN_PROJECT).Replace('<PublishSingleFile>false</PublishSingleFile>','<PublishSingleFile>true</PublishSingleFile>') | out-file $env:MAIN_PROJECT
