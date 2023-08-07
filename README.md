@@ -72,10 +72,10 @@ macOS or Linux: ./heroesdecode -h
 Output of the -h option
 ```
 Description:
-  View Heroes of the Storm replay file game information
+  View Heroes of the Storm replay file data information
 
 Usage:
-  HeroesDecode [options]
+  heroesdecode [command] [options]
 
 Options:
   -p, --replay-path <replay-path> (REQUIRED)  File path of a Heroes of the Storm .StormReplay file or a directory
@@ -84,6 +84,9 @@ Options:
   -s, --show-player-stats                     Shows the player's stats [default: False]
   --version                                   Show version information
   -?, -h, --help                              Show help and usage information
+
+Commands:
+  pregame  View Heroes of the Storm battlelobby file data information.
 ```
 
 Example command to parse a replay file.
@@ -261,6 +264,24 @@ Watch Tower Captures: 0
         Regen Globes: 0
 ```
 
+## Commands
+### pregame
+```
+Description:
+  View Heroes of the Storm battlelobby file data information.
+
+Usage:
+  heroesdecode pregame [options]
+
+Options:
+  -p, --battlelobby-path <battlelobby-path> (REQUIRED)  File path of a Heroes of the Storm .battlelobby file or a directory
+  -?, -h, --help                                        Show help and usage information
+```
+
+Parses a `replay.server.battlelobby` file. The `.battlelobby` file is created at the start of the loading screen.
+
+On Windows, the default location is `C:\<USER PATH>\AppData\Local\Temp\Heroes of the Storm\TempWriteReplayP1\replay.server.battlelobby`. The `\Heroes of the Storm` directory is removed after the match has finished.
+
 ## Developing
 To build and compile the code, it is recommended to use the latest version of [Visual Studio 2022 or Visual Studio Code](https://visualstudio.microsoft.com/downloads/).
 
@@ -270,4 +291,3 @@ The main project is `HeroesDecode.csproj` and the main entry point is `Program.c
 
 ## License
 [MIT license](/LICENSE)
-
