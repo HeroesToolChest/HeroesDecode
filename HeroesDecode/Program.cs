@@ -1,5 +1,8 @@
 ﻿// options
-Option replayPathOption = new Option<string>(
+using Heroes.StormReplayParser.Pregame.Player;
+using System.Data;
+
+Option<string> replayPathOption = new(
     "--replay-path",
     description: "File path of a Heroes of the Storm .StormReplay file or a directory")
 {
@@ -8,38 +11,82 @@ Option replayPathOption = new Option<string>(
 
 replayPathOption.AddAlias("-p");
 
-Option resultOnlyOption = new Option<bool>(
+Option<bool> resultOnlyOption = new(
     "--result-only",
     getDefaultValue: () => false,
     description: "Will only show result of parsing, no map info or player info; --show-player-talents and --show-player-stats options will be overridden to false");
 
-Option showPlayerTalentsOption = new Option<bool>(
+Option<bool> showPlayerTalentsOption = new(
     "--show-player-talents",
     getDefaultValue: () => false,
     description: "Shows the player's talent information");
 
 showPlayerTalentsOption.AddAlias("-t");
 
-Option showPlayerStatsOption = new Option<bool>(
+Option<bool> showPlayerStatsOption = new(
     "--show-player-stats",
     getDefaultValue: () => false,
     description: "Shows the player's stats");
 
 showPlayerStatsOption.AddAlias("-s");
 
+// pregame command
+Option<string> battlelobbyPathOption = new(
+    "--battlelobby-path",
+    description: "File path of a Heroes of the Storm .battlelobby file or a directory")
+{
+    IsRequired = true,
+};
+
+battlelobbyPathOption.AddAlias("-p");
+
+Command pregameCommand = new("pregame", "View Heroes of the Storm battlelobby file data information.")
+{
+    battlelobbyPathOption,
+};
+
+pregameCommand.SetHandler(
+    (battlelobbyPath) =>
+    {
+        if (File.Exists(battlelobbyPath))
+        {
+            PregameParse(battlelobbyPath);
+        }
+        else if (Directory.Exists(battlelobbyPath))
+        {
+            string filePath = Path.Join(battlelobbyPath, "replay.server.battlelobby");
+            if (File.Exists(filePath))
+            {
+                PregameParse(filePath);
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("No file found.");
+                Console.ResetColor();
+            }
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("No file or directory found.");
+            Console.ResetColor();
+        }
+    },
+    battlelobbyPathOption);
+
 // rootcommand
-RootCommand rootCommand = new()
+RootCommand rootCommand = new("View Heroes of the Storm replay file data information")
 {
     replayPathOption,
     resultOnlyOption,
     showPlayerTalentsOption,
     showPlayerStatsOption,
+    pregameCommand,
 };
 
-rootCommand.Description = "View Heroes of the Storm replay file game information";
-
 rootCommand.SetHandler(
-    (string replayPath, bool resultOnly, bool showPlayerTalents, bool showPlayerStats) =>
+    (replayPath, resultOnly, showPlayerTalents, showPlayerStats) =>
     {
         _resultOnly = resultOnly;
         if (!resultOnly)
@@ -88,7 +135,7 @@ rootCommand.SetHandler(
     showPlayerTalentsOption,
     showPlayerStatsOption);
 
-await rootCommand.InvokeAsync(Environment.GetCommandLineArgs());
+await rootCommand.InvokeAsync(args);
 
 static void Parse(string replayPath, bool onlyResult)
 {
@@ -121,7 +168,7 @@ static void ResultLine(StormReplayResult stormReplayResult)
         Console.WriteLine(stormReplayResult.Status);
         Console.ResetColor();
 
-        if (stormReplayResult.Status != StormReplayParseStatus.Success && stormReplayResult.Exception != null)
+        if (stormReplayResult.Status != StormReplayParseStatus.Success && stormReplayResult.Exception is not null)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(stormReplayResult.Exception.StackTrace);
@@ -156,11 +203,11 @@ static void GetInfo(StormReplayResult stormReplayResult)
     IEnumerable<StormPlayer> blueTeam = players.Where(x => x.Team == StormTeam.Blue);
     IEnumerable<StormPlayer> redTeam = players.Where(x => x.Team == StormTeam.Red);
 
-    List<StormPlayer> playersWithObservers = replay.StormObservers.ToList();
+    List<StormPlayer> observerPlayers = replay.StormObservers.ToList();
 
     StormTeamDisplay(replay, blueTeam, StormTeam.Blue);
     StormTeamDisplay(replay, redTeam, StormTeam.Red);
-    StormTeamDisplay(replay, playersWithObservers, StormTeam.Observer);
+    StormTeamDisplay(replay, observerPlayers, StormTeam.Observer);
 }
 
 static void StormTeamDisplay(StormReplay replay, IEnumerable<StormPlayer> players, StormTeam team)
@@ -420,6 +467,232 @@ static void PlayerInfo(StormPlayer player, PartyIconColor? partyIcon)
             }
 
             Console.WriteLine();
+        }
+    }
+}
+
+static void PregameParse(string battlelobbyPath)
+{
+    StormReplayPregameResult stormReplayPregameResult = StormReplayPregame.Parse(battlelobbyPath);
+
+    PregameResultLine(stormReplayPregameResult);
+
+    PregameGetInfo(stormReplayPregameResult);
+    Console.WriteLine();
+}
+
+static void PregameResultLine(StormReplayPregameResult stormReplayPregameResult)
+{
+    if (stormReplayPregameResult.Status == StormReplayPregameParseStatus.Success)
+        Console.ForegroundColor = ConsoleColor.Green;
+    else
+        Console.ForegroundColor = ConsoleColor.Red;
+
+    Console.WriteLine(stormReplayPregameResult.Status);
+    Console.ResetColor();
+
+    if (stormReplayPregameResult.Status != StormReplayPregameParseStatus.Success && stormReplayPregameResult.Exception is not null)
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine(stormReplayPregameResult.Exception.StackTrace);
+        Console.ResetColor();
+        _failed = true;
+    }
+}
+
+static void PregameGetInfo(StormReplayPregameResult stormReplayPregameResult)
+{
+    StormReplayPregame replay = stormReplayPregameResult.ReplayBattleLobby;
+
+    List<StormPregamePlayer> players = replay.StormPlayers.ToList();
+
+    Console.WriteLine($"{"Game Mode: ",_infoFieldWidth}{replay.GameMode}");
+    Console.WriteLine($"{"MapLink: ",_infoFieldWidth}{replay.MapLink}");
+    Console.WriteLine($"{"Build: ",_infoFieldWidth}{replay.ReplayBuild}");
+    Console.WriteLine($"{"Region: ",_infoFieldWidth}{replay.Region}");
+
+    List<StormPregamePlayer> observerPlayers = replay.StormObservers.ToList();
+
+    if (StormGameMode.NormalGameModes.HasFlag(replay.GameMode) || replay.GameMode == StormGameMode.Cooperative)
+    {
+        // assume first 5 players are team blue
+        IEnumerable<StormPregamePlayer> blueTeam = replay.StormPlayers.Take(5);
+        IEnumerable<StormPregamePlayer> redTeam = replay.StormPlayers.Skip(5).Take(5);
+
+        PregameStormTeamDisplay(replay, blueTeam, StormTeam.Blue);
+        PregameStormTeamDisplay(replay, redTeam, StormTeam.Red);
+    }
+    else if (replay.GameMode == StormGameMode.Brawl)
+    {
+        IEnumerable<StormPregamePlayer> blueTeam = replay.StormPlayers.Take(5);
+        PregameStormTeamDisplay(replay, blueTeam, StormTeam.Blue);
+
+        if (replay.PlayersCount > 5)
+        {
+            IEnumerable<StormPregamePlayer> redTeam = replay.StormPlayers.Skip(5).Take(5);
+            PregameStormTeamDisplay(replay, redTeam, StormTeam.Red);
+        }
+    }
+    else // custom
+    {
+        // players are mixed, no way to tell which player on team
+        PregameStormTeamDisplay(replay, replay.StormPlayers, StormTeam.Unknown);
+    }
+
+    PregameStormTeamDisplay(replay, observerPlayers, StormTeam.Observer);
+}
+
+static void PregameStormTeamDisplay(StormReplayPregame replay, IEnumerable<StormPregamePlayer> players, StormTeam team)
+{
+    Dictionary<long, PartyIconColor> partyPlayers = new();
+    bool partyPurpleUsed = false;
+    bool partyRedUsed = false;
+    bool partyBlueUsed = false;
+    bool partyOrangeUsed = false;
+
+    string teamName = string.Empty;
+
+    if (team == StormTeam.Blue)
+        teamName = "Team Blue";
+    else if (team == StormTeam.Red)
+        teamName = "Team Red";
+    else if (team == StormTeam.Observer)
+        teamName = "Observers";
+    else if (team == StormTeam.Unknown)
+        teamName = "Unknown";
+
+    Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    Console.WriteLine(teamName);
+    Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    if (players.Any())
+    {
+        foreach (StormPregamePlayer player in players)
+        {
+            PartyIconColor? partyIcon = null;
+
+            if (player.PartyValue.HasValue)
+            {
+                if (partyPlayers.TryGetValue(player.PartyValue.Value, out PartyIconColor partyIconColor))
+                {
+                    partyIcon = partyIconColor;
+                }
+                else
+                {
+                    if (team == StormTeam.Blue)
+                    {
+                        if (partyPurpleUsed)
+                            partyIcon = PartyIconColor.Blue;
+                        else
+                            partyIcon = PartyIconColor.Purple;
+
+                        partyPurpleUsed = true;
+                    }
+                    else if (team == StormTeam.Red)
+                    {
+                        if (partyRedUsed)
+                            partyIcon = PartyIconColor.Orange;
+                        else
+                            partyIcon = PartyIconColor.Red;
+
+                        partyRedUsed = true;
+                    }
+                    else if (team == StormTeam.Unknown)
+                    {
+                        if (!partyBlueUsed)
+                        {
+                            partyIcon = PartyIconColor.Blue;
+                            partyBlueUsed = true;
+                        }
+                        else if (!partyPurpleUsed)
+                        {
+                            partyIcon = PartyIconColor.Purple;
+                            partyPurpleUsed = true;
+                        }
+                        else if (!partyRedUsed)
+                        {
+                            partyIcon = PartyIconColor.Red;
+                            partyRedUsed = true;
+                        }
+                        else if (!partyOrangeUsed)
+                        {
+                            partyIcon = PartyIconColor.Orange;
+                            partyOrangeUsed = true;
+                        }
+                    }
+
+                    partyPlayers.Add(player.PartyValue.Value, partyIcon!.Value);
+                }
+            }
+
+            PregamePlayerInfo(player, null);
+            Console.WriteLine();
+        }
+    }
+    else
+    {
+        Console.WriteLine("(NONE)");
+    }
+}
+
+static void PregamePlayerInfo(StormPregamePlayer player, PartyIconColor? partyIcon)
+{
+    if (player is null)
+        throw new ArgumentNullException(nameof(player));
+
+    if (player.PlayerType != PlayerType.Computer)
+    {
+        // party
+        if (partyIcon.HasValue)
+            Console.Write($"[{(int)partyIcon}]");
+        else
+            Console.Write($"{"[-]"}");
+
+        // battletag
+        if (!string.IsNullOrEmpty(player.BattleTagName))
+            Console.WriteLine($"\u001b[1m{"Player: ",_playerFieldWidth - 3}{player.BattleTagName}\u001b[0m");
+        else
+            Console.WriteLine($"\u001b[1m{"Player: ",_playerFieldWidth - 3}{player.Name}\u001b[0m");
+
+        // account level
+        if (player.AccountLevel.HasValue && player.AccountLevel.Value > 0)
+            Console.WriteLine($"{"Player Level: ",_playerFieldWidth}{player.AccountLevel.Value}");
+        else
+            Console.WriteLine($"{"Player Level: ",_playerFieldWidth}[Level:???]");
+
+        // toon handle
+        Console.WriteLine($"{"Player Toon: ",_playerFieldWidth}{player.ToonHandle}");
+    }
+    else if (player.PlayerType == PlayerType.Computer)
+    {
+        Console.WriteLine($"[-] {player.Name}");
+    }
+
+    int? hmt = player.PlayerHero!.HeroMasteryTier;
+
+    if (hmt.HasValue)
+    {
+        if (hmt.Value == 2 && player.PlayerHero.HeroLevel < 25)
+            player.PlayerHero.HeroLevel = 25;
+        else if (hmt.Value == 3 && player.PlayerHero.HeroLevel < 50)
+            player.PlayerHero.HeroLevel = 50;
+        else if (hmt.Value == 4 && player.PlayerHero.HeroLevel < 75)
+            player.PlayerHero.HeroLevel = 75;
+        else if (hmt.Value == 5 && player.PlayerHero.HeroLevel < 100)
+            player.PlayerHero.HeroLevel = 100;
+    }
+
+    if (player.PlayerType != PlayerType.Observer)
+    {
+        // hero level
+        if (string.IsNullOrWhiteSpace(player.PlayerHero.HeroAttributeId))
+        {
+            Console.WriteLine($"{"Hero Level: ",_playerFieldWidth}Auto");
+            Console.WriteLine($"{"Hero AttId: ",_playerFieldWidth}Auto");
+        }
+        else
+        {
+            Console.WriteLine($"{"Hero Level: ",_playerFieldWidth}{player.PlayerHero.HeroLevel}");
+            Console.WriteLine($"{"Hero AttId: ",_playerFieldWidth}{player.PlayerHero!.HeroAttributeId}");
         }
     }
 }
