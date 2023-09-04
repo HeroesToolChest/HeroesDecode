@@ -152,7 +152,6 @@ static void Parse(string replayPath, bool onlyResult)
     if (!onlyResult)
     {
         GetInfo(stormReplayResult);
-        Console.WriteLine();
     }
 }
 
@@ -196,9 +195,20 @@ static void GetInfo(StormReplayResult stormReplayResult)
     Console.WriteLine($"{"Version: ",_infoFieldWidth}{replay.ReplayVersion}");
     Console.WriteLine($"{"Region: ",_infoFieldWidth}{replay.Region}");
     Console.WriteLine($"{"Game Time: ",_infoFieldWidth}{replay.ReplayLength}");
+    Console.WriteLine($"{"Lobby: ",_infoFieldWidth}{replay.LobbyMode}");
+    Console.WriteLine($"{"Ready Mode: ",_infoFieldWidth}{replay.ReadyMode}");
+    Console.WriteLine($"{"First Drft: ",_infoFieldWidth}{replay.FirstDraftTeam}");
+    Console.WriteLine($"{"Ban Mode: ",_infoFieldWidth}{replay.BanMode}");
+    Console.WriteLine($"{"Privacy: ",_infoFieldWidth}{replay.GamePrivacy}");
+
+    if (replay.BanMode != StormBanMode.NotUsingBans)
+    {
+        TeamBansDisplay(replay.GetTeamBans(StormTeam.Blue), StormTeam.Blue);
+        TeamBansDisplay(replay.GetTeamBans(StormTeam.Red), StormTeam.Red);
+    }
 
     if (_failed)
-        Environment.Exit(1);
+        return;
 
     IEnumerable<StormPlayer> blueTeam = players.Where(x => x.Team == StormTeam.Blue);
     IEnumerable<StormPlayer> redTeam = players.Where(x => x.Team == StormTeam.Red);
@@ -208,6 +218,8 @@ static void GetInfo(StormReplayResult stormReplayResult)
     StormTeamDisplay(replay, blueTeam, StormTeam.Blue);
     StormTeamDisplay(replay, redTeam, StormTeam.Red);
     StormTeamDisplay(replay, observerPlayers, StormTeam.Observer);
+
+    Console.WriteLine();
 }
 
 static void StormTeamDisplay(StormReplay replay, IEnumerable<StormPlayer> players, StormTeam team)
@@ -312,16 +324,19 @@ static void PlayerInfo(StormPlayer player, PartyIconColor? partyIcon)
         Console.WriteLine($"[-] {player.Name}");
     }
 
-    if (player.HeroMasteryTiers.ToDictionary(x => x.HeroAttributeId, x => x.TierLevel).TryGetValue(player.PlayerHero!.HeroAttributeId, out int tierLevel))
+    if (player.PlayerHero is not null)
     {
-        if (tierLevel == 2 && player.PlayerHero.HeroLevel < 25)
-            player.PlayerHero.HeroLevel = 25;
-        else if (tierLevel == 3 && player.PlayerHero.HeroLevel < 50)
-            player.PlayerHero.HeroLevel = 50;
-        else if (tierLevel == 4 && player.PlayerHero.HeroLevel < 75)
-            player.PlayerHero.HeroLevel = 75;
-        else if (tierLevel == 5 && player.PlayerHero.HeroLevel < 100)
-            player.PlayerHero.HeroLevel = 100;
+        if (player.HeroMasteryTiers.ToDictionary(x => x.HeroAttributeId, x => x.TierLevel).TryGetValue(player.PlayerHero.HeroAttributeId, out int tierLevel))
+        {
+            if (tierLevel == 2 && player.PlayerHero.HeroLevel < 25)
+                player.PlayerHero.HeroLevel = 25;
+            else if (tierLevel == 3 && player.PlayerHero.HeroLevel < 50)
+                player.PlayerHero.HeroLevel = 50;
+            else if (tierLevel == 4 && player.PlayerHero.HeroLevel < 75)
+                player.PlayerHero.HeroLevel = 75;
+            else if (tierLevel == 5 && player.PlayerHero.HeroLevel < 100)
+                player.PlayerHero.HeroLevel = 100;
+        }
     }
 
     if (player.PlayerType != PlayerType.Observer)
@@ -477,6 +492,9 @@ static void PregameParse(string battlelobbyPath)
 
     PregameResultLine(stormReplayPregameResult);
 
+    if (_failed)
+        return;
+
     PregameGetInfo(stormReplayPregameResult);
     Console.WriteLine();
 }
@@ -507,9 +525,20 @@ static void PregameGetInfo(StormReplayPregameResult stormReplayPregameResult)
     List<StormPregamePlayer> players = replay.StormPlayers.ToList();
 
     Console.WriteLine($"{"Game Mode: ",_infoFieldWidth}{replay.GameMode}");
-    Console.WriteLine($"{"MapLink: ",_infoFieldWidth}{replay.MapLink}");
+    Console.WriteLine($"{"Map Link: ",_infoFieldWidth}{replay.MapLink}");
     Console.WriteLine($"{"Build: ",_infoFieldWidth}{replay.ReplayBuild}");
     Console.WriteLine($"{"Region: ",_infoFieldWidth}{replay.Region}");
+    Console.WriteLine($"{"Lobby: ",_infoFieldWidth}{replay.LobbyMode}");
+    Console.WriteLine($"{"Ready Mode: ",_infoFieldWidth}{replay.ReadyMode}");
+    Console.WriteLine($"{"First Drft: ",_infoFieldWidth}{replay.FirstDraftTeam}");
+    Console.WriteLine($"{"Ban Mode: ",_infoFieldWidth}{replay.BanMode}");
+    Console.WriteLine($"{"Privacy: ",_infoFieldWidth}{replay.GamePrivacy}");
+
+    if (replay.BanMode != StormBanMode.NotUsingBans)
+    {
+        TeamBansDisplay(replay.GetTeamBans(StormTeam.Blue), StormTeam.Blue);
+        TeamBansDisplay(replay.GetTeamBans(StormTeam.Red), StormTeam.Red);
+    }
 
     List<StormPregamePlayer> observerPlayers = replay.StormObservers.ToList();
 
@@ -533,9 +562,9 @@ static void PregameGetInfo(StormReplayPregameResult stormReplayPregameResult)
             PregameStormTeamDisplay(replay, redTeam, StormTeam.Red);
         }
     }
-    else // custom
+    else
     {
-        // players are mixed, no way to tell which player on team
+        // for custom games, players are mixed, no way to tell which player on team
         PregameStormTeamDisplay(replay, replay.StormPlayers, StormTeam.Unknown);
     }
 
@@ -697,9 +726,33 @@ static void PregamePlayerInfo(StormPregamePlayer player, PartyIconColor? partyIc
     }
 }
 
+static void TeamBansDisplay(IReadOnlyList<string?> teamBans, StormTeam team)
+{
+    Console.WriteLine();
+    Console.WriteLine($"Team {team} Bans:");
+
+    for (int i = 0; i < teamBans.Count; i++)
+    {
+        DisplayBans(teamBans, i);
+    }
+
+    static void DisplayBans(IReadOnlyList<string?> teamBans, int i)
+    {
+        string? item = teamBans[i];
+
+        string heroAttId = string.Empty;
+        if (string.IsNullOrWhiteSpace(item))
+            heroAttId = "<NONE>";
+        else
+            heroAttId = item;
+
+        Console.WriteLine($"{$"Ban {i + 1}: ",_infoFieldWidth}{heroAttId}");
+    }
+}
+
 public partial class Program
 {
-    private const int _infoFieldWidth = 11;
+    private const int _infoFieldWidth = 12;
     private const int _playerFieldWidth = 14;
     private const int _statisticsFieldWidth = 21;
 
