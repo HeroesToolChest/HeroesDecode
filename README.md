@@ -96,12 +96,27 @@ dotnet heroesdecode.dll --replay-path 'C:\ReplayFiles\2020-08-07 15.33.52 Lost C
 Example output from the previous command.
 ```
 Success
-File Name: 2020-08-07 15.33.52 Lost Cavern.StormReplay
-Game Mode: Brawl
-      Map: Lost Cavern [ID:LostCavern]
-  Version: 2.51.1.80702
-   Region: US
-Game Time: 00:17:25
+ File Name: BattleFieldOfEternity.StormReplay
+ Game Mode: Custom
+       Map: Battlefield of Eternity [BattlefieldOfEternity]
+   Version: 2.51.1.80702
+    Region: US
+ Game Time: 00:17:25
+     Lobby: TournamentDraft
+Ready Mode: FCFS
+First Drft: CoinToss
+  Ban Mode: MidBan
+   Privacy: NoMatchHistory
+
+Team Blue Bans:
+     Ban 1: Genj
+     Ban 2: Diab
+     Ban 3: <NONE>
+
+Team Red Bans:
+     Ban 1: Maie
+     Ban 2: Tra0
+     Ban 3: <NONE>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Team Blue (Winner)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -280,7 +295,7 @@ Options:
 
 Parses a `replay.server.battlelobby` file. The `.battlelobby` file is created at the start of the loading screen.
 
-On Windows, the default location is `C:\<USER PATH>\AppData\Local\Temp\Heroes of the Storm\TempWriteReplayP1\replay.server.battlelobby`. The `\Heroes of the Storm` directory is removed after the match has finished.
+On Windows, the default location is `C:\<USER PATH>\AppData\Local\Temp\Heroes of the Storm\TempWriteReplayP1\replay.server.battlelobby`. The `Temp\Heroes of the Storm` directory is deleted after the game has closed.
 
 ## Developing
 To build and compile the code, it is recommended to use the latest version of [Visual Studio 2022 or Visual Studio Code](https://visualstudio.microsoft.com/downloads/).
