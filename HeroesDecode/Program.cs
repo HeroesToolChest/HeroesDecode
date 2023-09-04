@@ -624,7 +624,7 @@ static void PregameStormTeamDisplay(StormReplayPregame replay, IEnumerable<Storm
                 }
             }
 
-            PregamePlayerInfo(player, null);
+            PregamePlayerInfo(player, partyIcon);
             Console.WriteLine();
         }
     }
