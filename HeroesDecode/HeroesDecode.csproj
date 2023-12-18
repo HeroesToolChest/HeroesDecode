@@ -9,7 +9,7 @@
     <PublishSingleFile>false</PublishSingleFile>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>dotnet-heroes-decode</ToolCommandName>
-    <Copyright>Copyright © 2020 - 2023 Kevin Oliva</Copyright>
+    <Copyright>Copyright © 2020 - 2024 Kevin Oliva</Copyright>
     <Authors>Kevin Oliva</Authors>
     <PackageId>HeroesDecode</PackageId>
     <Product>HeroesDecode</Product>
