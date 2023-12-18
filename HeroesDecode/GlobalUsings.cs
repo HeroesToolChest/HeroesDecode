@@ -1,6 +1,15 @@
 ﻿global using Heroes.StormReplayParser;
+global using Heroes.StormReplayParser.GameEvent;
+global using Heroes.StormReplayParser.MessageEvent;
 global using Heroes.StormReplayParser.Player;
+global using Heroes.StormReplayParser.Pregame.Player;
 global using Heroes.StormReplayParser.Replay;
+global using Heroes.StormReplayParser.TrackerEvent;
 global using HeroesDecode;
+global using HeroesDecode.Extensions;
+global using HeroesDecode.Models;
 global using System.CommandLine;
-global using System.Text;
+global using System.Data;
+global using System.Text.Encodings.Web;
+global using System.Text.Json;
+global using System.Text.Json.Serialization;

@@ -1,7 +1,4 @@
 ﻿// options
-using Heroes.StormReplayParser.Pregame.Player;
-using System.Data;
-
 Option<string> replayPathOption = new(
     "--replay-path",
     description: "File path of a Heroes of the Storm .StormReplay file or a directory")
@@ -30,7 +27,6 @@ Option<bool> showPlayerStatsOption = new(
 
 showPlayerStatsOption.AddAlias("-s");
 
-// pregame command
 Option<string> battlelobbyPathOption = new(
     "--battlelobby-path",
     description: "File path of a Heroes of the Storm .battlelobby file or a directory")
@@ -40,9 +36,93 @@ Option<string> battlelobbyPathOption = new(
 
 battlelobbyPathOption.AddAlias("-p");
 
-Command pregameCommand = new("pregame", "View Heroes of the Storm battlelobby file data information.")
+Option<bool> parseMessageEventsOption = new(
+    "--parse-message-events",
+    getDefaultValue: () => true,
+    description: "Allow the parsing of the message events")
+{
+    IsRequired = false,
+};
+
+Option<bool> parseTrackerEventsOption = new(
+    "--parse-tracker-events",
+    getDefaultValue: () => true,
+    description: "Allow the parsing of tracker events")
+{
+    IsRequired = false,
+};
+
+Option<bool> parseGameEventsOption = new(
+    "--parse-game-events",
+    getDefaultValue: () => true,
+    description: "Allow the parsing of the game events")
+{
+    IsRequired = false,
+};
+
+Option<bool> hasTrackerEventsOption = new(
+    "--has-tracker-events",
+    getDefaultValue: () => false,
+    description: "Adds the tracker events to the output json")
+{
+    IsRequired = false,
+};
+
+Option<bool> hasGameEventsOption = new(
+    "--has-game-events",
+    getDefaultValue: () => false,
+    description: "Adds the game events to the output json")
+{
+    IsRequired = false,
+};
+
+Option<bool> includeAllMessageEventsOption = new(
+    "--include-all-message-events",
+    getDefaultValue: () => false,
+    description: "Includes all the message type events (default is only chat type messages)")
+{
+    IsRequired = false,
+};
+
+Option<bool> noJsonDisplayOption = new(
+    "--no-json-display",
+    getDefaultValue: () => false,
+    description: "Doesn't display the json to the terminal")
+{
+    IsRequired = false,
+};
+
+Option<string> jsonOuputDirectoryOption = new(
+    "--output-directory",
+    description: "Set the directory for the output json file")
+{
+    IsRequired = false,
+};
+
+// commands
+Command pregameCommand = new("pregame", "View Heroes of the Storm battlelobby file data.")
 {
     battlelobbyPathOption,
+};
+
+Command getReplayAsJsonCommand = new("get-json", "Get the data from the replay as json")
+{
+    replayPathOption,
+    parseMessageEventsOption,
+    parseTrackerEventsOption,
+    parseGameEventsOption,
+    hasTrackerEventsOption,
+    hasGameEventsOption,
+    includeAllMessageEventsOption,
+    noJsonDisplayOption,
+    jsonOuputDirectoryOption,
+};
+
+Command getReplayPregameAsJsonCommand = new("get-pregame-json", "Get the data from the replay battlelobby as json")
+{
+    battlelobbyPathOption,
+    noJsonDisplayOption,
+    jsonOuputDirectoryOption,
 };
 
 pregameCommand.SetHandler(
@@ -75,18 +155,67 @@ pregameCommand.SetHandler(
     },
     battlelobbyPathOption);
 
+getReplayAsJsonCommand.SetHandler(
+    async (context) =>
+    {
+        string replayPath = context.ParseResult.GetValueForOption(replayPathOption)!;
+        bool parseMessageEvents = context.ParseResult.GetValueForOption(parseMessageEventsOption);
+        bool parseTrackerEvents = context.ParseResult.GetValueForOption(parseTrackerEventsOption);
+        bool parseGameEvents = context.ParseResult.GetValueForOption(parseGameEventsOption);
+        bool hasTrackerEvents = context.ParseResult.GetValueForOption(hasTrackerEventsOption);
+        bool hasGameEvents = context.ParseResult.GetValueForOption(hasGameEventsOption);
+        bool includeAllMessageEvents = context.ParseResult.GetValueForOption(includeAllMessageEventsOption);
+        bool noJsonDisplay = context.ParseResult.GetValueForOption(noJsonDisplayOption);
+        string? jsonOuputDirectory = context.ParseResult.GetValueForOption(jsonOuputDirectoryOption);
+
+        await ParseFilePath(replayPath, async (filePath) =>
+        {
+            await JsonParse(
+                filePath,
+                new ParseOptions()
+                {
+                    AllowPTR = true,
+                    ShouldParseMessageEvents = parseMessageEvents,
+                    ShouldParseTrackerEvents = parseTrackerEvents,
+                    ShouldParseGameEvents = parseGameEvents,
+                },
+                new JsonAdditonalOptions()
+                {
+                    HasTrackEvents = hasTrackerEvents,
+                    HasGameEvents = hasGameEvents,
+                    IncludeAllMessageEvents = includeAllMessageEvents,
+                    NoJsonDislay = noJsonDisplay,
+                    OutputDirectory = jsonOuputDirectory,
+                });
+        });
+    });
+
+getReplayPregameAsJsonCommand.SetHandler(
+    async (battlelobbyPath, noJsonDisplay, jsonOuputDirectory) =>
+    {
+        await ParseFilePath(battlelobbyPath, async (filePath) =>
+        {
+            await JsonPregameParse(filePath, noJsonDisplay, jsonOuputDirectory);
+        });
+    },
+    battlelobbyPathOption,
+    noJsonDisplayOption,
+    jsonOuputDirectoryOption);
+
 // rootcommand
-RootCommand rootCommand = new("View Heroes of the Storm replay file data information")
+RootCommand rootCommand = new("View Heroes of the Storm replay file data")
 {
     replayPathOption,
     resultOnlyOption,
     showPlayerTalentsOption,
     showPlayerStatsOption,
     pregameCommand,
+    getReplayAsJsonCommand,
+    getReplayPregameAsJsonCommand,
 };
 
 rootCommand.SetHandler(
-    (replayPath, resultOnly, showPlayerTalents, showPlayerStats) =>
+    async (replayPath, resultOnly, showPlayerTalents, showPlayerStats) =>
     {
         _resultOnly = resultOnly;
         if (!resultOnly)
@@ -95,40 +224,11 @@ rootCommand.SetHandler(
             _showPlayerStats = showPlayerStats;
         }
 
-        string? fileName = Path.GetFileName(replayPath);
-        string? topDirectory = Path.GetDirectoryName(replayPath);
-        if (!string.IsNullOrWhiteSpace(fileName) && !string.IsNullOrWhiteSpace(topDirectory) && fileName == "[last]")
+        await ParseFilePath(replayPath, async (lastFile) =>
         {
-            string? lastFile = new DirectoryInfo(topDirectory).GetFiles("*.StormReplay").OrderByDescending(x => x.LastWriteTimeUtc).FirstOrDefault()?.FullName;
-            if (string.IsNullOrWhiteSpace(lastFile))
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("No file found.");
-                Console.ResetColor();
-            }
-            else
-            {
-                Parse(lastFile, resultOnly);
-            }
-        }
-        else if (File.Exists(replayPath))
-        {
-            Parse(replayPath, resultOnly);
-        }
-        else if (Directory.Exists(replayPath))
-        {
-            foreach (string? replayFile in Directory.EnumerateFiles(replayPath, "*.StormReplay", SearchOption.AllDirectories))
-            {
-                if (!string.IsNullOrEmpty(replayFile) && File.Exists(replayFile))
-                    Parse(replayFile, resultOnly);
-            }
-        }
-        else
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("No file or directory found.");
-            Console.ResetColor();
-        }
+            Parse(lastFile, resultOnly);
+            await Task.CompletedTask;
+        });
     },
     replayPathOption,
     resultOnlyOption,
@@ -136,6 +236,44 @@ rootCommand.SetHandler(
     showPlayerStatsOption);
 
 await rootCommand.InvokeAsync(args);
+
+static async Task ParseFilePath(string replayPath, Func<string, Task> parse)
+{
+    string? fileName = Path.GetFileName(replayPath);
+    string? topDirectory = Path.GetDirectoryName(replayPath);
+    if (!string.IsNullOrWhiteSpace(fileName) && !string.IsNullOrWhiteSpace(topDirectory) && fileName == "[last]")
+    {
+        string? lastFile = new DirectoryInfo(topDirectory).GetFiles("*.StormReplay").OrderByDescending(x => x.LastWriteTimeUtc).FirstOrDefault()?.FullName;
+        if (string.IsNullOrWhiteSpace(lastFile))
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("No file found.");
+            Console.ResetColor();
+        }
+        else
+        {
+            await parse(lastFile);
+        }
+    }
+    else if (File.Exists(replayPath))
+    {
+        await parse(replayPath);
+    }
+    else if (Directory.Exists(replayPath))
+    {
+        foreach (string? replayFile in Directory.EnumerateFiles(replayPath, "*.StormReplay", SearchOption.AllDirectories))
+        {
+            if (!string.IsNullOrEmpty(replayFile) && File.Exists(replayFile))
+                await parse(replayPath);
+        }
+    }
+    else
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("No file or directory found.");
+        Console.ResetColor();
+    }
+}
 
 static void Parse(string replayPath, bool onlyResult)
 {
@@ -152,6 +290,77 @@ static void Parse(string replayPath, bool onlyResult)
     if (!onlyResult)
     {
         GetInfo(stormReplayResult);
+    }
+}
+
+static async Task JsonParse(string replayPath, ParseOptions parseOptions, JsonAdditonalOptions jsonAdditonalOptions)
+{
+    StormReplayResult stormReplayResult = StormReplay.Parse(replayPath, parseOptions);
+
+    JsonResultLine(stormReplayResult);
+
+    DecodeReplay jsonReplay = stormReplayResult.Replay.ToDecodeReplay();
+
+    if (!jsonAdditonalOptions.HasTrackEvents)
+        jsonReplay.TrackerEvents.Clear();
+
+    if (!jsonAdditonalOptions.HasGameEvents)
+        jsonReplay.GameEvents.Clear();
+
+    if (!jsonAdditonalOptions.IncludeAllMessageEvents)
+        jsonReplay.Messages = jsonReplay.Messages.Where(x => x.MessageEventType == StormMessageEventType.SChatMessage).ToList();
+
+    JsonSerializerOptions serializerOptions = new()
+    {
+        Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+        WriteIndented = true,
+        Converters =
+        {
+            new JsonStringEnumConverter(JsonNamingPolicy.CamelCase),
+        },
+    };
+
+    if (!jsonAdditonalOptions.NoJsonDislay)
+        Console.WriteLine(JsonSerializer.Serialize(jsonReplay, serializerOptions));
+
+    if (!string.IsNullOrWhiteSpace(jsonAdditonalOptions.OutputDirectory))
+    {
+        Directory.CreateDirectory(jsonAdditonalOptions.OutputDirectory);
+
+        using FileStream fileStream = File.Create(Path.Join(jsonAdditonalOptions.OutputDirectory, Path.ChangeExtension(Path.GetFileName(stormReplayResult.FileName), ".json")));
+        await JsonSerializer.SerializeAsync(fileStream, jsonReplay, serializerOptions);
+        await fileStream.DisposeAsync();
+    }
+}
+
+static async Task JsonPregameParse(string replayPath, bool noJsonDisplay, string outputDirectory)
+{
+    StormReplayPregameResult stormReplayPregameResult = StormReplayPregame.Parse(replayPath);
+
+    JsonPregameResultLine(stormReplayPregameResult);
+
+    DecodeReplayPregame jsonReplayPregame = stormReplayPregameResult.ReplayBattleLobby.ToDecodeReplayPregame();
+
+    JsonSerializerOptions serializerOptions = new()
+    {
+        Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+        WriteIndented = true,
+        Converters =
+        {
+            new JsonStringEnumConverter(JsonNamingPolicy.CamelCase),
+        },
+    };
+
+    if (!noJsonDisplay)
+        Console.WriteLine(JsonSerializer.Serialize(jsonReplayPregame, serializerOptions));
+
+    if (!string.IsNullOrWhiteSpace(outputDirectory))
+    {
+        Directory.CreateDirectory(outputDirectory);
+
+        using FileStream fileStream = File.Create(Path.Join(outputDirectory, Path.ChangeExtension(Path.GetFileName(stormReplayPregameResult.FileName), ".json")));
+        await JsonSerializer.SerializeAsync(fileStream, jsonReplayPregame, serializerOptions);
+        await fileStream.DisposeAsync();
     }
 }
 
@@ -522,9 +731,10 @@ static void PregameGetInfo(StormReplayPregameResult stormReplayPregameResult)
 {
     StormReplayPregame replay = stormReplayPregameResult.ReplayBattleLobby;
 
-    List<StormPregamePlayer> players = replay.StormPlayers.ToList();
+    List<PregameStormPlayer> players = replay.StormPlayers.ToList();
 
     Console.WriteLine($"{"Game Mode: ",_infoFieldWidth}{replay.GameMode}");
+    Console.WriteLine($"{"Map Id: ",_infoFieldWidth}{replay.MapId}");
     Console.WriteLine($"{"Map Link: ",_infoFieldWidth}{replay.MapLink}");
     Console.WriteLine($"{"Build: ",_infoFieldWidth}{replay.ReplayBuild}");
     Console.WriteLine($"{"Region: ",_infoFieldWidth}{replay.Region}");
@@ -540,25 +750,25 @@ static void PregameGetInfo(StormReplayPregameResult stormReplayPregameResult)
         TeamBansDisplay(replay.GetTeamBans(StormTeam.Red), StormTeam.Red);
     }
 
-    List<StormPregamePlayer> observerPlayers = replay.StormObservers.ToList();
+    List<PregameStormPlayer> observerPlayers = replay.StormObservers.ToList();
 
     if (StormGameMode.NormalGameModes.HasFlag(replay.GameMode) || replay.GameMode == StormGameMode.Cooperative)
     {
         // assume first 5 players are team blue
-        IEnumerable<StormPregamePlayer> blueTeam = replay.StormPlayers.Take(5);
-        IEnumerable<StormPregamePlayer> redTeam = replay.StormPlayers.Skip(5).Take(5);
+        IEnumerable<PregameStormPlayer> blueTeam = replay.StormPlayers.Take(5);
+        IEnumerable<PregameStormPlayer> redTeam = replay.StormPlayers.Skip(5).Take(5);
 
         PregameStormTeamDisplay(replay, blueTeam, StormTeam.Blue);
         PregameStormTeamDisplay(replay, redTeam, StormTeam.Red);
     }
     else if (replay.GameMode == StormGameMode.Brawl)
     {
-        IEnumerable<StormPregamePlayer> blueTeam = replay.StormPlayers.Take(5);
+        IEnumerable<PregameStormPlayer> blueTeam = replay.StormPlayers.Take(5);
         PregameStormTeamDisplay(replay, blueTeam, StormTeam.Blue);
 
         if (replay.PlayersCount > 5)
         {
-            IEnumerable<StormPregamePlayer> redTeam = replay.StormPlayers.Skip(5).Take(5);
+            IEnumerable<PregameStormPlayer> redTeam = replay.StormPlayers.Skip(5).Take(5);
             PregameStormTeamDisplay(replay, redTeam, StormTeam.Red);
         }
     }
@@ -571,7 +781,7 @@ static void PregameGetInfo(StormReplayPregameResult stormReplayPregameResult)
     PregameStormTeamDisplay(replay, observerPlayers, StormTeam.Observer);
 }
 
-static void PregameStormTeamDisplay(StormReplayPregame replay, IEnumerable<StormPregamePlayer> players, StormTeam team)
+static void PregameStormTeamDisplay(StormReplayPregame replay, IEnumerable<PregameStormPlayer> players, StormTeam team)
 {
     Dictionary<long, PartyIconColor> partyPlayers = new();
     bool partyPurpleUsed = false;
@@ -595,7 +805,7 @@ static void PregameStormTeamDisplay(StormReplayPregame replay, IEnumerable<Storm
     Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     if (players.Any())
     {
-        foreach (StormPregamePlayer player in players)
+        foreach (PregameStormPlayer player in players)
         {
             PartyIconColor? partyIcon = null;
 
@@ -663,7 +873,7 @@ static void PregameStormTeamDisplay(StormReplayPregame replay, IEnumerable<Storm
     }
 }
 
-static void PregamePlayerInfo(StormPregamePlayer player, PartyIconColor? partyIcon)
+static void PregamePlayerInfo(PregameStormPlayer player, PartyIconColor? partyIcon)
 {
     if (player is null)
         throw new ArgumentNullException(nameof(player));
@@ -747,6 +957,38 @@ static void TeamBansDisplay(IReadOnlyList<string?> teamBans, StormTeam team)
             heroAttId = item;
 
         Console.WriteLine($"{$"Ban {i + 1}: ",_infoFieldWidth}{heroAttId}");
+    }
+}
+
+static void JsonResultLine(StormReplayResult stormReplayResult)
+{
+    if (stormReplayResult.Status != StormReplayParseStatus.Success)
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine(stormReplayResult.Status);
+
+        if (stormReplayResult.Exception is not null)
+        {
+            Console.WriteLine(stormReplayResult.Exception.StackTrace);
+            Console.ResetColor();
+            _failed = true;
+        }
+    }
+}
+
+static void JsonPregameResultLine(StormReplayPregameResult stormReplayPregameResult)
+{
+    if (stormReplayPregameResult.Status != StormReplayPregameParseStatus.Success)
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine(stormReplayPregameResult.Status);
+
+        if (stormReplayPregameResult.Exception is not null)
+        {
+            Console.WriteLine(stormReplayPregameResult.Exception.StackTrace);
+            Console.ResetColor();
+            _failed = true;
+        }
     }
 }
 
