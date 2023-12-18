@@ -2,24 +2,25 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Version>1.2.0</Version>
     <PublishSingleFile>false</PublishSingleFile>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>dotnet-heroes-decode</ToolCommandName>
-    <Version>1.2.0</Version>
     <Copyright>Copyright © 2020 - 2023 Kevin Oliva</Copyright>
     <Authors>Kevin Oliva</Authors>
     <PackageId>HeroesDecode</PackageId>
     <Product>HeroesDecode</Product>
     <PackageProjectUrl>https://github.com/HeroesToolChest/HeroesDecode</PackageProjectUrl>
     <RepositoryUrl>https://github.com/HeroesToolChest/HeroesDecode</RepositoryUrl>
-    <Description>Dotnet global tool to parse Heroes of the Storm replay files (.StormReplay) and provide quick information to the console.</Description>
     <PackageReleaseNotes>https://github.com/HeroesToolChest/HeroesDecode/releases</PackageReleaseNotes>
+    <PackageTags>hots heroes-of-the-storm HeroesOfTheStorm blizzard replay stormReplay</PackageTags>
+    <Description>Tool to parse Heroes of the Storm replay files (.StormReplay)</Description>
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
@@ -34,8 +35,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\README.md" Pack="true" PackagePath="\" />
-    <None Include="..\LICENSE" Pack="true" PackagePath="\" />
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
   
 </Project>
