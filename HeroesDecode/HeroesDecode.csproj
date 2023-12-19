@@ -16,7 +16,7 @@
     <PackageProjectUrl>https://github.com/HeroesToolChest/HeroesDecode</PackageProjectUrl>
     <RepositoryUrl>https://github.com/HeroesToolChest/HeroesDecode</RepositoryUrl>
     <PackageReleaseNotes>https://github.com/HeroesToolChest/HeroesDecode/releases</PackageReleaseNotes>
-    <PackageTags>hots heroes-of-the-storm HeroesOfTheStorm blizzard replay stormReplay</PackageTags>
+    <PackageTags>hots heroes-of-the-storm HeroesOfTheStorm blizzard replay stormReplay json</PackageTags>
     <Description>Tool to parse Heroes of the Storm replay files (.StormReplay)</Description>
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
