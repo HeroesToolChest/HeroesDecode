@@ -1,15 +1,17 @@
 # Heroes Decode
-[![Build Status](https://dev.azure.com/kevinkoliva/Heroes%20of%20the%20Storm%20Projects/_apis/build/status/HeroesToolChest.HeroesDecode?branchName=master)](https://dev.azure.com/kevinkoliva/Heroes%20of%20the%20Storm%20Projects/_build/latest?definitionId=12&branchName=master)
+[![Build](https://github.com/HeroesToolChest/HeroesDecode/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/HeroesToolChest/HeroesDecode/actions/workflows/build.yml)
 [![Release](https://img.shields.io/github/release/HeroesToolChest/HeroesDecode.svg)](https://github.com/HeroesToolChest/HeroesDecode/releases/latest)
 [![NuGet](https://img.shields.io/nuget/v/HeroesDecode.svg)](https://www.nuget.org/packages/HeroesDecode/)
 
-Heroes Decode is a .NET command line tool that displays the basic information from Heroes of the Storm replay files (.StormReplay) to the console.
+Heroes Decode is a .NET command line tool that displays data from Heroes of the Storm replay files (.StormReplay) as well as displaying extra data from a match loading screen by parsing the `.battlelobby` file.
+
+Displayed data can either be in a limited formatted display or in json format.
 
 The parsing is done by the library [Heroes Storm Replay Parser](https://github.com/HeroesToolChest/Heroes.StormReplayParser).
 
 ## Installation
 ### Dotnet Global Tool (Recommended)
-Download and install the [.NET 6.0 SDK](https://dotnet.microsoft.com/download). 
+Download and install the [.NET 8.0 SDK](https://dotnet.microsoft.com/download). 
 
 Once installed, run the following command:
 ```
@@ -26,7 +28,7 @@ dotnet tool update --global HeroesDecode
 ### Zip File Download - Framework-Dependent Deployment (fdd)
 Portable to any operating system.
 
-Download and install the [.NET 6.0 Runtime or SDK](https://dotnet.microsoft.com/download). 
+Download and install the [.NET 8.0 Runtime or SDK](https://dotnet.microsoft.com/download). 
 
 Download and extract the latest `HeroesDecode.*-fdd-any` zip file from the [releases](https://github.com/HeroesToolChest/HeroesDecode/releases) page.
 
@@ -35,7 +37,7 @@ Download and extract the latest `HeroesDecode.*-fdd-any` zip file from the [rele
 ### Zip File Download - Framework-Dependent Executable (fde)
 Runs only on the selected operating system.
 
-Download and install the [.NET 6.0 Runtime or SDK](https://dotnet.microsoft.com/download). 
+Download and install the [.NET 8.0 Runtime or SDK](https://dotnet.microsoft.com/download). 
 
 Download and extract the latest `HeroesDecode.*-fde-<OS>-x64` zip file from the [releases](https://github.com/HeroesToolChest/HeroesDecode/releases) page for a selected operating system.
 
@@ -72,10 +74,10 @@ macOS or Linux: ./heroesdecode -h
 Output of the -h option
 ```
 Description:
-  View Heroes of the Storm replay file data information
+  View Heroes of the Storm replay file data
 
 Usage:
-  heroesdecode [command] [options]
+  HeroesDecode [command] [options]
 
 Options:
   -p, --replay-path <replay-path> (REQUIRED)  File path of a Heroes of the Storm .StormReplay file or a directory
@@ -86,7 +88,9 @@ Options:
   -?, -h, --help                              Show help and usage information
 
 Commands:
-  pregame  View Heroes of the Storm battlelobby file data information.
+  pregame           View Heroes of the Storm battlelobby file data.
+  get-json          Get the data from the replay as json
+  get-pregame-json  Get the data from the replay battlelobby as json
 ```
 
 Example command to parse a replay file.
@@ -283,10 +287,10 @@ Watch Tower Captures: 0
 ### pregame
 ```
 Description:
-  View Heroes of the Storm battlelobby file data information.
+  View Heroes of the Storm battlelobby file data.
 
 Usage:
-  heroesdecode pregame [options]
+  HeroesDecode pregame [options]
 
 Options:
   -p, --battlelobby-path <battlelobby-path> (REQUIRED)  File path of a Heroes of the Storm .battlelobby file or a directory
@@ -297,10 +301,46 @@ Parses a `replay.server.battlelobby` file. The `.battlelobby` file is created at
 
 On Windows, the default location is `C:\<USER PATH>\AppData\Local\Temp\Heroes of the Storm\TempWriteReplayP1\replay.server.battlelobby`. The `Temp\Heroes of the Storm` directory is deleted after the game has closed.
 
+### get-json
+```
+Description:
+  Get the data from the replay as json
+
+Usage:
+  HeroesDecode get-json [options]
+
+Options:
+  -p, --replay-path <replay-path> (REQUIRED)  File path of a Heroes of the Storm .StormReplay file or a directory
+  --parse-message-events                      Allow the parsing of the message events [default: True]
+  --parse-tracker-events                      Allow the parsing of tracker events [default: True]
+  --parse-game-events                         Allow the parsing of the game events [default: True]
+  --has-tracker-events                        Adds the tracker events to the output json [default: False]
+  --has-game-events                           Adds the game events to the output json [default: False]
+  --include-all-message-events                Includes all the message type events (default is only chat type messages) [default: False]
+  --no-json-display                           Doesn't display the json to the terminal [default: False]
+  --output-directory <output-directory>       Set the directory for the output json file
+  -?, -h, --help                              Show help and usage information
+```
+
+### get-pregame-json
+```
+Description:
+  Get the data from the replay battlelobby as json
+
+Usage:
+  HeroesDecode get-pregame-json [options]
+
+Options:
+  -p, --battlelobby-path <battlelobby-path> (REQUIRED)  File path of a Heroes of the Storm .battlelobby file or a directory
+  --no-json-display                                     Doesn't display the json to the terminal [default: False]
+  --output-directory <output-directory>                 Set the directory for the output json file
+  -?, -h, --help                                        Show help and usage information
+```
+
 ## Developing
 To build and compile the code, it is recommended to use the latest version of [Visual Studio 2022 or Visual Studio Code](https://visualstudio.microsoft.com/downloads/).
 
-Another option is to use the dotnet CLI tools from the [.NET 6.0 SDK](https://dotnet.microsoft.com/download).
+Another option is to use the dotnet CLI tools from the [.NET 8.0 SDK](https://dotnet.microsoft.com/download).
 
 The main project is `HeroesDecode.csproj` and the main entry point is `Program.cs`.
 
