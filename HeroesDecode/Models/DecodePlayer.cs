@@ -14,9 +14,9 @@ public class DecodePlayer
 
     public PlayerHero? PlayerHero { get; set; } = null;
 
-    public PlayerLoadout PlayerLoadout { get; set; } = new PlayerLoadout();
+    public PlayerLoadout PlayerLoadout { get; set; } = new();
 
-    public List<HeroMasteryTier> HeroMasteryTier { get; set; } = new();
+    public List<HeroMasteryTier> HeroMasteryTier { get; set; } = [];
 
     public StormTeam Team { get; set; }
 
@@ -40,11 +40,11 @@ public class DecodePlayer
 
     public ComputerDifficulty ComputerDifficulty { get; set; }
 
-    public List<MatchAwardType>? MatchAwards { get; set; } = new();
+    public List<MatchAwardType>? MatchAwards { get; set; } = [];
 
-    public List<HeroTalent> HeroTalents { get; set; } = new();
+    public List<HeroTalent> HeroTalents { get; set; } = [];
 
-    public List<DecodePlayerDisconnect> Disconnects { get; set; } = new();
+    public List<DecodePlayerDisconnect> Disconnects { get; set; } = [];
 
     public ScoreResult? ScoreResult { get; set; }
 }

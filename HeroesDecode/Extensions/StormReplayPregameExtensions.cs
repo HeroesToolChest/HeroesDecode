@@ -7,7 +7,7 @@ internal static class StormReplayPregameExtensions
         return new()
         {
             BanMode = stormReplayPregame.BanMode,
-            DisabledHeroes = stormReplayPregame.DisabledHeroes.ToList(),
+            DisabledHeroes = [.. stormReplayPregame.DisabledHeroes],
             FirstDraftTeam = stormReplayPregame.FirstDraftTeam,
             GameMode = stormReplayPregame.GameMode,
             GamePrivacy = stormReplayPregame.GamePrivacy,

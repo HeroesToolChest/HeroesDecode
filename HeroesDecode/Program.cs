@@ -433,7 +433,7 @@ static void GetInfo(StormReplayResult stormReplayResult)
 
 static void StormTeamDisplay(StormReplay replay, IEnumerable<StormPlayer> players, StormTeam team)
 {
-    Dictionary<long, PartyIconColor> partyPlayers = new();
+    Dictionary<long, PartyIconColor> partyPlayers = [];
     bool partyPurpleUsed = false;
     bool partyRedUsed = false;
 
@@ -502,8 +502,7 @@ static void StormTeamDisplay(StormReplay replay, IEnumerable<StormPlayer> player
 
 static void PlayerInfo(StormPlayer player, PartyIconColor? partyIcon)
 {
-    if (player is null)
-        throw new ArgumentNullException(nameof(player));
+    ArgumentNullException.ThrowIfNull(player);
 
     if (player.PlayerType != PlayerType.Computer)
     {
@@ -783,7 +782,7 @@ static void PregameGetInfo(StormReplayPregameResult stormReplayPregameResult)
 
 static void PregameStormTeamDisplay(StormReplayPregame replay, IEnumerable<PregameStormPlayer> players, StormTeam team)
 {
-    Dictionary<long, PartyIconColor> partyPlayers = new();
+    Dictionary<long, PartyIconColor> partyPlayers = [];
     bool partyPurpleUsed = false;
     bool partyRedUsed = false;
     bool partyBlueUsed = false;
@@ -875,8 +874,7 @@ static void PregameStormTeamDisplay(StormReplayPregame replay, IEnumerable<Prega
 
 static void PregamePlayerInfo(PregameStormPlayer player, PartyIconColor? partyIcon)
 {
-    if (player is null)
-        throw new ArgumentNullException(nameof(player));
+    ArgumentNullException.ThrowIfNull(player);
 
     if (player.PlayerType != PlayerType.Computer)
     {

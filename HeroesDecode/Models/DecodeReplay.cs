@@ -46,27 +46,27 @@ public class DecodeReplay
 
     public StormTeam WinningTeam { get; set; }
 
-    public List<DecodePlayer> Players { get; set; } = new();
+    public List<DecodePlayer> Players { get; set; } = [];
 
-    public List<DecodePlayer> Observers { get; set; } = new();
+    public List<DecodePlayer> Observers { get; set; } = [];
 
-    public List<DecodeDraftPick> DraftPicks { get; set; } = new();
+    public List<DecodeDraftPick> DraftPicks { get; set; } = [];
 
-    public Dictionary<StormTeam, List<string?>> TeamBans { get; set; } = new();
+    public Dictionary<StormTeam, List<string?>> TeamBans { get; set; } = [];
 
-    public Dictionary<StormTeam, int?> TeamFinalLevel { get; set; } = new();
+    public Dictionary<StormTeam, int?> TeamFinalLevel { get; set; } = [];
 
-    public Dictionary<StormTeam, List<StormTeamLevel>?> TeamLevels { get; set; } = new();
+    public Dictionary<StormTeam, List<StormTeamLevel>?> TeamLevels { get; set; } = [];
 
-    public Dictionary<StormTeam, List<StormTeamXPBreakdown>?> TeamXPBreakdown { get; set; } = new();
+    public Dictionary<StormTeam, List<StormTeamXPBreakdown>?> TeamXPBreakdown { get; set; } = [];
 
-    public List<DecodeMessage> Messages { get; set; } = new();
+    public List<DecodeMessage> Messages { get; set; } = [];
 
-    public List<DecodeTrackerEvent> TrackerEvents { get; set; } = new();
+    public List<DecodeTrackerEvent> TrackerEvents { get; set; } = [];
 
-    public List<DecodeGameEvents> GameEvents { get; set; } = new();
+    public List<DecodeGameEvents> GameEvents { get; set; } = [];
 
-    public List<string> DisabledHeroes { get; set; } = new();
+    public List<string> DisabledHeroes { get; set; } = [];
 
     public bool IsBattleLobbyParsed { get; set; }
 }

@@ -8,14 +8,13 @@ public static class PlayerDisconnectExtensions
         {
             DisconnectTime = playerDisconnect.From,
             RejoinTime = playerDisconnect.To,
-        };
-
-        decodePlayerDisconnect.LeaveReason = playerDisconnect.LeaveReason switch
-        {
-            null => "unknown",
-            0 => "purposely left",
-            11 or 12 => "disconnect",
-            _ => $"unknown ({playerDisconnect.LeaveReason.Value})",
+            LeaveReason = playerDisconnect.LeaveReason switch
+            {
+                null => "unknown",
+                0 => "purposely left",
+                11 or 12 => "disconnect",
+                _ => $"unknown ({playerDisconnect.LeaveReason.Value})",
+            },
         };
 
         return decodePlayerDisconnect;

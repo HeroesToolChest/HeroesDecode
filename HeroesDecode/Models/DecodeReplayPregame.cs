@@ -32,13 +32,13 @@ internal class DecodeReplayPregame
 
     public StormRegion Region { get; set; }
 
-    public List<DecodePlayerPregame> Players { get; set; } = new();
+    public List<DecodePlayerPregame> Players { get; set; } = [];
 
-    public List<DecodePlayerPregame> Observers { get; set; } = new();
+    public List<DecodePlayerPregame> Observers { get; set; } = [];
 
-    public Dictionary<StormTeam, List<string?>> TeamBans { get; set; } = new();
+    public Dictionary<StormTeam, List<string?>> TeamBans { get; set; } = [];
 
-    public List<string> DisabledHeroes { get; set; } = new();
+    public List<string> DisabledHeroes { get; set; } = [];
 
     public bool IsBattleLobbyParsed { get; set; }
 }

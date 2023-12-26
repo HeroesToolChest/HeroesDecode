@@ -12,7 +12,7 @@ public static class StormPlayerExtensions
             PlayerType = stormPlayer.PlayerType,
             PlayerHero = stormPlayer.PlayerHero,
             PlayerLoadout = stormPlayer.PlayerLoadout,
-            HeroMasteryTier = stormPlayer.HeroMasteryTiers.ToList(),
+            HeroMasteryTier = [.. stormPlayer.HeroMasteryTiers],
             Team = stormPlayer.Team,
             Handicap = stormPlayer.Handicap,
             IsWinner = stormPlayer.IsWinner,
@@ -26,7 +26,7 @@ public static class StormPlayerExtensions
             PartyValue = stormPlayer.PartyValue,
             ComputerDifficulty = stormPlayer.ComputerDifficulty,
             MatchAwards = stormPlayer.MatchAwards?.ToList(),
-            HeroTalents = stormPlayer.Talents.ToList(),
+            HeroTalents = [.. stormPlayer.Talents],
             Disconnects = stormPlayer.PlayerDisconnects.Select(x => x.ToDecodePlayerDisconnect()).ToList(),
             ScoreResult = stormPlayer.ScoreResult,
         };

@@ -40,7 +40,7 @@ public static class StormReplayExtensions
             TrackerEvents = stormReplay.TrackerEvents.Select(x => x.ToDecodeTrackerEvent()).ToList(),
             GameEvents = stormReplay.GameEvents.Select(x => x.ToDecodeGameEvents()).ToList(),
             IsBattleLobbyParsed = stormReplay.IsBattleLobbyPlayerInfoParsed,
-            DisabledHeroes = stormReplay.DisabledHeroes.ToList(),
+            DisabledHeroes = [.. stormReplay.DisabledHeroes],
             TeamBans =
             {
                 {
