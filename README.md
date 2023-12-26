@@ -3,7 +3,7 @@
 [![Release](https://img.shields.io/github/release/HeroesToolChest/HeroesDecode.svg)](https://github.com/HeroesToolChest/HeroesDecode/releases/latest)
 [![NuGet](https://img.shields.io/nuget/v/HeroesDecode.svg)](https://www.nuget.org/packages/HeroesDecode/)
 
-Heroes Decode is a .NET command line tool that displays data from Heroes of the Storm replay files (.StormReplay) as well as displaying extra data from a match loading screen by parsing the `.battlelobby` file.
+Heroes Decode is a .NET command line tool that displays data from Heroes of the Storm replay files (.StormReplay) as well as displaying data from a match loading screen by parsing the `.battlelobby` file.
 
 Displayed data can either be in a limited formatted display or in json format.
 
@@ -66,7 +66,6 @@ dotnet heroesdecode.dll -h
 
 If installed as a Framework-Dependent Executable (fde) or Self-Contained Deployment (scd), run one of the following commands from the extracted directory:
 ```
-windows (cmd): heroesdecode -h
 windows (powershell): .\heroesdecode -h 
 macOS or Linux: ./heroesdecode -h
 ```
@@ -196,8 +195,6 @@ Observers
 (NONE)
 ```
 
-**Note: When using command prompt on windows, use double quotes instead of single quote when specifying filepaths.**
-
 ## Options
 ### Replay Path (-p, --replay-path)
 
@@ -318,9 +315,10 @@ Options:
   --has-game-events                           Adds the game events to the output json [default: False]
   --include-all-message-events                Includes all the message type events (default is only chat type messages) [default: False]
   --no-json-display                           Doesn't display the json to the terminal [default: False]
-  --output-directory <output-directory>       Set the directory for the output json file
+  -o, --output-directory <output-directory>   Set the directory for the output json file
   -?, -h, --help                              Show help and usage information
 ```
+Returns the parsed data in json format. By default, it will be returned to the terminal. To output to a file, set the `--output-directory` option.
 
 ### get-pregame-json
 ```
@@ -333,9 +331,10 @@ Usage:
 Options:
   -p, --battlelobby-path <battlelobby-path> (REQUIRED)  File path of a Heroes of the Storm .battlelobby file or a directory
   --no-json-display                                     Doesn't display the json to the terminal [default: False]
-  --output-directory <output-directory>                 Set the directory for the output json file
+  -o, --output-directory <output-directory>             Set the directory for the output json file
   -?, -h, --help                                        Show help and usage information
 ```
+Returns the parsed data in json format. By default, it will be returned to the terminal. To output to a file, set the `--output-directory` option.
 
 ## Developing
 To build and compile the code, it is recommended to use the latest version of [Visual Studio 2022 or Visual Studio Code](https://visualstudio.microsoft.com/downloads/).
