@@ -99,6 +99,8 @@ Option<string> jsonOuputDirectoryOption = new(
     IsRequired = false,
 };
 
+jsonOuputDirectoryOption.AddAlias("-o");
+
 // commands
 Command pregameCommand = new("pregame", "View Heroes of the Storm battlelobby file data.")
 {
