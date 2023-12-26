@@ -44,5 +44,7 @@ public class DecodePlayer
 
     public List<HeroTalent> HeroTalents { get; set; } = new();
 
+    public List<DecodePlayerDisconnect> Disconnects { get; set; } = new();
+
     public ScoreResult? ScoreResult { get; set; }
 }

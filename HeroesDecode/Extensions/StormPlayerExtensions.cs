@@ -27,6 +27,7 @@ public static class StormPlayerExtensions
             ComputerDifficulty = stormPlayer.ComputerDifficulty,
             MatchAwards = stormPlayer.MatchAwards?.ToList(),
             HeroTalents = stormPlayer.Talents.ToList(),
+            Disconnects = stormPlayer.PlayerDisconnects.Select(x => x.ToDecodePlayerDisconnect()).ToList(),
             ScoreResult = stormPlayer.ScoreResult,
         };
     }
