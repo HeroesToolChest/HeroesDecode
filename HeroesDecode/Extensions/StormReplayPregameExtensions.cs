@@ -18,6 +18,7 @@ internal static class StormReplayPregameExtensions
             {
                 MapId = stormReplayPregame.MapId,
                 MapLink = stormReplayPregame.MapLink,
+                MapTitle = stormReplayPregame.MapTitle,
             },
             ObserversCount = stormReplayPregame.PlayersObserversCount,
             PlayersAndAICount = stormReplayPregame.PlayersCount,

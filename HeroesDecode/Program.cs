@@ -735,8 +735,7 @@ static void PregameGetInfo(StormReplayPregameResult stormReplayPregameResult)
     List<PregameStormPlayer> players = replay.StormPlayers.ToList();
 
     Console.WriteLine($"{"Game Mode: ",_infoFieldWidth}{replay.GameMode}");
-    Console.WriteLine($"{"Map Id: ",_infoFieldWidth}{replay.MapId}");
-    Console.WriteLine($"{"Map Link: ",_infoFieldWidth}{replay.MapLink}");
+    Console.WriteLine($"{"Map: ",_infoFieldWidth}{replay.MapTitle} [{replay.MapId}]");
     Console.WriteLine($"{"Build: ",_infoFieldWidth}{replay.ReplayBuild}");
     Console.WriteLine($"{"Region: ",_infoFieldWidth}{replay.Region}");
     Console.WriteLine($"{"Lobby: ",_infoFieldWidth}{replay.LobbyMode}");
