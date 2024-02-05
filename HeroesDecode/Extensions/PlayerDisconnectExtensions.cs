@@ -11,7 +11,7 @@ public static class PlayerDisconnectExtensions
             LeaveReason = playerDisconnect.LeaveReason switch
             {
                 null => "unknown",
-                0 => "purposely left",
+                0 => "intentional",
                 11 or 12 => "disconnect",
                 _ => $"unknown ({playerDisconnect.LeaveReason.Value})",
             },
