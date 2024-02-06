@@ -1,0 +1,3425 @@
+{
+  "Version": "2.55.4.91418",
+  "Timestamp": "2023-12-28T05:18:57.5850471Z",
+  "ElapsedGamesLoops": 16764,
+  "ReplayLength": "00:17:27",
+  "RandomValue": 1234558613,
+  "ReplayOwner": "1-Hero-1-1527252",
+  "HasObservers": false,
+  "HasAI": false,
+  "PlayersAndAICount": 10,
+  "PlayersAndObserversCount": 10,
+  "ObserversCount": 0,
+  "TeamSize": "5v5",
+  "MapInfo": {
+    "MapName": "Tomb of the Spider Queen",
+    "MapId": "Crypts",
+    "MapSize": {
+      "X": 248,
+      "Y": 216
+    }
+  },
+  "GameMode": "quickMatch",
+  "GameSpeed": "faster",
+  "GamePrivacy": "normal",
+  "ReadyMode": "fcfs",
+  "LobbyMode": "standard",
+  "BanMode": "notUsingBans",
+  "FirstDraftTeam": "coinToss",
+  "Region": "us",
+  "WinningTeam": "red",
+  "Players": [
+    {
+      "Name": "Apple",
+      "BattleTagName": "Apple#1111",
+      "PlayerToonId": "1-Hero-1-1111111",
+      "PlayerShortcutId": "T:11111111#111",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroId": "Illidan",
+        "HeroUnitId": "HeroIllidan",
+        "HeroName": "Illidan",
+        "HeroAttributeId": "Illi",
+        "HeroLevel": 20
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTint": "IllidanShando",
+        "SkinAndSkinTintAttributeId": "Ill3",
+        "MountAndMountTint": "MountCloudWhimsy",
+        "MountAndMountTintAttributeId": "CLW0",
+        "Banner": "BannerDFCommunity65Rare",
+        "BannerAttributeId": "BN88",
+        "Spray": "SprayStaticStylizedMaiev",
+        "SprayAttributeId": "Sy6e",
+        "AnnouncerPack": "CowboyA",
+        "AnnouncerPackAttributeId": "ACwb",
+        "VoiceLine": "IllidanBase_VoiceLine01",
+        "VoiceLineAttributeId": "IL01"
+      },
+      "HeroMasteryTier": [
+        {
+          "HeroAttributeId": "Abat",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Alar",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Amaz",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Arth",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Arts",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Auri",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Azmo",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Barb",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Butc",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "CCho",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Chro",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Crus",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "DVA0",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Deha",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Demo",
+          "TierLevel": 4
+        },
+        {
+          "HeroAttributeId": "Diab",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "FENX",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Faer",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Fire",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Guld",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "IMPE",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Illi",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Jain",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Kael",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "KelT",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Kerr",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Leor",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "LiLi",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "MALT",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "MEPH",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Maie",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Malf",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Medi",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Monk",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Mura",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Murk",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Necr",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Nova",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Prob",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Rayn",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Rehg",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "STUK",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Sylv",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Tass",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Thra",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Tink",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Tra0",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Tych",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Tyrd",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Uthe",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Vari",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "WHIT",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Witc",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Wiza",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "ZULJ",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Zaga",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Zary",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Zera",
+          "TierLevel": 1
+        }
+      ],
+      "Team": "blue",
+      "Handicap": 0,
+      "IsWinner": false,
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "IsAutoSelect": false,
+      "HasActiveBoost": false,
+      "AccountLevel": 2025,
+      "PartyValue": 31518099637449,
+      "ComputerDifficulty": "elite",
+      "MatchAwards": [],
+      "HeroTalents": [
+        {
+          "TalentSlotId": 0,
+          "TalentNameId": "IllidanMasteryImmolationSweepingStrike",
+          "Timestamp": "00:00:17.3750000"
+        },
+        {
+          "TalentSlotId": 5,
+          "TalentNameId": "IllidanCombatStyleHuntersOnslaught",
+          "Timestamp": "00:02:58.5000000"
+        },
+        {
+          "TalentSlotId": 7,
+          "TalentNameId": "IllidanMasteryFriendOrFoeDive",
+          "Timestamp": "00:04:42.2500000"
+        },
+        {
+          "TalentSlotId": 10,
+          "TalentNameId": "IllidanHeroicAbilityTheHunt",
+          "Timestamp": "00:07:14.2500000"
+        },
+        {
+          "TalentSlotId": 13,
+          "TalentNameId": "IllidanMasterySixthSenseEvasion",
+          "Timestamp": "00:10:00.4375000"
+        },
+        {
+          "TalentSlotId": 14,
+          "TalentNameId": "IllidanMasteryMarkedforDeathDive",
+          "Timestamp": "00:12:58.6250000"
+        }
+      ],
+      "Disconnects": [],
+      "ScoreResult": {
+        "MiscellaneousScoreResultEvents": {
+          "TeamTakedowns": 14,
+          "Role": 0,
+          "KilledTreasureGoblin": 0,
+          "GameScore": 0,
+          "TeamLevel": 19,
+          "EndOfMatchAwardGivenToNonwinner": 0,
+          "LunarNewYearSuccesfulArtifactTurnIns": 0,
+          "TimeOnPoint": 0,
+          "CageUnlocksInterrupted": 0,
+          "GardenSeedsCollectedByPlayer": 0,
+          "TeamWinsDiablo": 0,
+          "TeamWinsFemale": 0,
+          "TeamWinsMale": 0,
+          "TeamWinsStarCraft": 0,
+          "TeamWinsWarcraft": 0,
+          "WinsWarrior": 0,
+          "WinsAssassin": 0,
+          "WinsSupport": 0,
+          "WinsSpecialist": 0,
+          "WinsStarCraft": 0,
+          "WinsDiablo": 0,
+          "WinsWarcraft": 0,
+          "WinsMale": 0,
+          "WinsFemale": 0,
+          "PlaysStarCraft": 0,
+          "PlaysDiablo": 0,
+          "PlaysOverwatch": 0,
+          "PlaysWarCraft": 1,
+          "PlaysNexus": 0,
+          "PlaysOverwatchOrNexus": 0,
+          "PlaysWarrior": 0,
+          "PlaysAssassin": 1,
+          "PlaysSupport": 0,
+          "PlaysSpecialist": 0,
+          "PlaysMale": 1,
+          "PlaysFemale": 0,
+          "LunarNewYearEventCompleted": 0,
+          "StarcraftDailyEventCompleted": 0,
+          "StarcraftPiecesCollected": 0,
+          "LunarNewYearRoosterEventCompleted": 0,
+          "TouchByBlightPlague": 0,
+          "PachimariMania": 0,
+          "LessThan4Deaths": 0,
+          "LessThan3TownStructuresLost": 0,
+          "GemsTurnedIn": 0
+        },
+        "NewScoreResultEvents": {},
+        "Level": 19,
+        "Takedowns": 9,
+        "SoloKills": 3,
+        "Assists": 6,
+        "Deaths": 9,
+        "HeroDamage": 38720,
+        "SiegeDamage": 69101,
+        "StructureDamage": 0,
+        "MinionDamage": 57577,
+        "CreepDamage": 5479,
+        "SummonDamage": 2341,
+        "TimeCCdEnemyHeroes": "00:00:13",
+        "Healing": 0,
+        "SelfHealing": 40720,
+        "DamageTaken": 86903,
+        "DamageSoaked": 64549,
+        "ExperienceContribution": 8850,
+        "TownKills": 0,
+        "TimeSpentDead": "00:04:04",
+        "MercCampCaptures": 1,
+        "WatchTowerCaptures": 0,
+        "MetaExperience": 69606,
+        "PhysicalDamage": 45483,
+        "SpellDamage": 70931,
+        "OnFireTimeonFire": "00:00:47",
+        "MinionKills": 62,
+        "RegenGlobes": 24,
+        "Tier1Talent": 1,
+        "Tier4Talent": 3,
+        "Tier7Talent": 2,
+        "Tier10Talent": 2,
+        "Tier13Talent": 3,
+        "Tier16Talent": 1,
+        "Tier20Talent": null,
+        "HighestKillStreak": 6,
+        "ProtectionGivenToAllies": 0,
+        "TimeSilencingEnemyHeroes": "00:00:00",
+        "TimeRootingEnemyHeroes": "00:00:00",
+        "TimeStunningEnemyHeroes": "00:00:02",
+        "ClutchHealsPerformed": 0,
+        "EscapesPerformed": 2,
+        "VengeancesPerformed": 1,
+        "OutnumberedDeaths": 7,
+        "TeamfightEscapesPerformed": 0,
+        "TeamfightHealingDone": 0,
+        "TeamfightDamageTaken": 71884,
+        "TeamfightHeroDamage": 33497,
+        "Multikill": 2
+      }
+    },
+    {
+      "Name": "Banana",
+      "BattleTagName": "Banana#2222",
+      "PlayerToonId": "1-Hero-1-2222222",
+      "PlayerShortcutId": "T:23232323#600",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroId": "FaerieDragon",
+        "HeroUnitId": "HeroFaerieDragon",
+        "HeroName": "Brightwing",
+        "HeroAttributeId": "Faer",
+        "HeroLevel": 20
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTint": "BrightwingBright19Var4",
+        "SkinAndSkinTintAttributeId": "BriD",
+        "MountAndMountTint": "",
+        "MountAndMountTintAttributeId": "",
+        "Banner": "BannerWCNightElfRareVar1",
+        "BannerAttributeId": "BN31",
+        "Spray": "SprayStaticCarbotsBrightwing",
+        "SprayAttributeId": "Sy7d",
+        "AnnouncerPack": "BrightwingA",
+        "AnnouncerPackAttributeId": "BR01",
+        "VoiceLine": "FaerieDragonBase_VoiceLine03",
+        "VoiceLineAttributeId": "BW03"
+      },
+      "HeroMasteryTier": [
+        {
+          "HeroAttributeId": "Butc",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "DECK",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "DVA0",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Drya",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Faer",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Fals",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Gall",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Hanz",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "IMPE",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "L90E",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "LiLi",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Luci",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Medi",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Nova",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "ORPH",
+          "TierLevel": 4
+        },
+        {
+          "HeroAttributeId": "Stit",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Sylv",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Tyrd",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Witc",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Wiza",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Zaga",
+          "TierLevel": 1
+        }
+      ],
+      "Team": "blue",
+      "Handicap": 0,
+      "IsWinner": false,
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "IsAutoSelect": false,
+      "HasActiveBoost": false,
+      "AccountLevel": 1941,
+      "PartyValue": 31518099637449,
+      "ComputerDifficulty": "elite",
+      "MatchAwards": [
+        "mostMercCampsCaptured"
+      ],
+      "HeroTalents": [
+        {
+          "TalentSlotId": 2,
+          "TalentNameId": "BrightwingPixieCharm",
+          "Timestamp": "00:00:48.8750000"
+        },
+        {
+          "TalentSlotId": 3,
+          "TalentNameId": "BrightwingDreamShotArcaneFlare",
+          "Timestamp": "00:02:59.6875000"
+        },
+        {
+          "TalentSlotId": 6,
+          "TalentNameId": "BrightwingArcaneFlareStickyFlare",
+          "Timestamp": "00:04:52.1875000"
+        },
+        {
+          "TalentSlotId": 9,
+          "TalentNameId": "FaerieDragonHeroicAbilityBlinkHeal",
+          "Timestamp": "00:07:19.8125000"
+        },
+        {
+          "TalentSlotId": 11,
+          "TalentNameId": "BrightwingPixieBoostPixieDust",
+          "Timestamp": "00:10:01.5625000"
+        },
+        {
+          "TalentSlotId": 14,
+          "TalentNameId": "BrightwingArcaneFlareHush!",
+          "Timestamp": "00:13:00.0625000"
+        }
+      ],
+      "Disconnects": [],
+      "ScoreResult": {
+        "MiscellaneousScoreResultEvents": {
+          "TeamTakedowns": 0,
+          "Role": 0,
+          "KilledTreasureGoblin": 0,
+          "GameScore": 0,
+          "TeamLevel": 19,
+          "EndOfMatchAwardGivenToNonwinner": 0,
+          "LunarNewYearSuccesfulArtifactTurnIns": 0,
+          "TimeOnPoint": 0,
+          "CageUnlocksInterrupted": 0,
+          "GardenSeedsCollectedByPlayer": 0,
+          "TeamWinsDiablo": 0,
+          "TeamWinsFemale": 0,
+          "TeamWinsMale": 0,
+          "TeamWinsStarCraft": 0,
+          "TeamWinsWarcraft": 0,
+          "WinsWarrior": 0,
+          "WinsAssassin": 0,
+          "WinsSupport": 0,
+          "WinsSpecialist": 0,
+          "WinsStarCraft": 0,
+          "WinsDiablo": 0,
+          "WinsWarcraft": 0,
+          "WinsMale": 0,
+          "WinsFemale": 0,
+          "PlaysStarCraft": 0,
+          "PlaysDiablo": 0,
+          "PlaysOverwatch": 0,
+          "PlaysWarCraft": 1,
+          "PlaysNexus": 0,
+          "PlaysOverwatchOrNexus": 0,
+          "PlaysWarrior": 0,
+          "PlaysAssassin": 0,
+          "PlaysSupport": 1,
+          "PlaysSpecialist": 0,
+          "PlaysMale": 0,
+          "PlaysFemale": 1,
+          "LunarNewYearEventCompleted": 0,
+          "StarcraftDailyEventCompleted": 0,
+          "StarcraftPiecesCollected": 0,
+          "LunarNewYearRoosterEventCompleted": 0,
+          "TouchByBlightPlague": 0,
+          "PachimariMania": 0,
+          "LessThan4Deaths": 1,
+          "LessThan3TownStructuresLost": 0,
+          "GemsTurnedIn": 17
+        },
+        "NewScoreResultEvents": {},
+        "Level": 19,
+        "Takedowns": 9,
+        "SoloKills": 1,
+        "Assists": 8,
+        "Deaths": 2,
+        "HeroDamage": 28392,
+        "SiegeDamage": 28813,
+        "StructureDamage": 679,
+        "MinionDamage": 24796,
+        "CreepDamage": 387,
+        "SummonDamage": 1877,
+        "TimeCCdEnemyHeroes": "00:04:03",
+        "Healing": 70102,
+        "SelfHealing": 0,
+        "DamageTaken": 41153,
+        "DamageSoaked": 37113,
+        "ExperienceContribution": 6641,
+        "TownKills": 0,
+        "TimeSpentDead": "00:00:50",
+        "MercCampCaptures": 4,
+        "WatchTowerCaptures": 0,
+        "MetaExperience": 69606,
+        "PhysicalDamage": 25504,
+        "SpellDamage": 33732,
+        "OnFireTimeonFire": "00:00:00",
+        "MinionKills": 17,
+        "RegenGlobes": 33,
+        "Tier1Talent": 3,
+        "Tier4Talent": 1,
+        "Tier7Talent": 1,
+        "Tier10Talent": 1,
+        "Tier13Talent": 1,
+        "Tier16Talent": 1,
+        "Tier20Talent": null,
+        "HighestKillStreak": 8,
+        "ProtectionGivenToAllies": 0,
+        "TimeSilencingEnemyHeroes": "00:00:46",
+        "TimeRootingEnemyHeroes": "00:00:00",
+        "TimeStunningEnemyHeroes": "00:00:00",
+        "ClutchHealsPerformed": 3,
+        "EscapesPerformed": 0,
+        "VengeancesPerformed": 0,
+        "OutnumberedDeaths": 1,
+        "TeamfightEscapesPerformed": 0,
+        "TeamfightHealingDone": 14706,
+        "TeamfightDamageTaken": 24198,
+        "TeamfightHeroDamage": 14360,
+        "Multikill": 2
+      }
+    },
+    {
+      "Name": "Grapes",
+      "BattleTagName": "Grapes#3333",
+      "PlayerToonId": "1-Hero-1-7575755",
+      "PlayerShortcutId": "T:42424242#111",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroId": "Nova",
+        "HeroUnitId": "HeroNova",
+        "HeroName": "Nova",
+        "HeroAttributeId": "Nova",
+        "HeroLevel": 20
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTint": "NovaUltimate",
+        "SkinAndSkinTintAttributeId": "NoU3",
+        "MountAndMountTint": "FelstalkerDemonVar1",
+        "MountAndMountTintAttributeId": "FEL4",
+        "Banner": "BannerSCTerran",
+        "BannerAttributeId": "BN1f",
+        "Spray": "SprayStaticTattooKerriganGhost",
+        "SprayAttributeId": "SY45",
+        "AnnouncerPack": "NoAnnouncerPack",
+        "AnnouncerPackAttributeId": "NoAP",
+        "VoiceLine": "NovaBase_VoiceLine02",
+        "VoiceLineAttributeId": "NO02"
+      },
+      "HeroMasteryTier": [
+        {
+          "HeroAttributeId": "Abat",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Alar",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Alex",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Amaz",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Andu",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Anub",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Arth",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Arts",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Auri",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Azmo",
+          "TierLevel": 4
+        },
+        {
+          "HeroAttributeId": "Barb",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Butc",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "CCho",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Chen",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Chro",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Crus",
+          "TierLevel": 4
+        },
+        {
+          "HeroAttributeId": "DECK",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "DVA0",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Deha",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Demo",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Diab",
+          "TierLevel": 4
+        },
+        {
+          "HeroAttributeId": "Drya",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "FENX",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Faer",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Fals",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Fire",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Gall",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Garr",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Genj",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Genn",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Guld",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "HANA",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Hanz",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "IMPE",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Illi",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Jain",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Junk",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Kael",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "KelT",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Kerr",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "L90E",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Leor",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "LiLi",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Lost",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Luci",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "MALT",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "MEPH",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Maie",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "MalG",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Malf",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Mdvh",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Medi",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Monk",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Mura",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Murk",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "NXHU",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Necr",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Nova",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Ragn",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Rayn",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Rehg",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Rexx",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "STUK",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Samu",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Sgth",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Stit",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Sylv",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Tass",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Thra",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Tink",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Tra0",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Tych",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Tyrd",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Tyrl",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Uthe",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "VALE",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Vari",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Witc",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Wiza",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "ZULJ",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Zaga",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Zary",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Zera",
+          "TierLevel": 3
+        }
+      ],
+      "Team": "blue",
+      "Handicap": 0,
+      "IsWinner": false,
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "IsAutoSelect": false,
+      "HasActiveBoost": false,
+      "AccountLevel": 2916,
+      "PartyValue": null,
+      "ComputerDifficulty": "elite",
+      "MatchAwards": [
+        "mostHeroDamageDone"
+      ],
+      "HeroTalents": [
+        {
+          "TalentSlotId": 0,
+          "TalentNameId": "NovaMasteryLongshot",
+          "Timestamp": "00:00:36.5000000"
+        },
+        {
+          "TalentSlotId": 5,
+          "TalentNameId": "NovaCovertMission",
+          "Timestamp": "00:02:58.6875000"
+        },
+        {
+          "TalentSlotId": 6,
+          "TalentNameId": "NovaMasteryPerfectShotSnipe",
+          "Timestamp": "00:04:50.9375000"
+        },
+        {
+          "TalentSlotId": 10,
+          "TalentNameId": "NovaHeroicAbilityPrecisionStrike",
+          "Timestamp": "00:07:17.7500000"
+        },
+        {
+          "TalentSlotId": 11,
+          "TalentNameId": "NovaMasteryPsionicEfficiency",
+          "Timestamp": "00:10:00.8125000"
+        },
+        {
+          "TalentSlotId": 14,
+          "TalentNameId": "NovaMasteryExplosiveShot",
+          "Timestamp": "00:13:32.3750000"
+        }
+      ],
+      "Disconnects": [],
+      "ScoreResult": {
+        "MiscellaneousScoreResultEvents": {
+          "TeamTakedowns": 0,
+          "Role": 0,
+          "KilledTreasureGoblin": 0,
+          "GameScore": 0,
+          "TeamLevel": 19,
+          "EndOfMatchAwardGivenToNonwinner": 0,
+          "LunarNewYearSuccesfulArtifactTurnIns": 0,
+          "TimeOnPoint": 0,
+          "CageUnlocksInterrupted": 0,
+          "GardenSeedsCollectedByPlayer": 0,
+          "TeamWinsDiablo": 0,
+          "TeamWinsFemale": 0,
+          "TeamWinsMale": 0,
+          "TeamWinsStarCraft": 0,
+          "TeamWinsWarcraft": 0,
+          "WinsWarrior": 0,
+          "WinsAssassin": 0,
+          "WinsSupport": 0,
+          "WinsSpecialist": 0,
+          "WinsStarCraft": 0,
+          "WinsDiablo": 0,
+          "WinsWarcraft": 0,
+          "WinsMale": 0,
+          "WinsFemale": 0,
+          "PlaysStarCraft": 1,
+          "PlaysDiablo": 0,
+          "PlaysOverwatch": 0,
+          "PlaysWarCraft": 0,
+          "PlaysNexus": 0,
+          "PlaysOverwatchOrNexus": 0,
+          "PlaysWarrior": 0,
+          "PlaysAssassin": 1,
+          "PlaysSupport": 0,
+          "PlaysSpecialist": 0,
+          "PlaysMale": 0,
+          "PlaysFemale": 1,
+          "LunarNewYearEventCompleted": 0,
+          "StarcraftDailyEventCompleted": 0,
+          "StarcraftPiecesCollected": 0,
+          "LunarNewYearRoosterEventCompleted": 0,
+          "TouchByBlightPlague": 0,
+          "PachimariMania": 0,
+          "LessThan4Deaths": 1,
+          "LessThan3TownStructuresLost": 0,
+          "GemsTurnedIn": 2
+        },
+        "NewScoreResultEvents": {},
+        "Level": 19,
+        "Takedowns": 9,
+        "SoloKills": 2,
+        "Assists": 6,
+        "Deaths": 1,
+        "HeroDamage": 51409,
+        "SiegeDamage": 35654,
+        "StructureDamage": 1250,
+        "MinionDamage": 29555,
+        "CreepDamage": 910,
+        "SummonDamage": 3832,
+        "TimeCCdEnemyHeroes": "00:02:01",
+        "Healing": 0,
+        "SelfHealing": 0,
+        "DamageTaken": 19524,
+        "DamageSoaked": 17182,
+        "ExperienceContribution": 6085,
+        "TownKills": 0,
+        "TimeSpentDead": "00:00:40",
+        "MercCampCaptures": 2,
+        "WatchTowerCaptures": 0,
+        "MetaExperience": 69606,
+        "PhysicalDamage": 26917,
+        "SpellDamage": 63200,
+        "OnFireTimeonFire": "00:00:00",
+        "MinionKills": 35,
+        "RegenGlobes": 28,
+        "Tier1Talent": 1,
+        "Tier4Talent": 3,
+        "Tier7Talent": 1,
+        "Tier10Talent": 2,
+        "Tier13Talent": 1,
+        "Tier16Talent": 1,
+        "Tier20Talent": null,
+        "HighestKillStreak": 8,
+        "ProtectionGivenToAllies": 0,
+        "TimeSilencingEnemyHeroes": "00:00:00",
+        "TimeRootingEnemyHeroes": "00:00:00",
+        "TimeStunningEnemyHeroes": "00:00:00",
+        "ClutchHealsPerformed": 0,
+        "EscapesPerformed": 0,
+        "VengeancesPerformed": 1,
+        "OutnumberedDeaths": 1,
+        "TeamfightEscapesPerformed": 0,
+        "TeamfightHealingDone": 0,
+        "TeamfightDamageTaken": 10625,
+        "TeamfightHeroDamage": 23453,
+        "Multikill": 2
+      }
+    },
+    {
+      "Name": "Mango",
+      "BattleTagName": "Mango#4444",
+      "PlayerToonId": "1-Hero-1-11155555",
+      "PlayerShortcutId": "T:604777777#900",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroId": "Falstad",
+        "HeroUnitId": "HeroFalstad",
+        "HeroName": "Falstad",
+        "HeroAttributeId": "Fals",
+        "HeroLevel": 15
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTint": "",
+        "SkinAndSkinTintAttributeId": "",
+        "MountAndMountTint": "",
+        "MountAndMountTintAttributeId": "",
+        "Banner": "BannerWCAllianceRareVar1",
+        "BannerAttributeId": "BN3d",
+        "Spray": "SprayStaticCarbotsAnduin",
+        "SprayAttributeId": "SY4W",
+        "AnnouncerPack": "NoAnnouncerPack",
+        "AnnouncerPackAttributeId": "NoAP",
+        "VoiceLine": "FalstadBase_VoiceLine01",
+        "VoiceLineAttributeId": "FA01"
+      },
+      "HeroMasteryTier": [
+        {
+          "HeroAttributeId": "Fals",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Genj",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Samu",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Wiza",
+          "TierLevel": 1
+        }
+      ],
+      "Team": "blue",
+      "Handicap": 0,
+      "IsWinner": false,
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "IsAutoSelect": false,
+      "HasActiveBoost": false,
+      "AccountLevel": 324,
+      "PartyValue": 31516489024713,
+      "ComputerDifficulty": "elite",
+      "MatchAwards": [],
+      "HeroTalents": [
+        {
+          "TalentSlotId": 0,
+          "TalentNameId": "FalstadHammerangGatheringStorm",
+          "Timestamp": "00:00:40.8125000"
+        },
+        {
+          "TalentSlotId": 5,
+          "TalentNameId": "FalstadTalentHammerGains",
+          "Timestamp": "00:02:59.5625000"
+        },
+        {
+          "TalentSlotId": 7,
+          "TalentNameId": "FalstadHammerangBOOMerang",
+          "Timestamp": "00:04:42.7500000"
+        },
+        {
+          "TalentSlotId": 10,
+          "TalentNameId": "FalstadHeroicAbilityMightyGust",
+          "Timestamp": "00:07:16.0625000"
+        },
+        {
+          "TalentSlotId": 12,
+          "TalentNameId": "FalstadMasteryBarrelRollFlowRider",
+          "Timestamp": "00:10:03.6875000"
+        },
+        {
+          "TalentSlotId": 15,
+          "TalentNameId": "FalstadMasteryAerieGustsTailwind",
+          "Timestamp": "00:12:59.1250000"
+        }
+      ],
+      "Disconnects": [],
+      "ScoreResult": {
+        "MiscellaneousScoreResultEvents": {
+          "TeamTakedowns": 0,
+          "Role": 0,
+          "KilledTreasureGoblin": 0,
+          "GameScore": 0,
+          "TeamLevel": 19,
+          "EndOfMatchAwardGivenToNonwinner": 0,
+          "LunarNewYearSuccesfulArtifactTurnIns": 0,
+          "TimeOnPoint": 0,
+          "CageUnlocksInterrupted": 0,
+          "GardenSeedsCollectedByPlayer": 0,
+          "TeamWinsDiablo": 0,
+          "TeamWinsFemale": 0,
+          "TeamWinsMale": 0,
+          "TeamWinsStarCraft": 0,
+          "TeamWinsWarcraft": 0,
+          "WinsWarrior": 0,
+          "WinsAssassin": 0,
+          "WinsSupport": 0,
+          "WinsSpecialist": 0,
+          "WinsStarCraft": 0,
+          "WinsDiablo": 0,
+          "WinsWarcraft": 0,
+          "WinsMale": 0,
+          "WinsFemale": 0,
+          "PlaysStarCraft": 0,
+          "PlaysDiablo": 0,
+          "PlaysOverwatch": 0,
+          "PlaysWarCraft": 1,
+          "PlaysNexus": 0,
+          "PlaysOverwatchOrNexus": 0,
+          "PlaysWarrior": 0,
+          "PlaysAssassin": 1,
+          "PlaysSupport": 0,
+          "PlaysSpecialist": 0,
+          "PlaysMale": 1,
+          "PlaysFemale": 0,
+          "LunarNewYearEventCompleted": 0,
+          "StarcraftDailyEventCompleted": 0,
+          "StarcraftPiecesCollected": 0,
+          "LunarNewYearRoosterEventCompleted": 0,
+          "TouchByBlightPlague": 0,
+          "PachimariMania": 0,
+          "LessThan4Deaths": 1,
+          "LessThan3TownStructuresLost": 0,
+          "GemsTurnedIn": 53
+        },
+        "NewScoreResultEvents": {},
+        "Level": 19,
+        "Takedowns": 7,
+        "SoloKills": 2,
+        "Assists": 4,
+        "Deaths": 1,
+        "HeroDamage": 39306,
+        "SiegeDamage": 100362,
+        "StructureDamage": 1774,
+        "MinionDamage": 85240,
+        "CreepDamage": 0,
+        "SummonDamage": 2117,
+        "TimeCCdEnemyHeroes": "00:02:34",
+        "Healing": 0,
+        "SelfHealing": 6205,
+        "DamageTaken": 23808,
+        "DamageSoaked": 22389,
+        "ExperienceContribution": 13428,
+        "TownKills": 0,
+        "TimeSpentDead": "00:00:15",
+        "MercCampCaptures": 0,
+        "WatchTowerCaptures": 0,
+        "MetaExperience": 69606,
+        "PhysicalDamage": 47151,
+        "SpellDamage": 97689,
+        "OnFireTimeonFire": "00:00:40",
+        "MinionKills": 95,
+        "RegenGlobes": 30,
+        "Tier1Talent": 1,
+        "Tier4Talent": 3,
+        "Tier7Talent": 2,
+        "Tier10Talent": 2,
+        "Tier13Talent": 2,
+        "Tier16Talent": 2,
+        "Tier20Talent": null,
+        "HighestKillStreak": 9,
+        "ProtectionGivenToAllies": 0,
+        "TimeSilencingEnemyHeroes": "00:00:00",
+        "TimeRootingEnemyHeroes": "00:00:00",
+        "TimeStunningEnemyHeroes": "00:00:00",
+        "ClutchHealsPerformed": 0,
+        "EscapesPerformed": 1,
+        "VengeancesPerformed": 0,
+        "OutnumberedDeaths": 0,
+        "TeamfightEscapesPerformed": 0,
+        "TeamfightHealingDone": 0,
+        "TeamfightDamageTaken": 10043,
+        "TeamfightHeroDamage": 20783,
+        "Multikill": 1
+      }
+    },
+    {
+      "Name": "Orange",
+      "BattleTagName": "Orange#5555",
+      "PlayerToonId": "1-Hero-1-9999999",
+      "PlayerShortcutId": "T:98989898#900",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroId": "Artanis",
+        "HeroUnitId": "HeroArtanis",
+        "HeroName": "Artanis",
+        "HeroAttributeId": "Arts",
+        "HeroLevel": 20
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTint": "ArtanisCraft20Var2",
+        "SkinAndSkinTintAttributeId": "ATC2",
+        "MountAndMountTint": "HeadlessHorsemanHorseBlue",
+        "MountAndMountTintAttributeId": "Hhh2",
+        "Banner": "BannerWCTaurenRare",
+        "BannerAttributeId": "BN40",
+        "Spray": "SprayStaticCarbotsXul",
+        "SprayAttributeId": "SY0U",
+        "AnnouncerPack": "FalstadA",
+        "AnnouncerPackAttributeId": "FALS",
+        "VoiceLine": "ArtanisBase_VoiceLine01",
+        "VoiceLineAttributeId": "AR01"
+      },
+      "HeroMasteryTier": [
+        {
+          "HeroAttributeId": "Arts",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Demo",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Diab",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Drya",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Fals",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Jain",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Kael",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Rayn",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Sylv",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Vari",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Witc",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "ZULJ",
+          "TierLevel": 4
+        }
+      ],
+      "Team": "blue",
+      "Handicap": 0,
+      "IsWinner": false,
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "IsAutoSelect": false,
+      "HasActiveBoost": false,
+      "AccountLevel": 1539,
+      "PartyValue": 31516489024713,
+      "ComputerDifficulty": "elite",
+      "MatchAwards": [],
+      "HeroTalents": [
+        {
+          "TalentSlotId": 2,
+          "TalentNameId": "ArtanisProtectorOfAiur",
+          "Timestamp": "00:00:49.7500000"
+        },
+        {
+          "TalentSlotId": 5,
+          "TalentNameId": "ArtanisShieldOverloadShieldSurge",
+          "Timestamp": "00:04:01.2500000"
+        },
+        {
+          "TalentSlotId": 7,
+          "TalentNameId": "ArtanisPhasePrismChronoSurge",
+          "Timestamp": "00:04:55.5000000"
+        },
+        {
+          "TalentSlotId": 9,
+          "TalentNameId": "ArtanisHeroicAbilitySpearofAdunSuppressionPulse",
+          "Timestamp": "00:07:22.8125000"
+        },
+        {
+          "TalentSlotId": 12,
+          "TalentNameId": "ArtanisTwinBladesTripleStrike",
+          "Timestamp": "00:10:24.1250000"
+        },
+        {
+          "TalentSlotId": 15,
+          "TalentNameId": "ArtanisTwinBladesTitanKiller",
+          "Timestamp": "00:13:34.1875000"
+        }
+      ],
+      "Disconnects": [],
+      "ScoreResult": {
+        "MiscellaneousScoreResultEvents": {
+          "TeamTakedowns": 0,
+          "Role": 0,
+          "KilledTreasureGoblin": 0,
+          "GameScore": 0,
+          "TeamLevel": 19,
+          "EndOfMatchAwardGivenToNonwinner": 0,
+          "LunarNewYearSuccesfulArtifactTurnIns": 0,
+          "TimeOnPoint": 0,
+          "CageUnlocksInterrupted": 0,
+          "GardenSeedsCollectedByPlayer": 0,
+          "TeamWinsDiablo": 0,
+          "TeamWinsFemale": 0,
+          "TeamWinsMale": 0,
+          "TeamWinsStarCraft": 0,
+          "TeamWinsWarcraft": 0,
+          "WinsWarrior": 0,
+          "WinsAssassin": 0,
+          "WinsSupport": 0,
+          "WinsSpecialist": 0,
+          "WinsStarCraft": 0,
+          "WinsDiablo": 0,
+          "WinsWarcraft": 0,
+          "WinsMale": 0,
+          "WinsFemale": 0,
+          "PlaysStarCraft": 1,
+          "PlaysDiablo": 0,
+          "PlaysOverwatch": 0,
+          "PlaysWarCraft": 0,
+          "PlaysNexus": 0,
+          "PlaysOverwatchOrNexus": 0,
+          "PlaysWarrior": 1,
+          "PlaysAssassin": 0,
+          "PlaysSupport": 0,
+          "PlaysSpecialist": 0,
+          "PlaysMale": 1,
+          "PlaysFemale": 0,
+          "LunarNewYearEventCompleted": 0,
+          "StarcraftDailyEventCompleted": 0,
+          "StarcraftPiecesCollected": 0,
+          "LunarNewYearRoosterEventCompleted": 0,
+          "TouchByBlightPlague": 0,
+          "PachimariMania": 0,
+          "LessThan4Deaths": 1,
+          "LessThan3TownStructuresLost": 0,
+          "GemsTurnedIn": 5
+        },
+        "NewScoreResultEvents": {},
+        "Level": 19,
+        "Takedowns": 8,
+        "SoloKills": 1,
+        "Assists": 7,
+        "Deaths": 1,
+        "HeroDamage": 34183,
+        "SiegeDamage": 62901,
+        "StructureDamage": 350,
+        "MinionDamage": 52423,
+        "CreepDamage": 534,
+        "SummonDamage": 976,
+        "TimeCCdEnemyHeroes": "00:00:16",
+        "Healing": 0,
+        "SelfHealing": 9852,
+        "DamageTaken": 41426,
+        "DamageSoaked": 37112,
+        "ExperienceContribution": 12114,
+        "TownKills": 0,
+        "TimeSpentDead": "00:00:36",
+        "MercCampCaptures": 1,
+        "WatchTowerCaptures": 0,
+        "MetaExperience": 69606,
+        "PhysicalDamage": 65137,
+        "SpellDamage": 40533,
+        "OnFireTimeonFire": "00:00:33",
+        "MinionKills": 68,
+        "RegenGlobes": 31,
+        "Tier1Talent": 3,
+        "Tier4Talent": 3,
+        "Tier7Talent": 2,
+        "Tier10Talent": 1,
+        "Tier13Talent": 2,
+        "Tier16Talent": 1,
+        "Tier20Talent": null,
+        "HighestKillStreak": 5,
+        "ProtectionGivenToAllies": 0,
+        "TimeSilencingEnemyHeroes": "00:00:00",
+        "TimeRootingEnemyHeroes": "00:00:00",
+        "TimeStunningEnemyHeroes": "00:00:00",
+        "ClutchHealsPerformed": 0,
+        "EscapesPerformed": 0,
+        "VengeancesPerformed": 0,
+        "OutnumberedDeaths": 1,
+        "TeamfightEscapesPerformed": 0,
+        "TeamfightHealingDone": 0,
+        "TeamfightDamageTaken": 25014,
+        "TeamfightHeroDamage": 24557,
+        "Multikill": 2
+      }
+    },
+    {
+      "Name": "Grapefruit",
+      "BattleTagName": "Grapefruit#6666",
+      "PlayerToonId": "1-Hero-1-76666666",
+      "PlayerShortcutId": "T:120000000#100",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroId": "LostVikings",
+        "HeroUnitId": "HeroLostVikingsController",
+        "HeroName": "The Lost Vikings",
+        "HeroAttributeId": "Lost",
+        "HeroLevel": 20
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTint": "LostVikingsUltimate",
+        "SkinAndSkinTintAttributeId": "Lvk7",
+        "MountAndMountTint": "",
+        "MountAndMountTintAttributeId": "",
+        "Banner": "BannerDefault",
+        "BannerAttributeId": "BN17",
+        "Spray": "SprayStaticFluidDefault",
+        "SprayAttributeId": "SYDF",
+        "AnnouncerPack": "NoAnnouncerPack",
+        "AnnouncerPackAttributeId": "NoAP",
+        "VoiceLine": "LostVikingsBase_VoiceLine01",
+        "VoiceLineAttributeId": "LO01"
+      },
+      "HeroMasteryTier": [
+        {
+          "HeroAttributeId": "Abat",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "CCho",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Chen",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "DECK",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "KelT",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Lost",
+          "TierLevel": 4
+        },
+        {
+          "HeroAttributeId": "Medi",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Prob",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Samu",
+          "TierLevel": 3
+        }
+      ],
+      "Team": "red",
+      "Handicap": 0,
+      "IsWinner": true,
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "IsAutoSelect": false,
+      "HasActiveBoost": false,
+      "AccountLevel": 1485,
+      "PartyValue": null,
+      "ComputerDifficulty": "elite",
+      "MatchAwards": [
+        "mvp"
+      ],
+      "HeroTalents": [
+        {
+          "TalentSlotId": 2,
+          "TalentNameId": "LostVikingsMasteryExplosiveAttacks",
+          "Timestamp": "00:00:37.5625000"
+        },
+        {
+          "TalentSlotId": 4,
+          "TalentNameId": "LostVikingsMasteryPainDontHurt",
+          "Timestamp": "00:02:44.0625000"
+        },
+        {
+          "TalentSlotId": 9,
+          "TalentNameId": "LostVikingsMasterySpinToWin",
+          "Timestamp": "00:05:06.1250000"
+        },
+        {
+          "TalentSlotId": 12,
+          "TalentNameId": "LostVikingsHeroicAbilityPlayAgain",
+          "Timestamp": "00:06:27.1250000"
+        },
+        {
+          "TalentSlotId": 14,
+          "TalentNameId": "LostVikingsMasteryJump",
+          "Timestamp": "00:09:09.1250000"
+        },
+        {
+          "TalentSlotId": 16,
+          "TalentNameId": "LostVikingsMasteryLargeAndInCharge",
+          "Timestamp": "00:11:28"
+        },
+        {
+          "TalentSlotId": 23,
+          "TalentNameId": "LostVikingsTalentFuryoftheStorm",
+          "Timestamp": "00:15:52.3750000"
+        }
+      ],
+      "Disconnects": [],
+      "ScoreResult": {
+        "MiscellaneousScoreResultEvents": {
+          "TeamTakedowns": 10,
+          "Role": 0,
+          "KilledTreasureGoblin": 0,
+          "GameScore": 0,
+          "TeamLevel": 21,
+          "EndOfMatchAwardGivenToNonwinner": 0,
+          "LunarNewYearSuccesfulArtifactTurnIns": 0,
+          "TimeOnPoint": 0,
+          "CageUnlocksInterrupted": 0,
+          "GardenSeedsCollectedByPlayer": 0,
+          "TeamWinsDiablo": 0,
+          "TeamWinsFemale": 0,
+          "TeamWinsMale": 0,
+          "TeamWinsStarCraft": 0,
+          "TeamWinsWarcraft": 0,
+          "WinsWarrior": 0,
+          "WinsAssassin": 0,
+          "WinsSupport": 1,
+          "WinsSpecialist": 0,
+          "WinsStarCraft": 0,
+          "WinsDiablo": 0,
+          "WinsWarcraft": 0,
+          "WinsMale": 1,
+          "WinsFemale": 0,
+          "PlaysStarCraft": 0,
+          "PlaysDiablo": 0,
+          "PlaysOverwatch": 0,
+          "PlaysWarCraft": 0,
+          "PlaysNexus": 1,
+          "PlaysOverwatchOrNexus": 1,
+          "PlaysWarrior": 0,
+          "PlaysAssassin": 0,
+          "PlaysSupport": 1,
+          "PlaysSpecialist": 0,
+          "PlaysMale": 1,
+          "PlaysFemale": 0,
+          "LunarNewYearEventCompleted": 0,
+          "StarcraftDailyEventCompleted": 0,
+          "StarcraftPiecesCollected": 0,
+          "LunarNewYearRoosterEventCompleted": 0,
+          "TouchByBlightPlague": 0,
+          "PachimariMania": 0,
+          "LessThan4Deaths": 1,
+          "LessThan3TownStructuresLost": 1,
+          "GemsTurnedIn": 62
+        },
+        "NewScoreResultEvents": {},
+        "Level": 21,
+        "Takedowns": 11,
+        "SoloKills": 2,
+        "Assists": 9,
+        "Deaths": 1,
+        "HeroDamage": 21997,
+        "SiegeDamage": 102925,
+        "StructureDamage": 18701,
+        "MinionDamage": 81691,
+        "CreepDamage": 24290,
+        "SummonDamage": 2246,
+        "TimeCCdEnemyHeroes": "00:01:13",
+        "Healing": 0,
+        "SelfHealing": 26330,
+        "DamageTaken": 60541,
+        "DamageSoaked": 60541,
+        "ExperienceContribution": 19354,
+        "TownKills": 4,
+        "TimeSpentDead": "00:00:00",
+        "MercCampCaptures": 4,
+        "WatchTowerCaptures": 0,
+        "MetaExperience": 81326,
+        "PhysicalDamage": 124687,
+        "SpellDamage": 27886,
+        "OnFireTimeonFire": "00:00:36",
+        "MinionKills": 100,
+        "RegenGlobes": 74,
+        "Tier1Talent": 3,
+        "Tier4Talent": 1,
+        "Tier7Talent": 2,
+        "Tier10Talent": 2,
+        "Tier13Talent": 2,
+        "Tier16Talent": 1,
+        "Tier20Talent": 4,
+        "HighestKillStreak": 7,
+        "ProtectionGivenToAllies": 0,
+        "TimeSilencingEnemyHeroes": "00:00:00",
+        "TimeRootingEnemyHeroes": "00:00:00",
+        "TimeStunningEnemyHeroes": "00:00:10",
+        "ClutchHealsPerformed": 0,
+        "EscapesPerformed": 0,
+        "VengeancesPerformed": 2,
+        "OutnumberedDeaths": 0,
+        "TeamfightEscapesPerformed": 0,
+        "TeamfightHealingDone": 0,
+        "TeamfightDamageTaken": 26543,
+        "TeamfightHeroDamage": 12015,
+        "Multikill": 0
+      }
+    },
+    {
+      "Name": "Avacado",
+      "BattleTagName": "Avacado#7777",
+      "PlayerToonId": "1-Hero-1-4577777",
+      "PlayerShortcutId": "T:777777777#540",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroId": "Sylvanas",
+        "HeroUnitId": "HeroSylvanas",
+        "HeroName": "Sylvanas",
+        "HeroAttributeId": "Sylv",
+        "HeroLevel": 7
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTint": "SylvanasLegionVar2",
+        "SkinAndSkinTintAttributeId": "Syl8",
+        "MountAndMountTint": "HorseAlmond",
+        "MountAndMountTintAttributeId": "Hor1",
+        "Banner": "BannerDefault",
+        "BannerAttributeId": "BN17",
+        "Spray": "SprayAnimatedCartoonFalstad",
+        "SprayAttributeId": "SY77",
+        "AnnouncerPack": "NoAnnouncerPack",
+        "AnnouncerPackAttributeId": "NoAP",
+        "VoiceLine": "SylvanasBase_VoiceLine01",
+        "VoiceLineAttributeId": "SV01"
+      },
+      "HeroMasteryTier": [
+        {
+          "HeroAttributeId": "Andu",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Faer",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Luci",
+          "TierLevel": 2
+        }
+      ],
+      "Team": "red",
+      "Handicap": 0,
+      "IsWinner": true,
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "IsAutoSelect": false,
+      "HasActiveBoost": false,
+      "AccountLevel": 230,
+      "PartyValue": 30750561767449,
+      "ComputerDifficulty": "elite",
+      "MatchAwards": [],
+      "HeroTalents": [
+        {
+          "TalentSlotId": 1,
+          "TalentNameId": "SylvanasUnfurlingShadowsShadowDagger",
+          "Timestamp": "00:00:44.4375000"
+        },
+        {
+          "TalentSlotId": 3,
+          "TalentNameId": "SylvanasTalentUnstablePoison",
+          "Timestamp": "00:02:48.5000000"
+        },
+        {
+          "TalentSlotId": 8,
+          "TalentNameId": "SylvanasTalentFesteringWounds",
+          "Timestamp": "00:04:19"
+        },
+        {
+          "TalentSlotId": 10,
+          "TalentNameId": "SylvanasMindControl",
+          "Timestamp": "00:06:27.2500000"
+        },
+        {
+          "TalentSlotId": 11,
+          "TalentNameId": "SylvanasTalentColdEmbrace",
+          "Timestamp": "00:09:19.7500000"
+        },
+        {
+          "TalentSlotId": 16,
+          "TalentNameId": "SylvanasTalentWillOfTheForsaken",
+          "Timestamp": "00:11:23.8750000"
+        },
+        {
+          "TalentSlotId": 20,
+          "TalentNameId": "GenericTalentFlashoftheStorms",
+          "Timestamp": "00:16:39.5000000"
+        }
+      ],
+      "Disconnects": [],
+      "ScoreResult": {
+        "MiscellaneousScoreResultEvents": {
+          "TeamTakedowns": 0,
+          "Role": 0,
+          "KilledTreasureGoblin": 0,
+          "GameScore": 0,
+          "TeamLevel": 21,
+          "EndOfMatchAwardGivenToNonwinner": 0,
+          "LunarNewYearSuccesfulArtifactTurnIns": 0,
+          "TimeOnPoint": 0,
+          "CageUnlocksInterrupted": 0,
+          "GardenSeedsCollectedByPlayer": 0,
+          "TeamWinsDiablo": 0,
+          "TeamWinsFemale": 0,
+          "TeamWinsMale": 0,
+          "TeamWinsStarCraft": 0,
+          "TeamWinsWarcraft": 0,
+          "WinsWarrior": 0,
+          "WinsAssassin": 1,
+          "WinsSupport": 0,
+          "WinsSpecialist": 0,
+          "WinsStarCraft": 0,
+          "WinsDiablo": 0,
+          "WinsWarcraft": 1,
+          "WinsMale": 0,
+          "WinsFemale": 1,
+          "PlaysStarCraft": 0,
+          "PlaysDiablo": 0,
+          "PlaysOverwatch": 0,
+          "PlaysWarCraft": 1,
+          "PlaysNexus": 0,
+          "PlaysOverwatchOrNexus": 0,
+          "PlaysWarrior": 0,
+          "PlaysAssassin": 1,
+          "PlaysSupport": 0,
+          "PlaysSpecialist": 0,
+          "PlaysMale": 0,
+          "PlaysFemale": 1,
+          "LunarNewYearEventCompleted": 0,
+          "StarcraftDailyEventCompleted": 0,
+          "StarcraftPiecesCollected": 0,
+          "LunarNewYearRoosterEventCompleted": 0,
+          "TouchByBlightPlague": 0,
+          "PachimariMania": 0,
+          "LessThan4Deaths": 0,
+          "LessThan3TownStructuresLost": 1,
+          "GemsTurnedIn": 2
+        },
+        "NewScoreResultEvents": {},
+        "Level": 21,
+        "Takedowns": 12,
+        "SoloKills": 6,
+        "Assists": 6,
+        "Deaths": 4,
+        "HeroDamage": 34081,
+        "SiegeDamage": 75756,
+        "StructureDamage": 21177,
+        "MinionDamage": 50408,
+        "CreepDamage": 4456,
+        "SummonDamage": 1347,
+        "TimeCCdEnemyHeroes": "00:00:05",
+        "Healing": 0,
+        "SelfHealing": 0,
+        "DamageTaken": 31231,
+        "DamageSoaked": 19949,
+        "ExperienceContribution": 8763,
+        "TownKills": 4,
+        "TimeSpentDead": "00:02:33",
+        "MercCampCaptures": 1,
+        "WatchTowerCaptures": 0,
+        "MetaExperience": 81326,
+        "PhysicalDamage": 47212,
+        "SpellDamage": 70100,
+        "OnFireTimeonFire": "00:00:27",
+        "MinionKills": 63,
+        "RegenGlobes": 24,
+        "Tier1Talent": 2,
+        "Tier4Talent": 1,
+        "Tier7Talent": 3,
+        "Tier10Talent": 2,
+        "Tier13Talent": 1,
+        "Tier16Talent": 3,
+        "Tier20Talent": 4,
+        "HighestKillStreak": 6,
+        "ProtectionGivenToAllies": 0,
+        "TimeSilencingEnemyHeroes": "00:00:05",
+        "TimeRootingEnemyHeroes": "00:00:00",
+        "TimeStunningEnemyHeroes": "00:00:00",
+        "ClutchHealsPerformed": 0,
+        "EscapesPerformed": 1,
+        "VengeancesPerformed": 1,
+        "OutnumberedDeaths": 1,
+        "TeamfightEscapesPerformed": 1,
+        "TeamfightHealingDone": 0,
+        "TeamfightDamageTaken": 19122,
+        "TeamfightHeroDamage": 17328,
+        "Multikill": 0
+      }
+    },
+    {
+      "Name": "Strawberries",
+      "BattleTagName": "Strawberries#8888",
+      "PlayerToonId": "1-Hero-1-78787878",
+      "PlayerShortcutId": "T:44444444#460",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroId": "Thrall",
+        "HeroUnitId": "HeroThrall",
+        "HeroName": "Thrall",
+        "HeroAttributeId": "Thra",
+        "HeroLevel": 8
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTint": "ThrallUltimateWhite",
+        "SkinAndSkinTintAttributeId": "Thr6",
+        "MountAndMountTint": "MountBearRank21S1",
+        "MountAndMountTintAttributeId": "BEA9",
+        "Banner": "BannerDefault",
+        "BannerAttributeId": "BN17",
+        "Spray": "SprayStaticFluidDefault",
+        "SprayAttributeId": "SYDF",
+        "AnnouncerPack": "NoAnnouncerPack",
+        "AnnouncerPackAttributeId": "NoAP",
+        "VoiceLine": "ThrallBase_VoiceLine01",
+        "VoiceLineAttributeId": "TH01"
+      },
+      "HeroMasteryTier": [
+        {
+          "HeroAttributeId": "Abat",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Andu",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Chro",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Demo",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Faer",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Fals",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Genn",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Leor",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Malf",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Necr",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Rayn",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Rexx",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Tass",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Witc",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Wiza",
+          "TierLevel": 1
+        }
+      ],
+      "Team": "red",
+      "Handicap": 0,
+      "IsWinner": true,
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "IsAutoSelect": false,
+      "HasActiveBoost": false,
+      "AccountLevel": 859,
+      "PartyValue": 30750561767449,
+      "ComputerDifficulty": "elite",
+      "MatchAwards": [],
+      "HeroTalents": [
+        {
+          "TalentSlotId": 1,
+          "TalentNameId": "ThrallCrashLightning",
+          "Timestamp": "00:01:03"
+        },
+        {
+          "TalentSlotId": 4,
+          "TalentNameId": "ThrallFrostwolfPack",
+          "Timestamp": "00:02:53.6250000"
+        },
+        {
+          "TalentSlotId": 6,
+          "TalentNameId": "ThrallMaelstromWeapon",
+          "Timestamp": "00:04:23"
+        },
+        {
+          "TalentSlotId": 9,
+          "TalentNameId": "ThrallHeroicAbilitySundering",
+          "Timestamp": "00:06:37.1250000"
+        },
+        {
+          "TalentSlotId": 11,
+          "TalentNameId": "ThrallMasteryGraceOfAir",
+          "Timestamp": "00:09:18.4375000"
+        },
+        {
+          "TalentSlotId": 16,
+          "TalentNameId": "ThrallAlphaWolf",
+          "Timestamp": "00:12:01.1250000"
+        },
+        {
+          "TalentSlotId": 19,
+          "TalentNameId": "ThrallElementalMomentum",
+          "Timestamp": "00:16:16.1875000"
+        }
+      ],
+      "Disconnects": [],
+      "ScoreResult": {
+        "MiscellaneousScoreResultEvents": {
+          "TeamTakedowns": 0,
+          "Role": 0,
+          "KilledTreasureGoblin": 0,
+          "GameScore": 0,
+          "TeamLevel": 21,
+          "EndOfMatchAwardGivenToNonwinner": 0,
+          "LunarNewYearSuccesfulArtifactTurnIns": 0,
+          "TimeOnPoint": 0,
+          "CageUnlocksInterrupted": 0,
+          "GardenSeedsCollectedByPlayer": 0,
+          "TeamWinsDiablo": 0,
+          "TeamWinsFemale": 0,
+          "TeamWinsMale": 0,
+          "TeamWinsStarCraft": 0,
+          "TeamWinsWarcraft": 0,
+          "WinsWarrior": 1,
+          "WinsAssassin": 0,
+          "WinsSupport": 0,
+          "WinsSpecialist": 0,
+          "WinsStarCraft": 0,
+          "WinsDiablo": 0,
+          "WinsWarcraft": 1,
+          "WinsMale": 1,
+          "WinsFemale": 0,
+          "PlaysStarCraft": 0,
+          "PlaysDiablo": 0,
+          "PlaysOverwatch": 0,
+          "PlaysWarCraft": 1,
+          "PlaysNexus": 0,
+          "PlaysOverwatchOrNexus": 0,
+          "PlaysWarrior": 1,
+          "PlaysAssassin": 0,
+          "PlaysSupport": 0,
+          "PlaysSpecialist": 0,
+          "PlaysMale": 1,
+          "PlaysFemale": 0,
+          "LunarNewYearEventCompleted": 0,
+          "StarcraftDailyEventCompleted": 0,
+          "StarcraftPiecesCollected": 0,
+          "LunarNewYearRoosterEventCompleted": 0,
+          "TouchByBlightPlague": 0,
+          "PachimariMania": 0,
+          "LessThan4Deaths": 1,
+          "LessThan3TownStructuresLost": 1,
+          "GemsTurnedIn": 24
+        },
+        "NewScoreResultEvents": {},
+        "Level": 21,
+        "Takedowns": 10,
+        "SoloKills": 0,
+        "Assists": 10,
+        "Deaths": 2,
+        "HeroDamage": 36803,
+        "SiegeDamage": 56082,
+        "StructureDamage": 13672,
+        "MinionDamage": 35378,
+        "CreepDamage": 13346,
+        "SummonDamage": 1181,
+        "TimeCCdEnemyHeroes": "00:00:38",
+        "Healing": 0,
+        "SelfHealing": 15786,
+        "DamageTaken": 41895,
+        "DamageSoaked": 35745,
+        "ExperienceContribution": 7381,
+        "TownKills": 3,
+        "TimeSpentDead": "00:01:15",
+        "MercCampCaptures": 1,
+        "WatchTowerCaptures": 0,
+        "MetaExperience": 81326,
+        "PhysicalDamage": 41121,
+        "SpellDamage": 71106,
+        "OnFireTimeonFire": "00:00:00",
+        "MinionKills": 36,
+        "RegenGlobes": 29,
+        "Tier1Talent": 2,
+        "Tier4Talent": 2,
+        "Tier7Talent": 1,
+        "Tier10Talent": 1,
+        "Tier13Talent": 1,
+        "Tier16Talent": 3,
+        "Tier20Talent": 3,
+        "HighestKillStreak": 6,
+        "ProtectionGivenToAllies": 0,
+        "TimeSilencingEnemyHeroes": "00:00:00",
+        "TimeRootingEnemyHeroes": "00:00:28",
+        "TimeStunningEnemyHeroes": "00:00:10",
+        "ClutchHealsPerformed": 0,
+        "EscapesPerformed": 2,
+        "VengeancesPerformed": 0,
+        "OutnumberedDeaths": 1,
+        "TeamfightEscapesPerformed": 1,
+        "TeamfightHealingDone": 0,
+        "TeamfightDamageTaken": 28214,
+        "TeamfightHeroDamage": 22124,
+        "Multikill": 0
+      }
+    },
+    {
+      "Name": "Lemon",
+      "BattleTagName": "Lemon#9999",
+      "PlayerToonId": "1-Hero-1-77777777",
+      "PlayerShortcutId": "T:65555555#822",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroId": "Monk",
+        "HeroUnitId": "HeroMonk",
+        "HeroName": "Kharazim",
+        "HeroAttributeId": "Monk",
+        "HeroLevel": 10
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTint": "MonkSummer18",
+        "SkinAndSkinTintAttributeId": "MnkC",
+        "MountAndMountTint": "MountCloudWhimsyVar4",
+        "MountAndMountTintAttributeId": "CLW4",
+        "Banner": "BannerDF65YearAnniversary",
+        "BannerAttributeId": "BNc8",
+        "Spray": "SprayAnimatedOWRaynor2076",
+        "SprayAttributeId": "SY8p",
+        "AnnouncerPack": "DVaAnnouncer",
+        "AnnouncerPackAttributeId": "ADVA",
+        "VoiceLine": "MonkBase_VoiceLine01",
+        "VoiceLineAttributeId": "MO01"
+      },
+      "HeroMasteryTier": [
+        {
+          "HeroAttributeId": "Crus",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Diab",
+          "TierLevel": 1
+        }
+      ],
+      "Team": "red",
+      "Handicap": 0,
+      "IsWinner": true,
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "IsAutoSelect": false,
+      "HasActiveBoost": false,
+      "AccountLevel": 252,
+      "PartyValue": 30750561767449,
+      "ComputerDifficulty": "elite",
+      "MatchAwards": [
+        "clutchHealer"
+      ],
+      "HeroTalents": [
+        {
+          "TalentSlotId": 1,
+          "TalentNameId": "MonkIronFists",
+          "Timestamp": "00:00:21.7500000"
+        },
+        {
+          "TalentSlotId": 4,
+          "TalentNameId": "MonkEarthAlly",
+          "Timestamp": "00:02:42.8125000"
+        },
+        {
+          "TalentSlotId": 6,
+          "TalentNameId": "MonkBlindingSpeedRadiantDash",
+          "Timestamp": "00:04:58.8750000"
+        },
+        {
+          "TalentSlotId": 9,
+          "TalentNameId": "MonkHeroicAbilityDivinePalm",
+          "Timestamp": "00:06:27.1250000"
+        },
+        {
+          "TalentSlotId": 11,
+          "TalentNameId": "MonkQuicksilverRadiantDash",
+          "Timestamp": "00:10:28.8750000"
+        },
+        {
+          "TalentSlotId": 14,
+          "TalentNameId": "MonkCleansingTouchRadiantDash",
+          "Timestamp": "00:12:49.3125000"
+        },
+        {
+          "TalentSlotId": 17,
+          "TalentNameId": "MonkPeacefulReposeDivinePalm",
+          "Timestamp": "00:16:36.4375000"
+        }
+      ],
+      "Disconnects": [],
+      "ScoreResult": {
+        "MiscellaneousScoreResultEvents": {
+          "TeamTakedowns": 0,
+          "Role": 0,
+          "KilledTreasureGoblin": 0,
+          "GameScore": 0,
+          "TeamLevel": 21,
+          "EndOfMatchAwardGivenToNonwinner": 0,
+          "LunarNewYearSuccesfulArtifactTurnIns": 0,
+          "TimeOnPoint": 0,
+          "CageUnlocksInterrupted": 0,
+          "GardenSeedsCollectedByPlayer": 0,
+          "TeamWinsDiablo": 0,
+          "TeamWinsFemale": 0,
+          "TeamWinsMale": 0,
+          "TeamWinsStarCraft": 0,
+          "TeamWinsWarcraft": 0,
+          "WinsWarrior": 0,
+          "WinsAssassin": 0,
+          "WinsSupport": 1,
+          "WinsSpecialist": 0,
+          "WinsStarCraft": 0,
+          "WinsDiablo": 1,
+          "WinsWarcraft": 0,
+          "WinsMale": 1,
+          "WinsFemale": 0,
+          "PlaysStarCraft": 0,
+          "PlaysDiablo": 1,
+          "PlaysOverwatch": 0,
+          "PlaysWarCraft": 0,
+          "PlaysNexus": 0,
+          "PlaysOverwatchOrNexus": 0,
+          "PlaysWarrior": 0,
+          "PlaysAssassin": 0,
+          "PlaysSupport": 1,
+          "PlaysSpecialist": 0,
+          "PlaysMale": 1,
+          "PlaysFemale": 0,
+          "LunarNewYearEventCompleted": 0,
+          "StarcraftDailyEventCompleted": 0,
+          "StarcraftPiecesCollected": 0,
+          "LunarNewYearRoosterEventCompleted": 0,
+          "TouchByBlightPlague": 0,
+          "PachimariMania": 0,
+          "LessThan4Deaths": 1,
+          "LessThan3TownStructuresLost": 1,
+          "GemsTurnedIn": 54
+        },
+        "NewScoreResultEvents": {},
+        "Level": 21,
+        "Takedowns": 13,
+        "SoloKills": 4,
+        "Assists": 9,
+        "Deaths": 1,
+        "HeroDamage": 16806,
+        "SiegeDamage": 27957,
+        "StructureDamage": 13274,
+        "MinionDamage": 11771,
+        "CreepDamage": 5644,
+        "SummonDamage": 240,
+        "TimeCCdEnemyHeroes": "00:00:06",
+        "Healing": 54682,
+        "SelfHealing": 0,
+        "DamageTaken": 35595,
+        "DamageSoaked": 31322,
+        "ExperienceContribution": 7111,
+        "TownKills": 6,
+        "TimeSpentDead": "00:01:02",
+        "MercCampCaptures": 1,
+        "WatchTowerCaptures": 0,
+        "MetaExperience": 81326,
+        "PhysicalDamage": 53843,
+        "SpellDamage": 0,
+        "OnFireTimeonFire": "00:00:00",
+        "MinionKills": 29,
+        "RegenGlobes": 26,
+        "Tier1Talent": 2,
+        "Tier4Talent": 2,
+        "Tier7Talent": 1,
+        "Tier10Talent": 1,
+        "Tier13Talent": 1,
+        "Tier16Talent": 1,
+        "Tier20Talent": 1,
+        "HighestKillStreak": 12,
+        "ProtectionGivenToAllies": 0,
+        "TimeSilencingEnemyHeroes": "00:00:00",
+        "TimeRootingEnemyHeroes": "00:00:00",
+        "TimeStunningEnemyHeroes": "00:00:00",
+        "ClutchHealsPerformed": 4,
+        "EscapesPerformed": 0,
+        "VengeancesPerformed": 0,
+        "OutnumberedDeaths": 1,
+        "TeamfightEscapesPerformed": 0,
+        "TeamfightHealingDone": 14603,
+        "TeamfightDamageTaken": 16946,
+        "TeamfightHeroDamage": 9216,
+        "Multikill": 0
+      }
+    },
+    {
+      "Name": "Olive",
+      "BattleTagName": "Olive#0000",
+      "PlayerToonId": "1-Hero-1-123123123",
+      "PlayerShortcutId": "T:2132132131#111",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroId": "Hogger",
+        "HeroUnitId": "HeroHogger",
+        "HeroName": "Hogger",
+        "HeroAttributeId": "HOGG",
+        "HeroLevel": 20
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTint": "HoggerCapN",
+        "SkinAndSkinTintAttributeId": "HoC1",
+        "MountAndMountTint": "IllidanHorseCrimson",
+        "MountAndMountTintAttributeId": "IHo2",
+        "Banner": "BannerDFToys18Stitches",
+        "BannerAttributeId": "BN8d",
+        "Spray": "SprayStaticCarbotsBestfriend",
+        "SprayAttributeId": "SY7U",
+        "AnnouncerPack": "CowboyA",
+        "AnnouncerPackAttributeId": "ACwb",
+        "VoiceLine": "HoggerBase_VoiceLine01",
+        "VoiceLineAttributeId": "HO01"
+      },
+      "HeroMasteryTier": [
+        {
+          "HeroAttributeId": "Abat",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Alex",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Amaz",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Andu",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Anub",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Arts",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Auri",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Azmo",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Barb",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Chro",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Crus",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "DECK",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "DVA0",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Demo",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Diab",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Drya",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "FENX",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Faer",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Fals",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Garr",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Genj",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Guld",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "HANA",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "HMEI",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "HOGG",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Hanz",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "IMPE",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Illi",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Jain",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Junk",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Kael",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "KelT",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "L90E",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "LiLi",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Luci",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "MEPH",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Malf",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Medi",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Monk",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Mura",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Murk",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "NXHU",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Necr",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Nova",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "ORPH",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Rayn",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Rehg",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "STUK",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Stit",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Sylv",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Tass",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Thra",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Tink",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Tra0",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Tych",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Tyrd",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Tyrl",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Uthe",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "VALE",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Vari",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Witc",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Wiza",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "ZULJ",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Zaga",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Zary",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Zera",
+          "TierLevel": 1
+        }
+      ],
+      "Team": "red",
+      "Handicap": 0,
+      "IsWinner": true,
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "IsAutoSelect": false,
+      "HasActiveBoost": true,
+      "AccountLevel": 3236,
+      "PartyValue": null,
+      "ComputerDifficulty": "elite",
+      "MatchAwards": [
+        "mostTeamfightDamageTaken"
+      ],
+      "HeroTalents": [
+        {
+          "TalentSlotId": 2,
+          "TalentNameId": "HoggerOnTheProwl",
+          "Timestamp": "00:00:23.0625000"
+        },
+        {
+          "TalentSlotId": 5,
+          "TalentNameId": "HoggerHoggersJoggers",
+          "Timestamp": "00:02:39.6250000"
+        },
+        {
+          "TalentSlotId": 8,
+          "TalentNameId": "HoggerSeeingRed",
+          "Timestamp": "00:04:16.3125000"
+        },
+        {
+          "TalentSlotId": 9,
+          "TalentNameId": "HoggerHoardapult",
+          "Timestamp": "00:06:23.6875000"
+        },
+        {
+          "TalentSlotId": 13,
+          "TalentNameId": "HoggerBloodthirst",
+          "Timestamp": "00:09:12.3125000"
+        },
+        {
+          "TalentSlotId": 16,
+          "TalentNameId": "HoggerFurzerker",
+          "Timestamp": "00:11:24.2500000"
+        },
+        {
+          "TalentSlotId": 20,
+          "TalentNameId": "HoggerAngerManagement",
+          "Timestamp": "00:15:54.1875000"
+        }
+      ],
+      "Disconnects": [],
+      "ScoreResult": {
+        "MiscellaneousScoreResultEvents": {
+          "TeamTakedowns": 0,
+          "Role": 0,
+          "KilledTreasureGoblin": 0,
+          "GameScore": 0,
+          "TeamLevel": 21,
+          "EndOfMatchAwardGivenToNonwinner": 0,
+          "LunarNewYearSuccesfulArtifactTurnIns": 0,
+          "TimeOnPoint": 0,
+          "CageUnlocksInterrupted": 0,
+          "GardenSeedsCollectedByPlayer": 0,
+          "TeamWinsDiablo": 0,
+          "TeamWinsFemale": 0,
+          "TeamWinsMale": 0,
+          "TeamWinsStarCraft": 0,
+          "TeamWinsWarcraft": 0,
+          "WinsWarrior": 1,
+          "WinsAssassin": 0,
+          "WinsSupport": 0,
+          "WinsSpecialist": 0,
+          "WinsStarCraft": 0,
+          "WinsDiablo": 0,
+          "WinsWarcraft": 1,
+          "WinsMale": 1,
+          "WinsFemale": 0,
+          "PlaysStarCraft": 0,
+          "PlaysDiablo": 0,
+          "PlaysOverwatch": 0,
+          "PlaysWarCraft": 1,
+          "PlaysNexus": 0,
+          "PlaysOverwatchOrNexus": 0,
+          "PlaysWarrior": 1,
+          "PlaysAssassin": 0,
+          "PlaysSupport": 0,
+          "PlaysSpecialist": 0,
+          "PlaysMale": 1,
+          "PlaysFemale": 0,
+          "LunarNewYearEventCompleted": 0,
+          "StarcraftDailyEventCompleted": 0,
+          "StarcraftPiecesCollected": 0,
+          "LunarNewYearRoosterEventCompleted": 0,
+          "TouchByBlightPlague": 0,
+          "PachimariMania": 0,
+          "LessThan4Deaths": 1,
+          "LessThan3TownStructuresLost": 1,
+          "GemsTurnedIn": 23
+        },
+        "NewScoreResultEvents": {},
+        "Level": 21,
+        "Takedowns": 9,
+        "SoloKills": 2,
+        "Assists": 7,
+        "Deaths": 2,
+        "HeroDamage": 47875,
+        "SiegeDamage": 63000,
+        "StructureDamage": 28253,
+        "MinionDamage": 28143,
+        "CreepDamage": 23667,
+        "SummonDamage": 2423,
+        "TimeCCdEnemyHeroes": "00:01:16",
+        "Healing": 0,
+        "SelfHealing": 32927,
+        "DamageTaken": 63925,
+        "DamageSoaked": 56071,
+        "ExperienceContribution": 5740,
+        "TownKills": 3,
+        "TimeSpentDead": "00:01:13",
+        "MercCampCaptures": 3,
+        "WatchTowerCaptures": 0,
+        "MetaExperience": 81326,
+        "PhysicalDamage": 42934,
+        "SpellDamage": 95546,
+        "OnFireTimeonFire": "00:01:25",
+        "MinionKills": 33,
+        "RegenGlobes": 23,
+        "Tier1Talent": 3,
+        "Tier4Talent": 3,
+        "Tier7Talent": 3,
+        "Tier10Talent": 1,
+        "Tier13Talent": 3,
+        "Tier16Talent": 3,
+        "Tier20Talent": 4,
+        "HighestKillStreak": 5,
+        "ProtectionGivenToAllies": 0,
+        "TimeSilencingEnemyHeroes": "00:00:00",
+        "TimeRootingEnemyHeroes": "00:00:00",
+        "TimeStunningEnemyHeroes": "00:00:12",
+        "ClutchHealsPerformed": 0,
+        "EscapesPerformed": 1,
+        "VengeancesPerformed": 0,
+        "OutnumberedDeaths": 0,
+        "TeamfightEscapesPerformed": 1,
+        "TeamfightHealingDone": 0,
+        "TeamfightDamageTaken": 50198,
+        "TeamfightHeroDamage": 37266,
+        "Multikill": 0
+      }
+    }
+  ],
+  "Observers": [],
+  "DraftPicks": [],
+  "TeamBans": {
+    "blue": [
+      "",
+      "",
+      ""
+    ],
+    "red": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "TeamFinalLevel": {
+    "blue": 19,
+    "red": 21
+  },
+  "TeamLevels": {
+    "blue": [
+      {
+        "Level": 1,
+        "Time": "00:00:03.2500000"
+      },
+      {
+        "Level": 2,
+        "Time": "00:01:45.3750000"
+      },
+      {
+        "Level": 3,
+        "Time": "00:02:25.0625000"
+      },
+      {
+        "Level": 4,
+        "Time": "00:02:57.0625000"
+      },
+      {
+        "Level": 5,
+        "Time": "00:03:28.0625000"
+      },
+      {
+        "Level": 6,
+        "Time": "00:04:08.0625000"
+      },
+      {
+        "Level": 7,
+        "Time": "00:04:40.3125000"
+      },
+      {
+        "Level": 8,
+        "Time": "00:05:35.5625000"
+      },
+      {
+        "Level": 9,
+        "Time": "00:06:17.2500000"
+      },
+      {
+        "Level": 10,
+        "Time": "00:07:12.8125000"
+      },
+      {
+        "Level": 11,
+        "Time": "00:07:58.5000000"
+      },
+      {
+        "Level": 12,
+        "Time": "00:08:53"
+      },
+      {
+        "Level": 13,
+        "Time": "00:09:58.8125000"
+      },
+      {
+        "Level": 14,
+        "Time": "00:11:22.2500000"
+      },
+      {
+        "Level": 15,
+        "Time": "00:12:13.9375000"
+      },
+      {
+        "Level": 16,
+        "Time": "00:12:56.6250000"
+      },
+      {
+        "Level": 17,
+        "Time": "00:14:17.0625000"
+      },
+      {
+        "Level": 18,
+        "Time": "00:15:03.6875000"
+      },
+      {
+        "Level": 19,
+        "Time": "00:16:06.6875000"
+      }
+    ],
+    "red": [
+      {
+        "Level": 1,
+        "Time": "00:00:03.2500000"
+      },
+      {
+        "Level": 2,
+        "Time": "00:01:40.0625000"
+      },
+      {
+        "Level": 3,
+        "Time": "00:02:08.0625000"
+      },
+      {
+        "Level": 4,
+        "Time": "00:02:33.7500000"
+      },
+      {
+        "Level": 5,
+        "Time": "00:03:08.8750000"
+      },
+      {
+        "Level": 6,
+        "Time": "00:03:28.5625000"
+      },
+      {
+        "Level": 7,
+        "Time": "00:04:07.3750000"
+      },
+      {
+        "Level": 8,
+        "Time": "00:04:51.8750000"
+      },
+      {
+        "Level": 9,
+        "Time": "00:05:49.0625000"
+      },
+      {
+        "Level": 10,
+        "Time": "00:06:19.0625000"
+      },
+      {
+        "Level": 11,
+        "Time": "00:06:57.0625000"
+      },
+      {
+        "Level": 12,
+        "Time": "00:08:08.0625000"
+      },
+      {
+        "Level": 13,
+        "Time": "00:09:06.0625000"
+      },
+      {
+        "Level": 14,
+        "Time": "00:10:04.2500000"
+      },
+      {
+        "Level": 15,
+        "Time": "00:10:49"
+      },
+      {
+        "Level": 16,
+        "Time": "00:11:21.0625000"
+      },
+      {
+        "Level": 17,
+        "Time": "00:12:27.4375000"
+      },
+      {
+        "Level": 18,
+        "Time": "00:13:40.0625000"
+      },
+      {
+        "Level": 19,
+        "Time": "00:14:23.9375000"
+      },
+      {
+        "Level": 20,
+        "Time": "00:15:50.0625000"
+      },
+      {
+        "Level": 21,
+        "Time": "00:17:01"
+      }
+    ]
+  },
+  "TeamXPBreakdown": {
+    "blue": [
+      {
+        "Level": 1,
+        "Time": "00:01:38.1250000",
+        "MinionXP": 952,
+        "CreepXP": 0,
+        "StructureXP": 0,
+        "HeroXP": 224,
+        "PassiveXP": 575,
+        "TotalXP": 1751
+      },
+      {
+        "Level": 3,
+        "Time": "00:02:38.1250000",
+        "MinionXP": 2772,
+        "CreepXP": 0,
+        "StructureXP": 0,
+        "HeroXP": 224,
+        "PassiveXP": 1955,
+        "TotalXP": 4951
+      },
+      {
+        "Level": 5,
+        "Time": "00:03:38.1250000",
+        "MinionXP": 4572,
+        "CreepXP": 0,
+        "StructureXP": 0,
+        "HeroXP": 904,
+        "PassiveXP": 3335,
+        "TotalXP": 8811
+      },
+      {
+        "Level": 6,
+        "Time": "00:04:38.1250000",
+        "MinionXP": 7587,
+        "CreepXP": 468,
+        "StructureXP": 0,
+        "HeroXP": 904,
+        "PassiveXP": 4715,
+        "TotalXP": 13674
+      },
+      {
+        "Level": 8,
+        "Time": "00:05:38.1250000",
+        "MinionXP": 9316,
+        "CreepXP": 468,
+        "StructureXP": 0,
+        "HeroXP": 1553,
+        "PassiveXP": 6095,
+        "TotalXP": 17432
+      },
+      {
+        "Level": 9,
+        "Time": "00:06:38.1250000",
+        "MinionXP": 12358,
+        "CreepXP": 468,
+        "StructureXP": 0,
+        "HeroXP": 1553,
+        "PassiveXP": 7475,
+        "TotalXP": 21854
+      },
+      {
+        "Level": 10,
+        "Time": "00:07:38.1250000",
+        "MinionXP": 14599,
+        "CreepXP": 748,
+        "StructureXP": 0,
+        "HeroXP": 1553,
+        "PassiveXP": 8855,
+        "TotalXP": 25755
+      },
+      {
+        "Level": 11,
+        "Time": "00:08:38.1250000",
+        "MinionXP": 15973,
+        "CreepXP": 748,
+        "StructureXP": 0,
+        "HeroXP": 3347,
+        "PassiveXP": 10235,
+        "TotalXP": 30303
+      },
+      {
+        "Level": 12,
+        "Time": "00:09:38.1250000",
+        "MinionXP": 18473,
+        "CreepXP": 748,
+        "StructureXP": 0,
+        "HeroXP": 3347,
+        "PassiveXP": 11615,
+        "TotalXP": 34183
+      },
+      {
+        "Level": 13,
+        "Time": "00:10:38.1250000",
+        "MinionXP": 20001,
+        "CreepXP": 1270,
+        "StructureXP": 0,
+        "HeroXP": 3347,
+        "PassiveXP": 12995,
+        "TotalXP": 37613
+      },
+      {
+        "Level": 14,
+        "Time": "00:11:38.1250000",
+        "MinionXP": 22905,
+        "CreepXP": 1270,
+        "StructureXP": 0,
+        "HeroXP": 3347,
+        "PassiveXP": 14375,
+        "TotalXP": 41897
+      },
+      {
+        "Level": 15,
+        "Time": "00:12:38.1250000",
+        "MinionXP": 24844,
+        "CreepXP": 1270,
+        "StructureXP": 0,
+        "HeroXP": 6407,
+        "PassiveXP": 15755,
+        "TotalXP": 48276
+      },
+      {
+        "Level": 16,
+        "Time": "00:13:38.1250000",
+        "MinionXP": 26709,
+        "CreepXP": 1550,
+        "StructureXP": 0,
+        "HeroXP": 6736,
+        "PassiveXP": 17135,
+        "TotalXP": 52130
+      },
+      {
+        "Level": 17,
+        "Time": "00:14:38.1250000",
+        "MinionXP": 27676,
+        "CreepXP": 1550,
+        "StructureXP": 0,
+        "HeroXP": 11601,
+        "PassiveXP": 18515,
+        "TotalXP": 59342
+      },
+      {
+        "Level": 18,
+        "Time": "00:15:38.1250000",
+        "MinionXP": 30803,
+        "CreepXP": 1550,
+        "StructureXP": 0,
+        "HeroXP": 11601,
+        "PassiveXP": 19895,
+        "TotalXP": 63849
+      },
+      {
+        "Level": 19,
+        "Time": "00:16:38.1250000",
+        "MinionXP": 33036,
+        "CreepXP": 1830,
+        "StructureXP": 125,
+        "HeroXP": 11601,
+        "PassiveXP": 21275,
+        "TotalXP": 67867
+      },
+      {
+        "Level": 19,
+        "Time": "00:17:16.9375000",
+        "MinionXP": 34061,
+        "CreepXP": 1830,
+        "StructureXP": 125,
+        "HeroXP": 11601,
+        "PassiveXP": 21988,
+        "TotalXP": 69605
+      }
+    ],
+    "red": [
+      {
+        "Level": 1,
+        "Time": "00:01:38.1250000",
+        "MinionXP": 782,
+        "CreepXP": 0,
+        "StructureXP": 0,
+        "HeroXP": 606,
+        "PassiveXP": 575,
+        "TotalXP": 1963
+      },
+      {
+        "Level": 4,
+        "Time": "00:02:38.1250000",
+        "MinionXP": 3407,
+        "CreepXP": 280,
+        "StructureXP": 0,
+        "HeroXP": 942,
+        "PassiveXP": 1955,
+        "TotalXP": 6584
+      },
+      {
+        "Level": 6,
+        "Time": "00:03:38.1250000",
+        "MinionXP": 5693,
+        "CreepXP": 730,
+        "StructureXP": 0,
+        "HeroXP": 1784,
+        "PassiveXP": 3335,
+        "TotalXP": 11542
+      },
+      {
+        "Level": 7,
+        "Time": "00:04:38.1250000",
+        "MinionXP": 8394,
+        "CreepXP": 730,
+        "StructureXP": 250,
+        "HeroXP": 1784,
+        "PassiveXP": 4715,
+        "TotalXP": 15873
+      },
+      {
+        "Level": 8,
+        "Time": "00:05:38.1250000",
+        "MinionXP": 10598,
+        "CreepXP": 730,
+        "StructureXP": 375,
+        "HeroXP": 2298,
+        "PassiveXP": 6095,
+        "TotalXP": 20096
+      },
+      {
+        "Level": 10,
+        "Time": "00:06:38.1250000",
+        "MinionXP": 12626,
+        "CreepXP": 730,
+        "StructureXP": 1550,
+        "HeroXP": 2298,
+        "PassiveXP": 7746,
+        "TotalXP": 24950
+      },
+      {
+        "Level": 11,
+        "Time": "00:07:38.1250000",
+        "MinionXP": 14386,
+        "CreepXP": 730,
+        "StructureXP": 1550,
+        "HeroXP": 2936,
+        "PassiveXP": 9402,
+        "TotalXP": 29004
+      },
+      {
+        "Level": 12,
+        "Time": "00:08:38.1250000",
+        "MinionXP": 16805,
+        "CreepXP": 1225,
+        "StructureXP": 1550,
+        "HeroXP": 3676,
+        "PassiveXP": 11159,
+        "TotalXP": 34415
+      },
+      {
+        "Level": 13,
+        "Time": "00:09:38.1250000",
+        "MinionXP": 19220,
+        "CreepXP": 1225,
+        "StructureXP": 1550,
+        "HeroXP": 3676,
+        "PassiveXP": 13091,
+        "TotalXP": 38762
+      },
+      {
+        "Level": 14,
+        "Time": "00:10:38.1250000",
+        "MinionXP": 21800,
+        "CreepXP": 1225,
+        "StructureXP": 1550,
+        "HeroXP": 4489,
+        "PassiveXP": 15096,
+        "TotalXP": 44160
+      },
+      {
+        "Level": 16,
+        "Time": "00:11:38.1250000",
+        "MinionXP": 23472,
+        "CreepXP": 1225,
+        "StructureXP": 2350,
+        "HeroXP": 6557,
+        "PassiveXP": 17483,
+        "TotalXP": 51087
+      },
+      {
+        "Level": 17,
+        "Time": "00:12:38.1250000",
+        "MinionXP": 25024,
+        "CreepXP": 1225,
+        "StructureXP": 2750,
+        "HeroXP": 6557,
+        "PassiveXP": 20229,
+        "TotalXP": 55785
+      },
+      {
+        "Level": 17,
+        "Time": "00:13:38.1250000",
+        "MinionXP": 26151,
+        "CreepXP": 1225,
+        "StructureXP": 2750,
+        "HeroXP": 7393,
+        "PassiveXP": 22989,
+        "TotalXP": 60508
+      },
+      {
+        "Level": 19,
+        "Time": "00:14:38.1250000",
+        "MinionXP": 29535,
+        "CreepXP": 1783,
+        "StructureXP": 2750,
+        "HeroXP": 7393,
+        "PassiveXP": 25749,
+        "TotalXP": 67210
+      },
+      {
+        "Level": 19,
+        "Time": "00:15:38.1250000",
+        "MinionXP": 30399,
+        "CreepXP": 1783,
+        "StructureXP": 3150,
+        "HeroXP": 7393,
+        "PassiveXP": 28508,
+        "TotalXP": 71233
+      },
+      {
+        "Level": 20,
+        "Time": "00:16:38.1250000",
+        "MinionXP": 32310,
+        "CreepXP": 3240,
+        "StructureXP": 3150,
+        "HeroXP": 8440,
+        "PassiveXP": 31268,
+        "TotalXP": 78408
+      },
+      {
+        "Level": 21,
+        "Time": "00:17:16.9375000",
+        "MinionXP": 33760,
+        "CreepXP": 3240,
+        "StructureXP": 3150,
+        "HeroXP": 8440,
+        "PassiveXP": 32735,
+        "TotalXP": 81325
+      }
+    ]
+  },
+  "Messages": [],
+  "TrackerEvents": [],
+  "GameEvents": [],
+  "DisabledHeroes": [],
+  "IsBattleLobbyParsed": true
+}

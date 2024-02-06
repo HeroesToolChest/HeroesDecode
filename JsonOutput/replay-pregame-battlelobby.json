@@ -1,0 +1,318 @@
+{
+  "ReplayBuild": 91418,
+  "RandomValue": 1234558613,
+  "PlayersAndAICount": 10,
+  "PlayersAndObserversCount": 10,
+  "ObserversCount": 0,
+  "TeamSize": "5v5",
+  "MapInfo": {
+    "MapLink": "TombSpiderQueen",
+    "MapId": "Crypts",
+    "MapTitle": "Tomb of the Spider Queen"
+  },
+  "GameMode": "quickMatch",
+  "GameSpeed": "faster",
+  "GamePrivacy": "normal",
+  "ReadyMode": "fcfs",
+  "LobbyMode": "standard",
+  "BanMode": "notUsingBans",
+  "FirstDraftTeam": "coinToss",
+  "Region": "us",
+  "Players": [
+    {
+      "Name": "Apple",
+      "BattleTagName": "Apple#1111",
+      "PlayerToonId": "1-Hero-1-1111111",
+      "PlayerShortcutId": "T:11111111#111",
+      "PlayerSlotType": "human",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroAttributeId": "Illi",
+        "HeroLevel": 20,
+        "HeroMasteryTier": 3
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTintAttributeId": "Ill3",
+        "MountAndMountTintAttributeId": "CLW0",
+        "BannerAttributeId": "BN88",
+        "SprayAttributeId": "Sy6e",
+        "AnnouncerPackAttributeId": "ACwb",
+        "VoiceLineAttributeId": "IL01"
+      },
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "AccountLevel": 2025,
+      "PartyValue": 31518099637449,
+      "ComputerDifficulty": "elite"
+    },
+    {
+      "Name": "Banana",
+      "BattleTagName": "Banana#2222",
+      "PlayerToonId": "1-Hero-1-2222222",
+      "PlayerShortcutId": "T:23232323#600",
+      "PlayerSlotType": "human",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroAttributeId": "Faer",
+        "HeroLevel": 20,
+        "HeroMasteryTier": 3
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTintAttributeId": "BriD",
+        "MountAndMountTintAttributeId": "",
+        "BannerAttributeId": "BN31",
+        "SprayAttributeId": "Sy7d",
+        "AnnouncerPackAttributeId": "BR01",
+        "VoiceLineAttributeId": "BW03"
+      },
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "AccountLevel": 1941,
+      "PartyValue": 31518099637449,
+      "ComputerDifficulty": "elite"
+    },
+    {
+      "Name": "Grapes",
+      "BattleTagName": "Grapes#3333",
+      "PlayerToonId": "1-Hero-1-7575755",
+      "PlayerShortcutId": "T:42424242#111",
+      "PlayerSlotType": "human",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroAttributeId": "Nova",
+        "HeroLevel": 20,
+        "HeroMasteryTier": 1
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTintAttributeId": "NoU3",
+        "MountAndMountTintAttributeId": "FEL4",
+        "BannerAttributeId": "BN1f",
+        "SprayAttributeId": "SY45",
+        "AnnouncerPackAttributeId": "NoAP",
+        "VoiceLineAttributeId": "NO02"
+      },
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "AccountLevel": 2916,
+      "PartyValue": null,
+      "ComputerDifficulty": "elite"
+    },
+    {
+      "Name": "Mango",
+      "BattleTagName": "Mango#4444",
+      "PlayerToonId": "1-Hero-1-11155555",
+      "PlayerShortcutId": "T:604777777#900",
+      "PlayerSlotType": "human",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroAttributeId": "Fals",
+        "HeroLevel": 15,
+        "HeroMasteryTier": null
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTintAttributeId": "",
+        "MountAndMountTintAttributeId": "",
+        "BannerAttributeId": "BN3d",
+        "SprayAttributeId": "SY4W",
+        "AnnouncerPackAttributeId": "NoAP",
+        "VoiceLineAttributeId": "FA01"
+      },
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "AccountLevel": 324,
+      "PartyValue": 31516489024713,
+      "ComputerDifficulty": "elite"
+    },
+    {
+      "Name": "Orange",
+      "BattleTagName": "Orange#5555",
+      "PlayerToonId": "1-Hero-1-9999999",
+      "PlayerShortcutId": "T:98989898#900",
+      "PlayerSlotType": "human",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroAttributeId": "Arts",
+        "HeroLevel": 20,
+        "HeroMasteryTier": 1
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTintAttributeId": "ATC2",
+        "MountAndMountTintAttributeId": "Hhh2",
+        "BannerAttributeId": "BN40",
+        "SprayAttributeId": "SY0U",
+        "AnnouncerPackAttributeId": "FALS",
+        "VoiceLineAttributeId": "AR01"
+      },
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "AccountLevel": 1539,
+      "PartyValue": 31516489024713,
+      "ComputerDifficulty": "elite"
+    },
+    {
+      "Name": "Grapefruit",
+      "BattleTagName": "Grapefruit#6666",
+      "PlayerToonId": "1-Hero-1-76666666",
+      "PlayerShortcutId": "T:120000000#100",
+      "PlayerSlotType": "human",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroAttributeId": "Lost",
+        "HeroLevel": 20,
+        "HeroMasteryTier": 3
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTintAttributeId": "Lvk7",
+        "MountAndMountTintAttributeId": "",
+        "BannerAttributeId": "BN17",
+        "SprayAttributeId": "SYDF",
+        "AnnouncerPackAttributeId": "NoAP",
+        "VoiceLineAttributeId": "LO01"
+      },
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "AccountLevel": 1485,
+      "PartyValue": null,
+      "ComputerDifficulty": "elite"
+    },
+    {
+      "Name": "Avacado",
+      "BattleTagName": "Avacado#7777",
+      "PlayerToonId": "1-Hero-1-4577777",
+      "PlayerShortcutId": "T:777777777#540",
+      "PlayerSlotType": "human",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroAttributeId": "Sylv",
+        "HeroLevel": 7,
+        "HeroMasteryTier": null
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTintAttributeId": "Syl8",
+        "MountAndMountTintAttributeId": "Hor1",
+        "BannerAttributeId": "BN17",
+        "SprayAttributeId": "SY77",
+        "AnnouncerPackAttributeId": "NoAP",
+        "VoiceLineAttributeId": "SV01"
+      },
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "AccountLevel": 230,
+      "PartyValue": 30750561767449,
+      "ComputerDifficulty": "elite"
+    },
+    {
+      "Name": "Strawberries",
+      "BattleTagName": "Strawberries#8888",
+      "PlayerToonId": "1-Hero-1-78787878",
+      "PlayerShortcutId": "T:44444444#460",
+      "PlayerSlotType": "human",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroAttributeId": "Thra",
+        "HeroLevel": 8,
+        "HeroMasteryTier": null
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTintAttributeId": "Thr6",
+        "MountAndMountTintAttributeId": "BEA9",
+        "BannerAttributeId": "BN17",
+        "SprayAttributeId": "SYDF",
+        "AnnouncerPackAttributeId": "NoAP",
+        "VoiceLineAttributeId": "TH01"
+      },
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "AccountLevel": 859,
+      "PartyValue": 30750561767449,
+      "ComputerDifficulty": "elite"
+    },
+    {
+      "Name": "Lemon",
+      "BattleTagName": "Lemon#9999",
+      "PlayerToonId": "1-Hero-1-77777777",
+      "PlayerShortcutId": "T:65555555#822",
+      "PlayerSlotType": "human",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroAttributeId": "Monk",
+        "HeroLevel": 10,
+        "HeroMasteryTier": null
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTintAttributeId": "MnkC",
+        "MountAndMountTintAttributeId": "CLW4",
+        "BannerAttributeId": "BNc8",
+        "SprayAttributeId": "SY8p",
+        "AnnouncerPackAttributeId": "ADVA",
+        "VoiceLineAttributeId": "MO01"
+      },
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "AccountLevel": 252,
+      "PartyValue": 30750561767449,
+      "ComputerDifficulty": "elite"
+    },
+    {
+      "Name": "Olive",
+      "BattleTagName": "Olive#0000",
+      "PlayerToonId": "1-Hero-1-123123123",
+      "PlayerShortcutId": "T:2132132131#111",
+      "PlayerSlotType": "human",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroAttributeId": "HOGG",
+        "HeroLevel": 20,
+        "HeroMasteryTier": null
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTintAttributeId": "HoC1",
+        "MountAndMountTintAttributeId": "IHo2",
+        "BannerAttributeId": "BN8d",
+        "SprayAttributeId": "SY7U",
+        "AnnouncerPackAttributeId": "ACwb",
+        "VoiceLineAttributeId": "HO01"
+      },
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": true,
+      "AccountLevel": 3236,
+      "PartyValue": null,
+      "ComputerDifficulty": "elite"
+    }
+  ],
+  "Observers": [],
+  "TeamBans": {
+    "blue": [
+      "",
+      "",
+      ""
+    ],
+    "red": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "DisabledHeroes": [],
+  "IsBattleLobbyParsed": true
+}
