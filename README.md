@@ -296,8 +296,91 @@ Options:
 
 Parses a `replay.server.battlelobby` file. The `.battlelobby` file is created at the start of the loading screen.
 
-On Windows, the default location is `C:\<USER PATH>\AppData\Local\Temp\Heroes of the Storm\TempWriteReplayP1\replay.server.battlelobby`. The `Temp\Heroes of the Storm` directory is deleted after the game has closed.
+On Windows, the default location is `C:\<USER PATH>\AppData\Local\Temp\Heroes of the Storm\TempWriteReplayP1\replay.server.battlelobby`. The `Temp\Heroes of the Storm` directory is deleted after the game (not the match) has closed.
 
+Example output:
+```
+Success
+ Game Mode: ARAM
+       Map: Industrial District [IndustrialDistrict]
+     Build: 91418
+    Region: US
+     Lobby: Standard
+Ready Mode: FCFS
+First Drft: CoinToss
+  Ban Mode: NotUsingBans
+   Privacy: Normal
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Team Blue
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[-]   Player: Apple#1111
+Player Level: 1463
+ Player Toon: 1-Hero-1-1122334
+  Hero Level: 10
+  Hero AttId: Murk
+
+[0]   Player: Banana#2222
+Player Level: 477
+ Player Toon: 1-Hero-1-2121212
+  Hero Level: 100
+  Hero AttId: Tass
+
+[0]   Player: Grapes#3333
+Player Level: 393
+ Player Toon: 1-Hero-1-4343434
+  Hero Level: 200
+  Hero AttId: Nova
+
+[0]   Player: Mango#4444
+Player Level: 896
+ Player Toon: 1-Hero-1-7878788
+  Hero Level: 3000
+  Hero AttId: VALE
+
+[-]   Player: Orange#5555
+Player Level: 882
+ Player Toon: 1-Hero-1-5454545
+  Hero Level: 54
+  Hero AttId: Vari
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Team Red
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[-]   Player: Grapefruit#6666
+Player Level: 3000
+ Player Toon: 1-Hero-1-22222
+  Hero Level: 1
+  Hero AttId: Tra0
+
+[-]   Player: Avacado#7777
+Player Level: 1000
+ Player Toon: 1-Hero-1-4343434
+  Hero Level: 1
+  Hero AttId: Genj
+
+[-]   Player: Strawberries#8888
+Player Level: 2000
+ Player Toon: 1-Hero-1-111111
+  Hero Level: 1
+  Hero AttId: Abat
+
+[5]   Player: Lemon#9999
+Player Level: 800
+ Player Toon: 1-Hero-1-22222
+  Hero Level: 1
+  Hero AttId: Mdvh
+
+[5]   Player: Olive#0000
+Player Level: 1900
+ Player Toon: 1-Hero-1-666666
+  Hero Level: 1
+  Hero AttId: DECK
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Observers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+(NONE)
+```
 ### get-json
 ```
 Description:
@@ -320,6 +403,16 @@ Options:
 ```
 Returns the parsed data in json format. By default, it will be returned to the terminal. To output to a file, set the `--output-directory` option.
 
+View example json output file [here](https://github.com/HeroesToolChest/HeroesDecode/blob/main/JsonOutput/replay.json). 
+
+Json file was generated with the following options:
+- parse-message-events (true)
+- parse-tracker-events (true)
+- parse-game-events (true)
+- has-tracker-events (false)
+- has-game-events (false)
+- all message events taken out
+
 ### get-pregame-json
 ```
 Description:
@@ -335,6 +428,8 @@ Options:
   -?, -h, --help                                        Show help and usage information
 ```
 Returns the parsed data in json format. By default, it will be returned to the terminal. To output to a file, set the `--output-directory` option.
+
+View example json output file [here](https://github.com/HeroesToolChest/HeroesDecode/blob/main/JsonOutput/replay-pregame-battlelobby.json).
 
 ## Developing
 To build and compile the code, it is recommended to use the latest version of [Visual Studio 2022 or Visual Studio Code](https://visualstudio.microsoft.com/downloads/).
