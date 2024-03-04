@@ -50,7 +50,7 @@ No runtime or SDK is required.
 
 Download and extract the latest `HeroesDecode.*-scd-<OS>-x64` zip file from the [releases](https://github.com/HeroesToolChest/HeroesDecode/releases) page for a selected operating system.
 
-This zip file contains everything that is needed to run the dotnet core app without .NET Core being installed, so the zip file is quite large.
+This zip file contains everything that is needed to run the dotnet app without .NET being installed, so the zip file is quite large.
 
 ## Usage
 If installed as a Dotnet Global Tool, the app can be run with one of the following commands:
