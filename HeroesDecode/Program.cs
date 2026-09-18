@@ -287,11 +287,11 @@ static void Parse(string replayPath, bool onlyResult)
         ShouldParseMessageEvents = true,
     });
 
-    ResultLine(stormReplayResult);
+    ResultLine(stormReplayResult, replayPath);
 
     if (!onlyResult)
     {
-        GetInfo(stormReplayResult);
+        GetInfo(stormReplayResult, replayPath);
     }
 }
 
@@ -329,7 +329,7 @@ static async Task JsonParse(string replayPath, ParseOptions parseOptions, JsonAd
     {
         Directory.CreateDirectory(jsonAdditonalOptions.OutputDirectory);
 
-        using FileStream fileStream = File.Create(Path.Join(jsonAdditonalOptions.OutputDirectory, Path.ChangeExtension(Path.GetFileName(stormReplayResult.FileName), ".json")));
+        using FileStream fileStream = File.Create(Path.Join(jsonAdditonalOptions.OutputDirectory, Path.ChangeExtension(Path.GetFileName(replayPath), ".json")));
         await JsonSerializer.SerializeAsync(fileStream, jsonReplay, serializerOptions);
         await fileStream.DisposeAsync();
     }
@@ -360,13 +360,13 @@ static async Task JsonPregameParse(string replayPath, bool noJsonDisplay, string
     {
         Directory.CreateDirectory(outputDirectory);
 
-        using FileStream fileStream = File.Create(Path.Join(outputDirectory, Path.ChangeExtension(Path.GetFileName(stormReplayPregameResult.FileName), ".json")));
+        using FileStream fileStream = File.Create(Path.Join(outputDirectory, Path.ChangeExtension(Path.GetFileName(replayPath), ".json")));
         await JsonSerializer.SerializeAsync(fileStream, jsonReplayPregame, serializerOptions);
         await fileStream.DisposeAsync();
     }
 }
 
-static void ResultLine(StormReplayResult stormReplayResult)
+static void ResultLine(StormReplayResult stormReplayResult, string replayPath)
 {
     if (stormReplayResult.Status == StormReplayParseStatus.Success)
         Console.ForegroundColor = ConsoleColor.Green;
@@ -390,17 +390,17 @@ static void ResultLine(StormReplayResult stormReplayResult)
     {
         Console.Write(stormReplayResult.Status);
         Console.ResetColor();
-        Console.WriteLine($" [{Path.GetFileName(stormReplayResult.FileName)}] [{stormReplayResult.Replay.ReplayVersion}]");
+        Console.WriteLine($" [{Path.GetFileName(replayPath)}] [{stormReplayResult.Replay.ReplayVersion}]");
     }
 }
 
-static void GetInfo(StormReplayResult stormReplayResult)
+static void GetInfo(StormReplayResult stormReplayResult, string replayPath)
 {
     StormReplay replay = stormReplayResult.Replay;
 
     List<StormPlayer> players = replay.StormPlayers.ToList();
 
-    Console.WriteLine($"{"File Name: ",_infoFieldWidth}{Path.GetFileName(stormReplayResult.FileName)}");
+    Console.WriteLine($"{"File Name: ",_infoFieldWidth}{Path.GetFileName(replayPath)}");
     Console.WriteLine($"{"Game Mode: ",_infoFieldWidth}{replay.GameMode}");
     Console.WriteLine($"{"Map: ",_infoFieldWidth}{replay.MapInfo.MapName} [{replay.MapInfo.MapId}]");
     Console.WriteLine($"{"Version: ",_infoFieldWidth}{replay.ReplayVersion}");
