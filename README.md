@@ -11,46 +11,38 @@ The parsing is done by the library [Heroes Storm Replay Parser](https://github.c
 
 ## Installation
 ### Dotnet Global Tool (Recommended)
-Download and install the [.NET 8.0 SDK](https://dotnet.microsoft.com/download). 
+Download and install the latest [.NET SDK](https://dotnet.microsoft.com/download). 
 
 Once installed, run the following command:
 ```
 dotnet tool install --global HeroesDecode
 ```
 
-Installing via this method also allows easy updating to future versions using the following command:
+To update to a newer version, run the following command:
 ```
 dotnet tool update --global HeroesDecode
 ```
 
-***
-
 ### Zip File Download - Framework-Dependent Deployment (fdd)
 Portable to any operating system.
 
-Download and install the [.NET 8.0 Runtime or SDK](https://dotnet.microsoft.com/download). 
+Download and install the latest [.NET Runtime or SDK](https://dotnet.microsoft.com/download). 
 
-Download and extract the latest `HeroesDecode.*-fdd-any` zip file from the [releases](https://github.com/HeroesToolChest/HeroesDecode/releases) page.
-
-***
+Download and extract the latest `HeroesDecode.*-fdd-any` archive file from the [releases](https://github.com/HeroesToolChest/HeroesDecode/releases) page.
 
 ### Zip File Download - Framework-Dependent Executable (fde)
-Runs only on the selected operating system.
+Runs only on a selected operating system and architecture.
 
-Download and install the [.NET 8.0 Runtime or SDK](https://dotnet.microsoft.com/download). 
+Download and install the latest [.NET Runtime or SDK](https://dotnet.microsoft.com/download). 
 
-Download and extract the latest `HeroesDecode.*-fde-<OS>-x64` zip file from the [releases](https://github.com/HeroesToolChest/HeroesDecode/releases) page for a selected operating system.
-
-***
+Download and extract the latest `HeroesDecode.*-fde-<OS>-<ARCH>` archive file from the [releases](https://github.com/HeroesToolChest/HeroesDecode/releases) page for a selected operating system and architecture.
 
 ### Zip File Download - Self-Contained Deployment (scd)
-Runs only on the selected operating system.
+Runs only on a selected operating system and architecture. No runtime or SDK is required.
 
-No runtime or SDK is required.
+Download and extract the latest `HeroesDecode.*-scd-<OS>-<ARCH>` archive file from the [releases](https://github.com/HeroesToolChest/HeroesDecode/releases) page for a selected operating system and architecture.
 
-Download and extract the latest `HeroesDecode.*-scd-<OS>-x64` zip file from the [releases](https://github.com/HeroesToolChest/HeroesDecode/releases) page for a selected operating system.
-
-This zip file contains everything that is needed to run the dotnet app without .NET being installed, so the zip file is quite large.
+This archive file contains everything that is needed to run the dotnet app without .NET being installed, so the archive file is larger.
 
 ## Usage
 If installed as a Dotnet Global Tool, the app can be run with one of the following commands:
@@ -66,8 +58,14 @@ dotnet heroesdecode.dll -h
 
 If installed as a Framework-Dependent Executable (fde) or Self-Contained Deployment (scd), run one of the following commands from the extracted directory:
 ```
-windows (powershell): .\heroesdecode -h 
-macOS or Linux: ./heroesdecode -h
+# Windows (cmd):
+HeroesDecode -h
+
+# Windows (powershell):
+.\HeroesDecode -h 
+
+# macOS or Linux:
+./HeroesDecode -h
 ```
 
 Output of the -h option
@@ -80,11 +78,11 @@ Usage:
 
 Options:
   -p, --replay-path <replay-path> (REQUIRED)  File path of a Heroes of the Storm .StormReplay file or a directory
-  --result-only                               Will only show result of parsing, no map info or player info; --show-player-talents and --show-player-stats options will be overridden to false [default: False]
-  -t, --show-player-talents                   Shows the player's talent information [default: False]
-  -s, --show-player-stats                     Shows the player's stats [default: False]
-  --version                                   Show version information
+  --result-only                               Will only show result of parsing, no map info or player info; --show-player-talents and --show-player-stats options will be overridden to false
+  -t, --show-player-talents                   Show the player's talent information
+  -s, --show-player-stats                     Show the player's stats
   -?, -h, --help                              Show help and usage information
+  --version                                   Show version information
 
 Commands:
   pregame           View Heroes of the Storm battlelobby file data.
@@ -94,8 +92,9 @@ Commands:
 
 Example command to parse a replay file.
 ```
-dotnet heroesdecode.dll --replay-path 'C:\ReplayFiles\2020-08-07 15.33.52 Lost Cavern.StormReplay'
+dotnet heroesdecode.dll --replay-path "C:\ReplayFiles\2020-08-07 15.33.52 Lost Cavern.StormReplay"
 ```
+
 Example output from the previous command.
 ```
 Success
@@ -394,10 +393,10 @@ Options:
   --parse-message-events                      Allow the parsing of the message events [default: True]
   --parse-tracker-events                      Allow the parsing of tracker events [default: True]
   --parse-game-events                         Allow the parsing of the game events [default: True]
-  --has-tracker-events                        Adds the tracker events to the output json [default: False]
-  --has-game-events                           Adds the game events to the output json [default: False]
-  --include-all-message-events                Includes all the message type events (default is only chat type messages) [default: False]
-  --no-json-display                           Doesn't display the json to the terminal [default: False]
+  --has-tracker-events                        Add the tracker events to the output json
+  --has-game-events                           Add the game events to the output json
+  --include-all-message-events                Include all the message type events (default is only chat type messages)
+  --no-json-display                           Do not display the json to the terminal
   -o, --output-directory <output-directory>   Set the directory for the output json file
   -?, -h, --help                              Show help and usage information
 ```
@@ -423,7 +422,7 @@ Usage:
 
 Options:
   -p, --battlelobby-path <battlelobby-path> (REQUIRED)  File path of a Heroes of the Storm .battlelobby file or a directory
-  --no-json-display                                     Doesn't display the json to the terminal [default: False]
+  --no-json-display                                     Do not display the json to the terminal
   -o, --output-directory <output-directory>             Set the directory for the output json file
   -?, -h, --help                                        Show help and usage information
 ```
@@ -432,11 +431,9 @@ Returns the parsed data in json format. By default, it will be returned to the t
 View example json output file [here](https://github.com/HeroesToolChest/HeroesDecode/blob/main/JsonOutput/replay-pregame-battlelobby.json).
 
 ## Developing
-To build and compile the code, it is recommended to use the latest version of [Visual Studio 2022 or Visual Studio Code](https://visualstudio.microsoft.com/downloads/).
+To build and compile the code, it is recommended to use the latest version of [Visual Studio 2026 or Visual Studio Code](https://visualstudio.microsoft.com/downloads/).
 
-Another option is to use the dotnet CLI tools from the [.NET 8.0 SDK](https://dotnet.microsoft.com/download).
-
-The main project is `HeroesDecode.csproj` and the main entry point is `Program.cs`.
+Another option is to use the dotnet CLI tools from the latest [.NET SDK](https://dotnet.microsoft.com/download).
 
 ## License
 [MIT license](/LICENSE)
