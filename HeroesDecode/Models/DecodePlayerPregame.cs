@@ -1,6 +1,6 @@
 ﻿namespace HeroesDecode.Models;
 
-internal class DecodePlayerPregame
+public sealed class DecodePlayerPregame
 {
     public string Name { get; set; } = string.Empty;
 

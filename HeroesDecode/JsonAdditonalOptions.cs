@@ -1,6 +1,6 @@
 ﻿namespace HeroesDecode;
 
-internal class JsonAdditonalOptions
+public sealed class JsonAdditonalOptions
 {
     public bool HasTrackEvents { get; set; }
 

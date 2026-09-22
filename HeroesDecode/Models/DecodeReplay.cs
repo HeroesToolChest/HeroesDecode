@@ -1,6 +1,6 @@
 ﻿namespace HeroesDecode.Models;
 
-public class DecodeReplay
+public sealed class DecodeReplay
 {
     public string Version { get; set; } = string.Empty;
 

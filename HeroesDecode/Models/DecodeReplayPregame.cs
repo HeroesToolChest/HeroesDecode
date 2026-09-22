@@ -1,6 +1,6 @@
 ﻿namespace HeroesDecode.Models;
 
-internal class DecodeReplayPregame
+public sealed class DecodeReplayPregame
 {
     public int ReplayBuild { get; set; }
 

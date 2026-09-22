@@ -1,6 +1,6 @@
 ﻿namespace HeroesDecode.Models;
 
-public class DecodeMapInfo
+public sealed class DecodeMapInfo
 {
     public string MapName { get; set; } = string.Empty;
 

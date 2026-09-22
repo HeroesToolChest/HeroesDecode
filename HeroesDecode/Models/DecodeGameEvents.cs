@@ -1,6 +1,6 @@
 ﻿namespace HeroesDecode.Models;
 
-public class DecodeGameEvents
+public sealed class DecodeGameEvents
 {
     public string? Player { get; set; }
 

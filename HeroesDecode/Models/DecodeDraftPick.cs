@@ -1,6 +1,6 @@
 ﻿namespace HeroesDecode.Models;
 
-public class DecodeDraftPick
+public sealed class DecodeDraftPick
 {
     public string? Player { get; set; }
 

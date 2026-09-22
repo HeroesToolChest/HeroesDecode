@@ -1,6 +1,6 @@
 ﻿namespace HeroesDecode.Models;
 
-internal class DecodeMapInfoPregame
+public sealed class DecodeMapInfoPregame
 {
     public string? MapLink { get; set; }
 

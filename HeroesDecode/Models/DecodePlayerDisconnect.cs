@@ -1,6 +1,6 @@
 ﻿namespace HeroesDecode.Models;
 
-public class DecodePlayerDisconnect
+public sealed class DecodePlayerDisconnect
 {
     public string LeaveReason { get; set; } = string.Empty;
 

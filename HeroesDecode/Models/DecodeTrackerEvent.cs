@@ -1,6 +1,6 @@
 ﻿namespace HeroesDecode.Models;
 
-public class DecodeTrackerEvent
+public sealed class DecodeTrackerEvent
 {
     public StormTrackerEventType TrackerEventType { get; set; }
 

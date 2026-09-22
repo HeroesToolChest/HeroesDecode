@@ -1,6 +1,6 @@
 ﻿namespace HeroesDecode.Models;
 
-public class DecodeMessage
+public sealed class DecodeMessage
 {
     public string? PlayerSender { get; set; }
 
