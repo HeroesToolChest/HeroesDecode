@@ -9,7 +9,7 @@ jobs:
       contents: write
     with:
       app-name: HeroesDecode
-      artificats-workflow: build.yml
+      artifacts-workflow: build.yml
       github-release-env: Github Release
       github-release-url: https://github.com/HeroesToolChest/HeroesDecode/releases
     secrets:
