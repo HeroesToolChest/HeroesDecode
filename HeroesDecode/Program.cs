@@ -73,7 +73,7 @@ Option<bool> includeAllMessageEventsOption = new("--include-all-message-events")
 
 Option<bool> noJsonDisplayOption = new("--no-json-display")
 {
-    Description = "Don not display the json to the terminal",
+    Description = "Do not display the json to the terminal",
     DefaultValueFactory = _ => false,
     Required = false,
 };
