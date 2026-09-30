@@ -2,21 +2,24 @@
 
 public static class PlayerDisconnectExtensions
 {
-    public static DecodePlayerDisconnect ToDecodePlayerDisconnect(this PlayerDisconnect playerDisconnect)
+    extension(PlayerDisconnect playerDisconnect)
     {
-        DecodePlayerDisconnect decodePlayerDisconnect = new()
+        public DecodePlayerDisconnect ToDecodePlayerDisconnect()
         {
-            DisconnectTime = playerDisconnect.From,
-            RejoinTime = playerDisconnect.To,
-            LeaveReason = playerDisconnect.LeaveReason switch
+            DecodePlayerDisconnect decodePlayerDisconnect = new()
             {
-                null => "unknown",
-                0 => "intentional",
-                11 or 12 => "disconnect",
-                _ => $"unknown ({playerDisconnect.LeaveReason.Value})",
-            },
-        };
+                DisconnectTime = playerDisconnect.From,
+                RejoinTime = playerDisconnect.To,
+                LeaveReason = playerDisconnect.LeaveReason switch
+                {
+                    null => "unknown",
+                    0 => "intentional",
+                    11 or 12 => "disconnect",
+                    _ => $"unknown ({playerDisconnect.LeaveReason.Value})",
+                },
+            };
 
-        return decodePlayerDisconnect;
+            return decodePlayerDisconnect;
+        }
     }
 }

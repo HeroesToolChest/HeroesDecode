@@ -2,14 +2,17 @@
 
 public static class StormMessageExtensions
 {
-    public static DecodeMessage ToDecodeMessage(this IStormMessage stormMessageBase)
+    extension(IStormMessage stormMessage)
     {
-        return new()
+        public DecodeMessage ToDecodeMessage()
         {
-            PlayerSender = stormMessageBase.MessageSender?.ToonHandle?.ToString(),
-            Timestamp = stormMessageBase.Timestamp,
-            MessageEventType = stormMessageBase.MessageEventType,
-            Message = stormMessageBase.Message,
-        };
+            return new()
+            {
+                PlayerSender = stormMessage.MessageSender?.ToonHandle?.ToString(),
+                Timestamp = stormMessage.Timestamp,
+                MessageEventType = stormMessage.MessageEventType,
+                Message = stormMessage.Message,
+            };
+        }
     }
 }

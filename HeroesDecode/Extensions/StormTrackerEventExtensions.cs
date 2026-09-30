@@ -2,13 +2,16 @@
 
 public static class StormTrackerEventExtensions
 {
-    public static DecodeTrackerEvent ToDecodeTrackerEvent(this StormTrackerEvent stormTrackerEvent)
+    extension(StormTrackerEvent stormTrackerEvent)
     {
-        return new()
+        public DecodeTrackerEvent ToDecodeTrackerEvent()
         {
-            TrackerEventType = stormTrackerEvent.TrackerEventType,
-            Timestamp = stormTrackerEvent.Timestamp,
-            Data = stormTrackerEvent.VersionedDecoder?.ToJson(),
-        };
+            return new()
+            {
+                TrackerEventType = stormTrackerEvent.TrackerEventType,
+                Timestamp = stormTrackerEvent.Timestamp,
+                Data = stormTrackerEvent.VersionedDecoder?.ToJson(),
+            };
+        }
     }
 }

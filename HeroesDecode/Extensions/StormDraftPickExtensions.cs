@@ -2,14 +2,17 @@
 
 public static class StormDraftPickExtensions
 {
-    public static DecodeDraftPick ToDecodeDraftPick(this StormDraftPick stormDraftPick)
+    extension(StormDraftPick stormDraftPick)
     {
-        return new()
+        public DecodeDraftPick ToDecodeDraftPick()
         {
-            PickType = stormDraftPick.PickType,
-            Player = stormDraftPick.Player?.ToonHandle?.ToString(),
-            Team = stormDraftPick.Team,
-            SelectedHeroId = stormDraftPick.HeroSelected,
-        };
+            return new()
+            {
+                PickType = stormDraftPick.PickType,
+                Player = stormDraftPick.Player?.ToonHandle?.ToString(),
+                Team = stormDraftPick.Team,
+                SelectedHeroId = stormDraftPick.HeroSelected,
+            };
+        }
     }
 }

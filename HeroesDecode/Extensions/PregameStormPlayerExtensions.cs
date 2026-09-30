@@ -1,10 +1,10 @@
 ﻿namespace HeroesDecode.Extensions;
 
-internal static class PregameStormPlayerExtensions
+public static class PregameStormPlayerExtensions
 {
-    public static DecodePlayerPregame ToDecodePlayerPregame(this PregameStormPlayer pregameStormPlayer)
+    extension(PregameStormPlayer pregameStormPlayer)
     {
-        return new()
+        public DecodePlayerPregame ToDecodePlayerPregame() => new()
         {
             AccountLevel = pregameStormPlayer.AccountLevel,
             BattleTagName = pregameStormPlayer.BattleTagName,

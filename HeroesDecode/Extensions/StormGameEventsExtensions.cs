@@ -2,14 +2,17 @@
 
 public static class StormGameEventsExtensions
 {
-    public static DecodeGameEvents ToDecodeGameEvents(this StormGameEvent stormGameEvent)
+    extension(StormGameEvent stormGameEvent)
     {
-        return new()
+        public DecodeGameEvents ToDecodeGameEvents()
         {
-            Player = stormGameEvent.MessageSender?.ToonHandle?.ToString(),
-            GameEventType = stormGameEvent.GameEventType,
-            TimeStamp = stormGameEvent.Timestamp,
-            Data = stormGameEvent.Data?.ToJson(),
-        };
+            return new()
+            {
+                Player = stormGameEvent.MessageSender?.ToonHandle?.ToString(),
+                GameEventType = stormGameEvent.GameEventType,
+                TimeStamp = stormGameEvent.Timestamp,
+                Data = stormGameEvent.Data?.ToJson(),
+            };
+        }
     }
 }

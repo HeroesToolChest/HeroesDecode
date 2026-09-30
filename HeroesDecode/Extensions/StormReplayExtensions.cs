@@ -2,47 +2,49 @@
 
 public static class StormReplayExtensions
 {
-    public static DecodeReplay ToDecodeReplay(this StormReplay stormReplay)
+    extension(StormReplay stormReplay)
     {
-        return new()
+        public DecodeReplay ToDecodeReplay()
         {
-            HasObservers = stormReplay.HasObservers,
-            HasAI = stormReplay.HasAI,
-            Version = stormReplay.ReplayVersion.ToString(),
-            ElapsedGamesLoops = stormReplay.ElapsedGamesLoops,
-            ReplayLength = stormReplay.ReplayLength,
-            Timestamp = stormReplay.Timestamp,
-            RandomValue = stormReplay.RandomValue,
-            TeamSize = stormReplay.TeamSize,
-            PlayersAndAICount = stormReplay.PlayersCount,
-            PlayersAndObserversCount = stormReplay.PlayersWithObserversCount,
-            ObserversCount = stormReplay.PlayersObserversCount,
-            GameMode = stormReplay.GameMode,
-            GameSpeed = stormReplay.GameSpeed,
-            GamePrivacy = stormReplay.GamePrivacy,
-            ReadyMode = stormReplay.ReadyMode,
-            LobbyMode = stormReplay.LobbyMode,
-            BanMode = stormReplay.BanMode,
-            FirstDraftTeam = stormReplay.FirstDraftTeam,
-            Region = stormReplay.Region,
-            WinningTeam = stormReplay.WinningTeam,
-            ReplayOwner = stormReplay.Owner?.ToonHandle?.ToString(),
-            MapInfo =
+            return new()
+            {
+                HasObservers = stormReplay.HasObservers,
+                HasAI = stormReplay.HasAI,
+                Version = stormReplay.ReplayVersion.ToString(),
+                ElapsedGamesLoops = stormReplay.ElapsedGamesLoops,
+                ReplayLength = stormReplay.ReplayLength,
+                Timestamp = stormReplay.Timestamp,
+                RandomValue = stormReplay.RandomValue,
+                TeamSize = stormReplay.TeamSize,
+                PlayersAndAICount = stormReplay.PlayersCount,
+                PlayersAndObserversCount = stormReplay.PlayersWithObserversCount,
+                ObserversCount = stormReplay.PlayersObserversCount,
+                GameMode = stormReplay.GameMode,
+                GameSpeed = stormReplay.GameSpeed,
+                GamePrivacy = stormReplay.GamePrivacy,
+                ReadyMode = stormReplay.ReadyMode,
+                LobbyMode = stormReplay.LobbyMode,
+                BanMode = stormReplay.BanMode,
+                FirstDraftTeam = stormReplay.FirstDraftTeam,
+                Region = stormReplay.Region,
+                WinningTeam = stormReplay.WinningTeam,
+                ReplayOwner = stormReplay.Owner?.ToonHandle?.ToString(),
+                MapInfo =
             {
                 MapName = stormReplay.MapInfo.MapName,
                 MapSize = stormReplay.MapInfo.MapSize,
                 MapId = stormReplay.MapInfo.MapId,
             },
-            DraftPicks = [.. stormReplay.DraftPicks.Select(x => x.ToDecodeDraftPick())],
-            Messages = [.. stormReplay.Messages.Select(x => x.ToDecodeMessage())],
-            TeamChatMessages = [.. stormReplay.TeamChatMessages.Select(x => x.ToDecodeTeamChatMessage())],
-            Players = [.. stormReplay.StormPlayers.Select(x => x.ToDecodePlayer())],
-            Observers = [.. stormReplay.StormObservers.Select(x => x.ToDecodePlayer())],
-            TrackerEvents = [.. stormReplay.TrackerEvents.Select(x => x.ToDecodeTrackerEvent())],
-            GameEvents = [.. stormReplay.GameEvents.Select(x => x.ToDecodeGameEvents())],
-            IsBattleLobbyParsed = stormReplay.IsBattleLobbyPlayerInfoParsed,
-            DisabledHeroes = [.. stormReplay.DisabledHeroes],
-            TeamBans =
+                DraftPicks = [.. stormReplay.DraftPicks.Select(x => x.ToDecodeDraftPick())],
+                Messages = [.. stormReplay.Messages.Select(x => x.ToDecodeMessage())],
+                TeamChatMessages = [.. stormReplay.TeamChatMessages.Select(x => x.ToDecodeTeamChatMessage())],
+                Players = [.. stormReplay.StormPlayers.Select(x => x.ToDecodePlayer())],
+                Observers = [.. stormReplay.StormObservers.Select(x => x.ToDecodePlayer())],
+                TrackerEvents = [.. stormReplay.TrackerEvents.Select(x => x.ToDecodeTrackerEvent())],
+                GameEvents = [.. stormReplay.GameEvents.Select(x => x.ToDecodeGameEvents())],
+                IsBattleLobbyParsed = stormReplay.IsBattleLobbyPlayerInfoParsed,
+                DisabledHeroes = [.. stormReplay.DisabledHeroes],
+                TeamBans =
             {
                 {
                     StormTeam.Blue, stormReplay.GetTeamBans(StormTeam.Blue).ToList()
@@ -51,7 +53,7 @@ public static class StormReplayExtensions
                     StormTeam.Red, stormReplay.GetTeamBans(StormTeam.Red).ToList()
                 },
             },
-            TeamFinalLevel =
+                TeamFinalLevel =
             {
                 {
                     StormTeam.Blue, stormReplay.GetTeamFinalLevel(StormTeam.Blue)
@@ -60,7 +62,7 @@ public static class StormReplayExtensions
                     StormTeam.Red, stormReplay.GetTeamFinalLevel(StormTeam.Red)
                 },
             },
-            TeamLevels =
+                TeamLevels =
             {
                 {
                     StormTeam.Blue, stormReplay.GetTeamLevels(StormTeam.Blue)?.ToList()
@@ -69,7 +71,7 @@ public static class StormReplayExtensions
                     StormTeam.Red, stormReplay.GetTeamLevels(StormTeam.Red)?.ToList()
                 },
             },
-            TeamXPBreakdown =
+                TeamXPBreakdown =
             {
                 {
                     StormTeam.Blue, stormReplay.GetTeamXPBreakdown(StormTeam.Blue)?.ToList()
@@ -78,6 +80,7 @@ public static class StormReplayExtensions
                     StormTeam.Red, stormReplay.GetTeamXPBreakdown(StormTeam.Red)?.ToList()
                 },
             },
-        };
+            };
+        }
     }
 }
