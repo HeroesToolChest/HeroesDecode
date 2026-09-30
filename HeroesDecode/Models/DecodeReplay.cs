@@ -62,6 +62,8 @@ public sealed class DecodeReplay
 
     public List<DecodeMessage> Messages { get; set; } = [];
 
+    public List<DecodeTeamChatMessage> TeamChatMessages { get; set; } = [];
+
     public List<DecodeTrackerEvent> TrackerEvents { get; set; } = [];
 
     public List<DecodeGameEvents> GameEvents { get; set; } = [];

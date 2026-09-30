@@ -35,6 +35,7 @@ public static class StormReplayExtensions
             },
             DraftPicks = [.. stormReplay.DraftPicks.Select(x => x.ToDecodeDraftPick())],
             Messages = [.. stormReplay.Messages.Select(x => x.ToDecodeMessage())],
+            TeamChatMessages = [.. stormReplay.TeamChatMessages.Select(x => x.ToDecodeTeamChatMessage())],
             Players = [.. stormReplay.StormPlayers.Select(x => x.ToDecodePlayer())],
             Observers = [.. stormReplay.StormObservers.Select(x => x.ToDecodePlayer())],
             TrackerEvents = [.. stormReplay.TrackerEvents.Select(x => x.ToDecodeTrackerEvent())],
