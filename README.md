@@ -166,7 +166,7 @@ Player Level: 1885
   
 [5]   Player: Avacado#7777
 Player Level: 960
- Player Toon: 1-Hero-1-4343434
+ Player Toon: 1-Hero-1-777777
    Hero Name: Raynor [HeroRaynor]
   Hero Level: 5
   
@@ -178,7 +178,7 @@ Player Level: 637
   
 [-]   Player: Lemon#9999
 Player Level: 1466
- Player Toon: 1-Hero-1-22222
+ Player Toon: 1-Hero-1-999999
    Hero Name: Qhira [HeroNexusHunter]
   Hero Level: Auto
   
@@ -353,7 +353,7 @@ Player Level: 3000
 
 [-]   Player: Avacado#7777
 Player Level: 1000
- Player Toon: 1-Hero-1-4343434
+ Player Toon: 1-Hero-1-777777
   Hero Level: 1
   Hero AttId: Genj
 
@@ -365,7 +365,7 @@ Player Level: 2000
 
 [5]   Player: Lemon#9999
 Player Level: 800
- Player Toon: 1-Hero-1-22222
+ Player Toon: 1-Hero-1-999999
   Hero Level: 1
   Hero AttId: Mdvh
 
@@ -458,15 +458,19 @@ get-json --replay-path "C:\ReplayFiles\2020-08-07 15.33.52 Lost Cavern.StormRepl
 ```
 
 #### Example json
-View example json output file [here](https://github.com/HeroesToolChest/HeroesDecode/blob/main/JsonOutput/replay.json). 
-
-Json file was generated with the following options:
+The [example json output file](https://github.com/HeroesToolChest/HeroesDecode/blob/main/JsonOutput/replay.json) is from a Storm League replay and was generated with the default options:
 - parse-message-events (true)
 - parse-tracker-events (true)
+- parse-tracker-unit-events (true)
 - parse-game-events (true)
+- keep-game-events (true)
 - has-tracker-events (false)
 - has-game-events (false)
-- all message events taken out
+- has-license-catalog (false)
+- has-player-license-ids (false)
+- include-all-message-events (false)
+
+The player names, battletags, toon ids, and shortcut ids were replaced, and the chat messages in `Messages` and `TeamChatMessages` were taken out.
 
 ### get-pregame-json
 ```
@@ -495,7 +499,7 @@ Example command to save the json with the license data.
 dotnet heroesdecode.dll get-pregame-json --battlelobby-path "C:\Users\<USER>\AppData\Local\Temp\Heroes of the Storm\TempWriteReplayP1\replay.server.battlelobby" --has-license-catalog --has-player-license-ids --output-directory "C:\JsonOutput"
 ```
 
-View example json output file [here](https://github.com/HeroesToolChest/HeroesDecode/blob/main/JsonOutput/replay-pregame-battlelobby.json).
+The [example json output file](https://github.com/HeroesToolChest/HeroesDecode/blob/main/JsonOutput/replay-pregame-battlelobby.json) is from the `replay.server.battlelobby` file of the same match as the `get-json` example and was generated with the default options. The player names, battletags, toon ids, and shortcut ids were replaced in the same way.
 
 ## Developing
 To build and compile the code, it is recommended to use the latest version of [Visual Studio 2026 or Visual Studio Code](https://visualstudio.microsoft.com/downloads/).
