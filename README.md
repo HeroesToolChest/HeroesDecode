@@ -392,16 +392,72 @@ Options:
   -p, --replay-path <replay-path> (REQUIRED)  File path of a Heroes of the Storm .StormReplay file or a directory
   --parse-message-events                      Allow the parsing of the message events [default: True]
   --parse-tracker-events                      Allow the parsing of tracker events [default: True]
+  --parse-tracker-unit-events                 Allow the parsing of tracker unit events [default: True]
   --parse-game-events                         Allow the parsing of the game events [default: True]
+  --keep-game-events                          Keep the game events after parsing; if false, they are still parsed for the data that comes from them, but are not kept [default: True]
   --has-tracker-events                        Add the tracker events to the output json
   --has-game-events                           Add the game events to the output json
+  --has-license-catalog                       Add the license catalog to the output json
+  --has-player-license-ids                    Add the player license ids to the output json
   --include-all-message-events                Include all the message type events (default is only chat type messages)
   --no-json-display                           Do not display the json to the terminal
   -o, --output-directory <output-directory>   Set the directory for the output json file
   -?, -h, --help                              Show help and usage information
 ```
-Returns the parsed data in json format. By default, it will be returned to the terminal. To output to a file, set the `--output-directory` option.
+Returns the parsed data in json format. By default, it will be returned to the terminal. When `--output-directory` is set, it is also saved to a file.
 
+The json file is named after the replay file, with a `.json` extension. The output directory is created if it does not exist.
+
+If `--replay-path` is a directory, every `.StormReplay` file in it and its subdirectories is parsed, and each one gets its own json file. Setting `--no-json-display` is recommended in this case.
+
+#### Parsing options
+These options decide what is parsed from the replay. Turning one off makes parsing faster and use less memory, but the data that comes from it will be empty, `null`, or `false` in the json.
+
+| Option | Data that is empty, `null`, or `false` when set to `false` |
+|---|---|
+| `--parse-message-events` | `Messages` |
+| `--parse-tracker-events` | `TrackerEvents`, `DraftPicks`, `TeamFinalLevel`, `TeamLevels`, `TeamXPBreakdown`, `MapInfo.MapId`, and each player's `ScoreResult`, `MatchAwards`, `PlayerHero.HeroUnitId`, and the `TalentNameId` of their `HeroTalents` |
+| `--parse-tracker-unit-events` | The unit events in `TrackerEvents` (unit born, died, revived, owner change, type change, init, done, and positions). No other data comes from them. Has no effect if `--parse-tracker-events` is `false`. |
+| `--parse-game-events` | `GameEvents`, `TeamChatMessages`, and each player's `Disconnects`, `IsPlatformMac`, and the `TalentSlotId` and `Timestamp` of their `HeroTalents` |
+| `--keep-game-events` | Only `GameEvents`. The game events are still parsed for the rest of the data that comes from them. Has no effect if `--parse-game-events` is `false`. |
+
+The game events take most of the time and memory of a parse. If the `GameEvents` list is not needed, `--keep-game-events false` is a better choice than `--parse-game-events false`, because it still keeps the talents, disconnects, and team chat messages.
+
+#### Output options
+These options decide what is added to the json. They are off by default because the data can be large.
+
+| Option | What is added |
+|---|---|
+| `--has-tracker-events` | `TrackerEvents`. Requires `--parse-tracker-events`. |
+| `--has-game-events` | `GameEvents`. Requires `--parse-game-events` and `--keep-game-events`. |
+| `--has-license-catalog` | `LicenseIdCatalog`, a sorted list of every license id in the replay's build. It is the same for all replays of the same build. |
+| `--has-player-license-ids` | Each player's `LicenseIds`. |
+| `--include-all-message-events` | All message types in `Messages` (`sChatMessage`, `sPingMessage`, `sLoadingProgressMessage`, `sServerPingMessage`, `sReconnectNotifyMessage`, and `sPlayerAnnounceMessage`). By default, only `sChatMessage` is kept. |
+
+#### License ids
+A license is for a hero, skin, mount, announcer, or other content. A player's `LicenseIds` are not only the content the player owns; they also include the free-to-play heroes, even the ones that need an account level the player has not reached yet.
+
+The license data is only parsed when `--has-license-catalog` or `--has-player-license-ids` is set. Without either option, `LicenseIdCatalog` is `null` and each player's `LicenseIds` is empty.
+
+When either option is set, each player's `PortraitLicenseId` is also set. It is `null` for portraits that do not have a license, which are mostly progression and achievement portraits. `PortraitUnlockableId` does not need either option and can be used for those portraits instead.
+
+#### Examples
+Faster parse that leaves out the unit tracker events and the game events list, but keeps the rest of the data.
+```
+get-json --replay-path "C:\ReplayFiles\2020-08-07 15.33.52 Lost Cavern.StormReplay" --parse-tracker-unit-events false --keep-game-events false
+```
+
+Saves the json of every replay in a directory, with the tracker events and game events added.
+```
+get-json --replay-path "C:\ReplayFiles" --has-tracker-events --has-game-events --no-json-display --output-directory "C:\JsonOutput"
+```
+
+Adds the license catalog and the players' license ids to the json.
+```
+get-json --replay-path "C:\ReplayFiles\2020-08-07 15.33.52 Lost Cavern.StormReplay" --has-license-catalog --has-player-license-ids
+```
+
+#### Example json
 View example json output file [here](https://github.com/HeroesToolChest/HeroesDecode/blob/main/JsonOutput/replay.json). 
 
 Json file was generated with the following options:
@@ -422,11 +478,22 @@ Usage:
 
 Options:
   -p, --battlelobby-path <battlelobby-path> (REQUIRED)  File path of a Heroes of the Storm .battlelobby file or a directory
+  --has-license-catalog                                 Add the license catalog to the output json
+  --has-player-license-ids                              Add the player license ids to the output json
   --no-json-display                                     Do not display the json to the terminal
   -o, --output-directory <output-directory>             Set the directory for the output json file
   -?, -h, --help                                        Show help and usage information
 ```
-Returns the parsed data in json format. By default, it will be returned to the terminal. To output to a file, set the `--output-directory` option.
+Parses a `replay.server.battlelobby` file and returns the parsed data in json format. By default, it will be returned to the terminal. When `--output-directory` is set, it is also saved to a file.
+
+The json file is named after the battlelobby file, with a `.json` extension (`replay.server.json`). The output directory is created if it does not exist.
+
+The `--has-license-catalog` and `--has-player-license-ids` options work the same as they do for `get-json`, and add `LicenseIdCatalog` and each player's `LicenseIds` to the json. They are described in [License ids](#license-ids). The players do not have a `PortraitLicenseId` in the pregame json.
+
+Example command to save the json with the license data.
+```
+dotnet heroesdecode.dll get-pregame-json --battlelobby-path "C:\Users\<USER>\AppData\Local\Temp\Heroes of the Storm\TempWriteReplayP1\replay.server.battlelobby" --has-license-catalog --has-player-license-ids --output-directory "C:\JsonOutput"
+```
 
 View example json output file [here](https://github.com/HeroesToolChest/HeroesDecode/blob/main/JsonOutput/replay-pregame-battlelobby.json).
 
