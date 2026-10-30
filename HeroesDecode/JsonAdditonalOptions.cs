@@ -2,7 +2,7 @@
 
 public sealed class JsonAdditonalOptions
 {
-    public bool HasTrackEvents { get; set; }
+    public bool HasTrackerEvents { get; set; }
 
     public bool HasGameEvents { get; set; }
 

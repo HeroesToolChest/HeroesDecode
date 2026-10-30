@@ -43,9 +43,23 @@ Option<bool> parseTrackerEventsOption = new("--parse-tracker-events")
     Required = false,
 };
 
+Option<bool> parseTrackerUnitEventsOption = new("--parse-tracker-unit-events")
+{
+    Description = "Allow the parsing of tracker unit events [default: True]",
+    DefaultValueFactory = _ => true,
+    Required = false,
+};
+
 Option<bool> parseGameEventsOption = new("--parse-game-events")
 {
     Description = "Allow the parsing of the game events [default: True]",
+    DefaultValueFactory = _ => true,
+    Required = false,
+};
+
+Option<bool> keepGameEventsOption = new("--keep-game-events")
+{
+    Description = "Keep the game events after parsing; if false, they are still parsed for the data that comes from them, but are not kept [default: True]",
     DefaultValueFactory = _ => true,
     Required = false,
 };
@@ -60,6 +74,13 @@ Option<bool> hasTrackerEventsOption = new("--has-tracker-events")
 Option<bool> hasGameEventsOption = new("--has-game-events")
 {
     Description = "Add the game events to the output json",
+    DefaultValueFactory = _ => false,
+    Required = false,
+};
+
+Option<bool> hasLicenseCatalogOption = new("--has-license-catalog")
+{
+    Description = "Add the license catalog to the output json",
     DefaultValueFactory = _ => false,
     Required = false,
 };
@@ -95,9 +116,12 @@ Command getReplayAsJsonCommand = new("get-json", "Get the data from the replay a
     replayPathOption,
     parseMessageEventsOption,
     parseTrackerEventsOption,
+    parseTrackerUnitEventsOption,
     parseGameEventsOption,
+    keepGameEventsOption,
     hasTrackerEventsOption,
     hasGameEventsOption,
+    hasLicenseCatalogOption,
     includeAllMessageEventsOption,
     noJsonDisplayOption,
     jsonOuputDirectoryOption,
@@ -106,6 +130,7 @@ Command getReplayAsJsonCommand = new("get-json", "Get the data from the replay a
 Command getReplayPregameAsJsonCommand = new("get-pregame-json", "Get the data from the replay battlelobby as json")
 {
     battlelobbyPathOption,
+    hasLicenseCatalogOption,
     noJsonDisplayOption,
     jsonOuputDirectoryOption,
 };
@@ -145,9 +170,12 @@ getReplayAsJsonCommand.SetAction(async (parseResult, cancellationToken) =>
     string replayPath = parseResult.GetValue(replayPathOption)!;
     bool parseMessageEvents = parseResult.GetValue(parseMessageEventsOption);
     bool parseTrackerEvents = parseResult.GetValue(parseTrackerEventsOption);
+    bool parseTrackerUnitEvents = parseResult.GetValue(parseTrackerUnitEventsOption);
     bool parseGameEvents = parseResult.GetValue(parseGameEventsOption);
+    bool keepGameEvents = parseResult.GetValue(keepGameEventsOption);
     bool hasTrackerEvents = parseResult.GetValue(hasTrackerEventsOption);
     bool hasGameEvents = parseResult.GetValue(hasGameEventsOption);
+    bool hasLicenseCatalog = parseResult.GetValue(hasLicenseCatalogOption);
     bool includeAllMessageEvents = parseResult.GetValue(includeAllMessageEventsOption);
     bool noJsonDisplay = parseResult.GetValue(noJsonDisplayOption);
     string? jsonOuputDirectory = parseResult.GetValue(jsonOuputDirectoryOption);
@@ -159,13 +187,16 @@ getReplayAsJsonCommand.SetAction(async (parseResult, cancellationToken) =>
             new ParseOptions()
             {
                 AllowPTR = true,
-                ShouldParseMessageEvents = parseMessageEvents,
-                ShouldParseTrackerEvents = parseTrackerEvents,
                 ShouldParseGameEvents = parseGameEvents,
+                ShouldKeepGameEvents = keepGameEvents,
+                ShouldParseTrackerEvents = parseTrackerEvents,
+                ShouldParseTrackerUnitEvents = parseTrackerUnitEvents,
+                ShouldParseMessageEvents = parseMessageEvents,
+                ShouldParseLicenseCatalog = hasLicenseCatalog,
             },
             new JsonAdditonalOptions()
             {
-                HasTrackEvents = hasTrackerEvents,
+                HasTrackerEvents = hasTrackerEvents,
                 HasGameEvents = hasGameEvents,
                 IncludeAllMessageEvents = includeAllMessageEvents,
                 NoJsonDislay = noJsonDisplay,
@@ -177,12 +208,21 @@ getReplayAsJsonCommand.SetAction(async (parseResult, cancellationToken) =>
 getReplayPregameAsJsonCommand.SetAction(async (parseResult, cancellationToken) =>
 {
     string battlelobbyPath = parseResult.GetValue(battlelobbyPathOption)!;
+    bool hasLicenseCatalog = parseResult.GetValue(hasLicenseCatalogOption);
     bool noJsonDisplay = parseResult.GetValue(noJsonDisplayOption);
     string? jsonOuputDirectory = parseResult.GetValue(jsonOuputDirectoryOption);
 
     await ParseFilePath(battlelobbyPath, async (filePath) =>
     {
-        await JsonPregameParse(filePath, noJsonDisplay, jsonOuputDirectory);
+        await JsonPregameParse(
+            filePath,
+            new ParsePregameOptions()
+            {
+                AllowPTR = true,
+                ShouldParseLicenseCatalog = hasLicenseCatalog,
+            },
+            noJsonDisplay,
+            jsonOuputDirectory);
     });
 });
 
@@ -250,7 +290,7 @@ static async Task ParseFilePath(string replayPath, Func<string, Task> parse)
         foreach (string? replayFile in Directory.EnumerateFiles(replayPath, "*.StormReplay", SearchOption.AllDirectories))
         {
             if (!string.IsNullOrEmpty(replayFile) && File.Exists(replayFile))
-                await parse(replayPath);
+                await parse(replayFile);
         }
     }
     else
@@ -287,7 +327,7 @@ static async Task JsonParse(string replayPath, ParseOptions parseOptions, JsonAd
 
     DecodeReplay jsonReplay = stormReplayResult.Replay.ToDecodeReplay();
 
-    if (!jsonAdditonalOptions.HasTrackEvents)
+    if (!jsonAdditonalOptions.HasTrackerEvents)
         jsonReplay.TrackerEvents.Clear();
 
     if (!jsonAdditonalOptions.HasGameEvents)
@@ -319,9 +359,9 @@ static async Task JsonParse(string replayPath, ParseOptions parseOptions, JsonAd
     }
 }
 
-static async Task JsonPregameParse(string replayPath, bool noJsonDisplay, string? outputDirectory)
+static async Task JsonPregameParse(string replayPath, ParsePregameOptions parsePregameOptions, bool noJsonDisplay, string? outputDirectory)
 {
-    StormReplayPregameResult stormReplayPregameResult = StormReplayPregame.Parse(replayPath);
+    StormReplayPregameResult stormReplayPregameResult = StormReplayPregame.Parse(replayPath, parsePregameOptions);
 
     JsonPregameResultLine(stormReplayPregameResult);
 
@@ -384,17 +424,17 @@ static void GetInfo(StormReplayResult stormReplayResult, string replayPath)
 
     List<StormPlayer> players = [.. replay.StormPlayers];
 
-    Console.WriteLine($"{"File Name: ",_infoFieldWidth}{Path.GetFileName(replayPath)}");
-    Console.WriteLine($"{"Game Mode: ",_infoFieldWidth}{replay.GameMode}");
-    Console.WriteLine($"{"Map: ",_infoFieldWidth}{replay.MapInfo.MapName} [{replay.MapInfo.MapId}]");
-    Console.WriteLine($"{"Version: ",_infoFieldWidth}{replay.ReplayVersion}");
-    Console.WriteLine($"{"Region: ",_infoFieldWidth}{replay.Region}");
-    Console.WriteLine($"{"Game Time: ",_infoFieldWidth}{replay.ReplayLength}");
-    Console.WriteLine($"{"Lobby: ",_infoFieldWidth}{replay.LobbyMode}");
-    Console.WriteLine($"{"Ready Mode: ",_infoFieldWidth}{replay.ReadyMode}");
-    Console.WriteLine($"{"First Drft: ",_infoFieldWidth}{replay.FirstDraftTeam}");
-    Console.WriteLine($"{"Ban Mode: ",_infoFieldWidth}{replay.BanMode}");
-    Console.WriteLine($"{"Privacy: ",_infoFieldWidth}{replay.GamePrivacy}");
+    Console.WriteLine($"{"File Name: ",InfoFieldWidth}{Path.GetFileName(replayPath)}");
+    Console.WriteLine($"{"Game Mode: ",InfoFieldWidth}{replay.GameMode}");
+    Console.WriteLine($"{"Map: ",InfoFieldWidth}{replay.MapInfo.MapName} [{replay.MapInfo.MapId}]");
+    Console.WriteLine($"{"Version: ",InfoFieldWidth}{replay.ReplayVersion}");
+    Console.WriteLine($"{"Region: ",InfoFieldWidth}{replay.Region}");
+    Console.WriteLine($"{"Game Time: ",InfoFieldWidth}{replay.ReplayLength}");
+    Console.WriteLine($"{"Lobby: ",InfoFieldWidth}{replay.LobbyMode}");
+    Console.WriteLine($"{"Ready Mode: ",InfoFieldWidth}{replay.ReadyMode}");
+    Console.WriteLine($"{"First Drft: ",InfoFieldWidth}{replay.FirstDraftTeam}");
+    Console.WriteLine($"{"Ban Mode: ",InfoFieldWidth}{replay.BanMode}");
+    Console.WriteLine($"{"Privacy: ",InfoFieldWidth}{replay.GamePrivacy}");
 
     if (replay.BanMode != StormBanMode.NotUsingBans)
     {
@@ -500,18 +540,18 @@ static void PlayerInfo(StormPlayer player, PartyIconColor? partyIcon)
 
         // battletag
         if (!string.IsNullOrEmpty(player.BattleTagName))
-            Console.WriteLine($"\u001b[1m{"Player: ",_playerFieldWidth - 3}{player.BattleTagName}\u001b[0m");
+            Console.WriteLine($"\u001b[1m{"Player: ",PlayerFieldWidth - 3}{player.BattleTagName}\u001b[0m");
         else
-            Console.WriteLine($"\u001b[1m{"Player: ",_playerFieldWidth - 3}{player.Name}\u001b[0m");
+            Console.WriteLine($"\u001b[1m{"Player: ",PlayerFieldWidth - 3}{player.Name}\u001b[0m");
 
         // account level
         if (player.AccountLevel.HasValue && player.AccountLevel.Value > 0)
-            Console.WriteLine($"{"Player Level: ",_playerFieldWidth}{player.AccountLevel.Value}");
+            Console.WriteLine($"{"Player Level: ",PlayerFieldWidth}{player.AccountLevel.Value}");
         else
-            Console.WriteLine($"{"Player Level: ",_playerFieldWidth}[Level:???]");
+            Console.WriteLine($"{"Player Level: ",PlayerFieldWidth}[Level:???]");
 
         // toon handle
-        Console.WriteLine($"{"Player Toon: ",_playerFieldWidth}{player.ToonHandle}");
+        Console.WriteLine($"{"Player Toon: ",PlayerFieldWidth}{player.ToonHandle}");
     }
     else if (player.PlayerType == PlayerType.Computer)
     {
@@ -536,19 +576,19 @@ static void PlayerInfo(StormPlayer player, PartyIconColor? partyIcon)
     if (player.PlayerType != PlayerType.Observer)
     {
         // hero name
-        Console.WriteLine($"{"Hero Name: ",_playerFieldWidth}{player.PlayerHero!.HeroName} [{player.PlayerHero.HeroUnitId}]");
+        Console.WriteLine($"{"Hero Name: ",PlayerFieldWidth}{player.PlayerHero!.HeroName} [{player.PlayerHero.HeroUnitId}]");
 
         // hero level
         if (player.IsAutoSelect)
-            Console.WriteLine($"{"Hero Level: ",_playerFieldWidth}Auto");
+            Console.WriteLine($"{"Hero Level: ",PlayerFieldWidth}Auto");
         else
-            Console.WriteLine($"{"Hero Level: ",_playerFieldWidth}{player.PlayerHero.HeroLevel}");
+            Console.WriteLine($"{"Hero Level: ",PlayerFieldWidth}{player.PlayerHero.HeroLevel}");
 
         if (player.MatchAwards != null)
         {
             foreach (MatchAwardType matchAwardType in player.MatchAwards)
             {
-                Console.WriteLine($"{"Award: ",_playerFieldWidth}{matchAwardType}");
+                Console.WriteLine($"{"Award: ",PlayerFieldWidth}{matchAwardType}");
             }
         }
 
@@ -612,63 +652,63 @@ static void PlayerInfo(StormPlayer player, PartyIconColor? partyIcon)
             if (player.ScoreResult != null)
             {
                 Console.WriteLine("\u001b[4mCombat\u001b[0m");
-                Console.WriteLine($"{"Hero Kills:",_statisticsFieldWidth} {player.ScoreResult.SoloKills}");
-                Console.WriteLine($"{"Assists:",_statisticsFieldWidth} {player.ScoreResult.Assists}");
-                Console.WriteLine($"{"Takedowns:",_statisticsFieldWidth} {player.ScoreResult.Takedowns}");
-                Console.WriteLine($"{"Deaths:",_statisticsFieldWidth} {player.ScoreResult.Deaths}");
+                Console.WriteLine($"{"Hero Kills:",StatisticsFieldWidth} {player.ScoreResult.SoloKills}");
+                Console.WriteLine($"{"Assists:",StatisticsFieldWidth} {player.ScoreResult.Assists}");
+                Console.WriteLine($"{"Takedowns:",StatisticsFieldWidth} {player.ScoreResult.Takedowns}");
+                Console.WriteLine($"{"Deaths:",StatisticsFieldWidth} {player.ScoreResult.Deaths}");
 
                 Console.WriteLine("\u001b[4mSiege\u001b[0m");
-                Console.WriteLine($"{"Minion Damage:",_statisticsFieldWidth} {player.ScoreResult.MinionDamage}");
-                Console.WriteLine($"{"Summon Damage:",_statisticsFieldWidth} {player.ScoreResult.SummonDamage}");
-                Console.WriteLine($"{"Structure Damage:",_statisticsFieldWidth} {player.ScoreResult.StructureDamage}");
-                Console.WriteLine($"{"Total Siege Damage:",_statisticsFieldWidth} {player.ScoreResult.SiegeDamage}");
+                Console.WriteLine($"{"Minion Damage:",StatisticsFieldWidth} {player.ScoreResult.MinionDamage}");
+                Console.WriteLine($"{"Summon Damage:",StatisticsFieldWidth} {player.ScoreResult.SummonDamage}");
+                Console.WriteLine($"{"Structure Damage:",StatisticsFieldWidth} {player.ScoreResult.StructureDamage}");
+                Console.WriteLine($"{"Total Siege Damage:",StatisticsFieldWidth} {player.ScoreResult.SiegeDamage}");
 
                 Console.WriteLine("\u001b[4mHero\u001b[0m");
-                Console.WriteLine($"{"Hero Damage:",_statisticsFieldWidth} {player.ScoreResult.HeroDamage}");
+                Console.WriteLine($"{"Hero Damage:",StatisticsFieldWidth} {player.ScoreResult.HeroDamage}");
 
                 if (player.ScoreResult.DamageTaken > 0)
-                    Console.WriteLine($"{"Damage Taken:",_statisticsFieldWidth} {player.ScoreResult.DamageTaken}");
+                    Console.WriteLine($"{"Damage Taken:",StatisticsFieldWidth} {player.ScoreResult.DamageTaken}");
                 else
-                    Console.WriteLine($"{"Damage Taken:",_statisticsFieldWidth}");
+                    Console.WriteLine($"{"Damage Taken:",StatisticsFieldWidth}");
 
                 if (player.ScoreResult.Healing > 0)
-                    Console.WriteLine($"{"Healing/Shielding:",_statisticsFieldWidth} {player.ScoreResult.Healing}");
+                    Console.WriteLine($"{"Healing/Shielding:",StatisticsFieldWidth} {player.ScoreResult.Healing}");
                 else
-                    Console.WriteLine($"{"Healing/Shielding:",_statisticsFieldWidth}");
+                    Console.WriteLine($"{"Healing/Shielding:",StatisticsFieldWidth}");
 
                 if (player.ScoreResult.SelfHealing > 0)
-                    Console.WriteLine($"{"Self Healing:",_statisticsFieldWidth} {player.ScoreResult.SelfHealing}");
+                    Console.WriteLine($"{"Self Healing:",StatisticsFieldWidth} {player.ScoreResult.SelfHealing}");
                 else
-                    Console.WriteLine($"{"Self Healing:",_statisticsFieldWidth}");
+                    Console.WriteLine($"{"Self Healing:",StatisticsFieldWidth}");
 
-                Console.WriteLine($"{"Experience:",_statisticsFieldWidth} {player.ScoreResult.ExperienceContribution}");
+                Console.WriteLine($"{"Experience:",StatisticsFieldWidth} {player.ScoreResult.ExperienceContribution}");
 
                 Console.WriteLine("\u001b[4mTime\u001b[0m");
-                Console.WriteLine($"{"Spent Dead:",_statisticsFieldWidth} {player.ScoreResult.TimeSpentDead}");
-                Console.WriteLine($"{"Rooting Heroes:",_statisticsFieldWidth} {player.ScoreResult.TimeRootingEnemyHeroes}");
-                Console.WriteLine($"{"Silence Heroes:",_statisticsFieldWidth} {player.ScoreResult.TimeSilencingEnemyHeroes}");
-                Console.WriteLine($"{"Stun Heroes:",_statisticsFieldWidth} {player.ScoreResult.TimeStunningEnemyHeroes}");
-                Console.WriteLine($"{"CC Heroes:",_statisticsFieldWidth} {player.ScoreResult.TimeCCdEnemyHeroes}");
-                Console.WriteLine($"{"On Fire:",_statisticsFieldWidth} {player.ScoreResult.OnFireTimeonFire}");
+                Console.WriteLine($"{"Spent Dead:",StatisticsFieldWidth} {player.ScoreResult.TimeSpentDead}");
+                Console.WriteLine($"{"Rooting Heroes:",StatisticsFieldWidth} {player.ScoreResult.TimeRootingEnemyHeroes}");
+                Console.WriteLine($"{"Silence Heroes:",StatisticsFieldWidth} {player.ScoreResult.TimeSilencingEnemyHeroes}");
+                Console.WriteLine($"{"Stun Heroes:",StatisticsFieldWidth} {player.ScoreResult.TimeStunningEnemyHeroes}");
+                Console.WriteLine($"{"CC Heroes:",StatisticsFieldWidth} {player.ScoreResult.TimeCCdEnemyHeroes}");
+                Console.WriteLine($"{"On Fire:",StatisticsFieldWidth} {player.ScoreResult.OnFireTimeonFire}");
 
                 Console.WriteLine("\u001b[4mOther\u001b[0m");
                 if (player.ScoreResult.SpellDamage.HasValue && player.ScoreResult.SpellDamage.Value > 0)
-                    Console.WriteLine($"{"Spell Damage:",_statisticsFieldWidth} {player.ScoreResult.SpellDamage}");
+                    Console.WriteLine($"{"Spell Damage:",StatisticsFieldWidth} {player.ScoreResult.SpellDamage}");
                 else
-                    Console.WriteLine($"{"Spell Damage:",_statisticsFieldWidth}");
+                    Console.WriteLine($"{"Spell Damage:",StatisticsFieldWidth}");
 
                 if (player.ScoreResult.PhysicalDamage.HasValue && player.ScoreResult.PhysicalDamage.Value > 0)
-                    Console.WriteLine($"{"Physical Damage:",_statisticsFieldWidth} {player.ScoreResult.PhysicalDamage}");
+                    Console.WriteLine($"{"Physical Damage:",StatisticsFieldWidth} {player.ScoreResult.PhysicalDamage}");
                 else
-                    Console.WriteLine($"{"Physical Damage:",_statisticsFieldWidth}");
+                    Console.WriteLine($"{"Physical Damage:",StatisticsFieldWidth}");
 
-                Console.WriteLine($"{"Merc Damage:",_statisticsFieldWidth} {player.ScoreResult.CreepDamage}");
-                Console.WriteLine($"{"Merc Camp Captures:",_statisticsFieldWidth} {player.ScoreResult.MercCampCaptures}");
-                Console.WriteLine($"{"Watch Tower Captures:",_statisticsFieldWidth} {player.ScoreResult.WatchTowerCaptures}");
-                Console.WriteLine($"{"Town Kills:",_statisticsFieldWidth} {player.ScoreResult.TownKills}");
-                Console.WriteLine($"{"Town Kills:",_statisticsFieldWidth} {player.ScoreResult.TownKills}");
-                Console.WriteLine($"{"Minion Kills:",_statisticsFieldWidth} {player.ScoreResult.MinionKills}");
-                Console.WriteLine($"{"Regen Globes:",_statisticsFieldWidth} {player.ScoreResult.RegenGlobes}");
+                Console.WriteLine($"{"Merc Damage:",StatisticsFieldWidth} {player.ScoreResult.CreepDamage}");
+                Console.WriteLine($"{"Merc Camp Captures:",StatisticsFieldWidth} {player.ScoreResult.MercCampCaptures}");
+                Console.WriteLine($"{"Watch Tower Captures:",StatisticsFieldWidth} {player.ScoreResult.WatchTowerCaptures}");
+                Console.WriteLine($"{"Town Kills:",StatisticsFieldWidth} {player.ScoreResult.TownKills}");
+                Console.WriteLine($"{"Town Kills:",StatisticsFieldWidth} {player.ScoreResult.TownKills}");
+                Console.WriteLine($"{"Minion Kills:",StatisticsFieldWidth} {player.ScoreResult.MinionKills}");
+                Console.WriteLine($"{"Regen Globes:",StatisticsFieldWidth} {player.ScoreResult.RegenGlobes}");
             }
             else
             {
@@ -718,15 +758,15 @@ static void PregameGetInfo(StormReplayPregameResult stormReplayPregameResult)
 
     List<PregameStormPlayer> players = [.. replay.StormPlayers];
 
-    Console.WriteLine($"{"Game Mode: ",_infoFieldWidth}{replay.GameMode}");
-    Console.WriteLine($"{"Map: ",_infoFieldWidth}{replay.MapTitle} [{replay.MapId}]");
-    Console.WriteLine($"{"Build: ",_infoFieldWidth}{replay.ReplayBuild}");
-    Console.WriteLine($"{"Region: ",_infoFieldWidth}{replay.Region}");
-    Console.WriteLine($"{"Lobby: ",_infoFieldWidth}{replay.LobbyMode}");
-    Console.WriteLine($"{"Ready Mode: ",_infoFieldWidth}{replay.ReadyMode}");
-    Console.WriteLine($"{"First Drft: ",_infoFieldWidth}{replay.FirstDraftTeam}");
-    Console.WriteLine($"{"Ban Mode: ",_infoFieldWidth}{replay.BanMode}");
-    Console.WriteLine($"{"Privacy: ",_infoFieldWidth}{replay.GamePrivacy}");
+    Console.WriteLine($"{"Game Mode: ",InfoFieldWidth}{replay.GameMode}");
+    Console.WriteLine($"{"Map: ",InfoFieldWidth}{replay.MapTitle} [{replay.MapId}]");
+    Console.WriteLine($"{"Build: ",InfoFieldWidth}{replay.ReplayBuild}");
+    Console.WriteLine($"{"Region: ",InfoFieldWidth}{replay.Region}");
+    Console.WriteLine($"{"Lobby: ",InfoFieldWidth}{replay.LobbyMode}");
+    Console.WriteLine($"{"Ready Mode: ",InfoFieldWidth}{replay.ReadyMode}");
+    Console.WriteLine($"{"First Drft: ",InfoFieldWidth}{replay.FirstDraftTeam}");
+    Console.WriteLine($"{"Ban Mode: ",InfoFieldWidth}{replay.BanMode}");
+    Console.WriteLine($"{"Privacy: ",InfoFieldWidth}{replay.GamePrivacy}");
 
     if (replay.BanMode != StormBanMode.NotUsingBans)
     {
@@ -871,18 +911,18 @@ static void PregamePlayerInfo(PregameStormPlayer player, PartyIconColor? partyIc
 
         // battletag
         if (!string.IsNullOrEmpty(player.BattleTagName))
-            Console.WriteLine($"\u001b[1m{"Player: ",_playerFieldWidth - 3}{player.BattleTagName}\u001b[0m");
+            Console.WriteLine($"\u001b[1m{"Player: ",PlayerFieldWidth - 3}{player.BattleTagName}\u001b[0m");
         else
-            Console.WriteLine($"\u001b[1m{"Player: ",_playerFieldWidth - 3}{player.Name}\u001b[0m");
+            Console.WriteLine($"\u001b[1m{"Player: ",PlayerFieldWidth - 3}{player.Name}\u001b[0m");
 
         // account level
         if (player.AccountLevel.HasValue && player.AccountLevel.Value > 0)
-            Console.WriteLine($"{"Player Level: ",_playerFieldWidth}{player.AccountLevel.Value}");
+            Console.WriteLine($"{"Player Level: ",PlayerFieldWidth}{player.AccountLevel.Value}");
         else
-            Console.WriteLine($"{"Player Level: ",_playerFieldWidth}[Level:???]");
+            Console.WriteLine($"{"Player Level: ",PlayerFieldWidth}[Level:???]");
 
         // toon handle
-        Console.WriteLine($"{"Player Toon: ",_playerFieldWidth}{player.ToonHandle}");
+        Console.WriteLine($"{"Player Toon: ",PlayerFieldWidth}{player.ToonHandle}");
     }
     else if (player.PlayerType == PlayerType.Computer)
     {
@@ -908,13 +948,13 @@ static void PregamePlayerInfo(PregameStormPlayer player, PartyIconColor? partyIc
         // hero level
         if (string.IsNullOrWhiteSpace(player.PlayerHero.HeroAttributeId))
         {
-            Console.WriteLine($"{"Hero Level: ",_playerFieldWidth}Auto");
-            Console.WriteLine($"{"Hero AttId: ",_playerFieldWidth}Auto");
+            Console.WriteLine($"{"Hero Level: ",PlayerFieldWidth}Auto");
+            Console.WriteLine($"{"Hero AttId: ",PlayerFieldWidth}Auto");
         }
         else
         {
-            Console.WriteLine($"{"Hero Level: ",_playerFieldWidth}{player.PlayerHero.HeroLevel}");
-            Console.WriteLine($"{"Hero AttId: ",_playerFieldWidth}{player.PlayerHero!.HeroAttributeId}");
+            Console.WriteLine($"{"Hero Level: ",PlayerFieldWidth}{player.PlayerHero.HeroLevel}");
+            Console.WriteLine($"{"Hero AttId: ",PlayerFieldWidth}{player.PlayerHero!.HeroAttributeId}");
         }
     }
 }
@@ -939,7 +979,7 @@ static void TeamBansDisplay(IReadOnlyList<string?> teamBans, StormTeam team)
         else
             heroAttId = item;
 
-        Console.WriteLine($"{$"Ban {i + 1}: ",_infoFieldWidth}{heroAttId}");
+        Console.WriteLine($"{$"Ban {i + 1}: ",InfoFieldWidth}{heroAttId}");
     }
 }
 
@@ -977,9 +1017,9 @@ static void JsonPregameResultLine(StormReplayPregameResult stormReplayPregameRes
 
 public partial class Program
 {
-    private const int _infoFieldWidth = 12;
-    private const int _playerFieldWidth = 14;
-    private const int _statisticsFieldWidth = 21;
+    private const int InfoFieldWidth = 12;
+    private const int PlayerFieldWidth = 14;
+    private const int StatisticsFieldWidth = 21;
 
     private static bool _resultOnly = false;
     private static bool _showPlayerTalents = false;

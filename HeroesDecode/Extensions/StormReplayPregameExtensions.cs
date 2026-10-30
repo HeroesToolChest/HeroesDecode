@@ -39,8 +39,9 @@ internal static class StormReplayPregameExtensions
                     StormTeam.Red, stormReplayPregame.GetTeamBans(StormTeam.Red).ToList()
                 },
             },
-                Players = stormReplayPregame.StormPlayers.Select(x => x.ToDecodePlayerPregame()).ToList(),
-                Observers = stormReplayPregame.StormObservers.Select(x => x.ToDecodePlayerPregame()).ToList(),
+                Players = [.. stormReplayPregame.StormPlayers.Select(x => x.ToDecodePlayerPregame())],
+                Observers = [.. stormReplayPregame.StormObservers.Select(x => x.ToDecodePlayerPregame())],
+                LicenseIdCatalog = stormReplayPregame.LicenseIdCatalog?.Order().ToList(),
             };
         }
     }

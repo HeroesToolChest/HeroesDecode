@@ -44,6 +44,7 @@ public static class StormReplayExtensions
                 GameEvents = [.. stormReplay.GameEvents.Select(x => x.ToDecodeGameEvents())],
                 IsBattleLobbyParsed = stormReplay.IsBattleLobbyPlayerInfoParsed,
                 DisabledHeroes = [.. stormReplay.DisabledHeroes],
+                LicenseIdCatalog = stormReplay.LicenseIdCatalog?.Order().ToList(),
                 TeamBans =
             {
                 {
