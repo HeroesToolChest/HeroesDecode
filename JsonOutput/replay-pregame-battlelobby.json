@@ -1,318 +1,1000 @@
 {
-  "ReplayBuild": 91418,
-  "RandomValue": 1234558613,
+  "ReplayBuild": 98348,
+  "RandomValue": 4050547508,
   "PlayersAndAICount": 10,
   "PlayersAndObserversCount": 10,
   "ObserversCount": 0,
   "TeamSize": "5v5",
   "MapInfo": {
-    "MapLink": "TombSpiderQueen",
-    "MapId": "Crypts",
-    "MapTitle": "Tomb of the Spider Queen"
+    "MapLink": "GardenOfTerror",
+    "MapId": "HauntedWoods",
+    "MapTitle": "Garden of Terror"
   },
-  "GameMode": "quickMatch",
+  "GameMode": "stormLeague",
   "GameSpeed": "faster",
   "GamePrivacy": "normal",
   "ReadyMode": "fcfs",
-  "LobbyMode": "standard",
-  "BanMode": "notUsingBans",
+  "LobbyMode": "draft",
+  "BanMode": "threeBan",
   "FirstDraftTeam": "coinToss",
   "Region": "us",
   "Players": [
     {
       "Name": "Apple",
       "BattleTagName": "Apple#1111",
-      "PlayerToonId": "1-Hero-1-1111111",
+      "PlayerToonId": "1-Hero-1-1122334",
       "PlayerShortcutId": "T:11111111#111",
       "PlayerSlotType": "human",
       "PlayerType": "human",
       "PlayerHero": {
-        "HeroAttributeId": "Illi",
-        "HeroLevel": 20,
-        "HeroMasteryTier": 3
+        "HeroAttributeId": "Witc",
+        "HeroLevel": 3,
+        "HeroMasteryTier": null,
+        "HeroMasteryRingTier": null
       },
       "PlayerLoadout": {
-        "SkinAndSkinTintAttributeId": "Ill3",
-        "MountAndMountTintAttributeId": "CLW0",
-        "BannerAttributeId": "BN88",
-        "SprayAttributeId": "Sy6e",
-        "AnnouncerPackAttributeId": "ACwb",
-        "VoiceLineAttributeId": "IL01"
+        "SkinAndSkinTintAttributeId": "",
+        "MountAndMountTintAttributeId": "Hors",
+        "BannerAttributeId": "BN17",
+        "SprayAttributeId": "SYDF",
+        "AnnouncerPackAttributeId": "NoAP",
+        "VoiceLineAttributeId": "WI01"
       },
       "IsSilenced": false,
       "IsVoiceSilenced": false,
       "IsBlizzardStaff": false,
       "HasActiveBoost": false,
-      "AccountLevel": 2025,
-      "PartyValue": 31518099637449,
-      "ComputerDifficulty": "elite"
+      "IsBanChooser": false,
+      "IsReplayOwner": false,
+      "AccountLevel": 153,
+      "PartyValue": null,
+      "PortraitUnlockableId": 2082266764,
+      "PortraitBorderUnlockableId": 956270533,
+      "ComputerDifficulty": "elite",
+      "HeroMasteryTier": [],
+      "LicenseIds": []
     },
     {
       "Name": "Banana",
       "BattleTagName": "Banana#2222",
-      "PlayerToonId": "1-Hero-1-2222222",
+      "PlayerToonId": "1-Hero-1-2121212",
       "PlayerShortcutId": "T:23232323#600",
       "PlayerSlotType": "human",
       "PlayerType": "human",
       "PlayerHero": {
-        "HeroAttributeId": "Faer",
-        "HeroLevel": 20,
-        "HeroMasteryTier": 3
-      },
-      "PlayerLoadout": {
-        "SkinAndSkinTintAttributeId": "BriD",
-        "MountAndMountTintAttributeId": "",
-        "BannerAttributeId": "BN31",
-        "SprayAttributeId": "Sy7d",
-        "AnnouncerPackAttributeId": "BR01",
-        "VoiceLineAttributeId": "BW03"
-      },
-      "IsSilenced": false,
-      "IsVoiceSilenced": false,
-      "IsBlizzardStaff": false,
-      "HasActiveBoost": false,
-      "AccountLevel": 1941,
-      "PartyValue": 31518099637449,
-      "ComputerDifficulty": "elite"
-    },
-    {
-      "Name": "Grapes",
-      "BattleTagName": "Grapes#3333",
-      "PlayerToonId": "1-Hero-1-7575755",
-      "PlayerShortcutId": "T:42424242#111",
-      "PlayerSlotType": "human",
-      "PlayerType": "human",
-      "PlayerHero": {
-        "HeroAttributeId": "Nova",
-        "HeroLevel": 20,
-        "HeroMasteryTier": 1
-      },
-      "PlayerLoadout": {
-        "SkinAndSkinTintAttributeId": "NoU3",
-        "MountAndMountTintAttributeId": "FEL4",
-        "BannerAttributeId": "BN1f",
-        "SprayAttributeId": "SY45",
-        "AnnouncerPackAttributeId": "NoAP",
-        "VoiceLineAttributeId": "NO02"
-      },
-      "IsSilenced": false,
-      "IsVoiceSilenced": false,
-      "IsBlizzardStaff": false,
-      "HasActiveBoost": false,
-      "AccountLevel": 2916,
-      "PartyValue": null,
-      "ComputerDifficulty": "elite"
-    },
-    {
-      "Name": "Mango",
-      "BattleTagName": "Mango#4444",
-      "PlayerToonId": "1-Hero-1-11155555",
-      "PlayerShortcutId": "T:604777777#900",
-      "PlayerSlotType": "human",
-      "PlayerType": "human",
-      "PlayerHero": {
-        "HeroAttributeId": "Fals",
-        "HeroLevel": 15,
-        "HeroMasteryTier": null
-      },
-      "PlayerLoadout": {
-        "SkinAndSkinTintAttributeId": "",
-        "MountAndMountTintAttributeId": "",
-        "BannerAttributeId": "BN3d",
-        "SprayAttributeId": "SY4W",
-        "AnnouncerPackAttributeId": "NoAP",
-        "VoiceLineAttributeId": "FA01"
-      },
-      "IsSilenced": false,
-      "IsVoiceSilenced": false,
-      "IsBlizzardStaff": false,
-      "HasActiveBoost": false,
-      "AccountLevel": 324,
-      "PartyValue": 31516489024713,
-      "ComputerDifficulty": "elite"
-    },
-    {
-      "Name": "Orange",
-      "BattleTagName": "Orange#5555",
-      "PlayerToonId": "1-Hero-1-9999999",
-      "PlayerShortcutId": "T:98989898#900",
-      "PlayerSlotType": "human",
-      "PlayerType": "human",
-      "PlayerHero": {
-        "HeroAttributeId": "Arts",
-        "HeroLevel": 20,
-        "HeroMasteryTier": 1
-      },
-      "PlayerLoadout": {
-        "SkinAndSkinTintAttributeId": "ATC2",
-        "MountAndMountTintAttributeId": "Hhh2",
-        "BannerAttributeId": "BN40",
-        "SprayAttributeId": "SY0U",
-        "AnnouncerPackAttributeId": "FALS",
-        "VoiceLineAttributeId": "AR01"
-      },
-      "IsSilenced": false,
-      "IsVoiceSilenced": false,
-      "IsBlizzardStaff": false,
-      "HasActiveBoost": false,
-      "AccountLevel": 1539,
-      "PartyValue": 31516489024713,
-      "ComputerDifficulty": "elite"
-    },
-    {
-      "Name": "Grapefruit",
-      "BattleTagName": "Grapefruit#6666",
-      "PlayerToonId": "1-Hero-1-76666666",
-      "PlayerShortcutId": "T:120000000#100",
-      "PlayerSlotType": "human",
-      "PlayerType": "human",
-      "PlayerHero": {
-        "HeroAttributeId": "Lost",
-        "HeroLevel": 20,
-        "HeroMasteryTier": 3
-      },
-      "PlayerLoadout": {
-        "SkinAndSkinTintAttributeId": "Lvk7",
-        "MountAndMountTintAttributeId": "",
-        "BannerAttributeId": "BN17",
-        "SprayAttributeId": "SYDF",
-        "AnnouncerPackAttributeId": "NoAP",
-        "VoiceLineAttributeId": "LO01"
-      },
-      "IsSilenced": false,
-      "IsVoiceSilenced": false,
-      "IsBlizzardStaff": false,
-      "HasActiveBoost": false,
-      "AccountLevel": 1485,
-      "PartyValue": null,
-      "ComputerDifficulty": "elite"
-    },
-    {
-      "Name": "Avacado",
-      "BattleTagName": "Avacado#7777",
-      "PlayerToonId": "1-Hero-1-4577777",
-      "PlayerShortcutId": "T:777777777#540",
-      "PlayerSlotType": "human",
-      "PlayerType": "human",
-      "PlayerHero": {
-        "HeroAttributeId": "Sylv",
-        "HeroLevel": 7,
-        "HeroMasteryTier": null
-      },
-      "PlayerLoadout": {
-        "SkinAndSkinTintAttributeId": "Syl8",
-        "MountAndMountTintAttributeId": "Hor1",
-        "BannerAttributeId": "BN17",
-        "SprayAttributeId": "SY77",
-        "AnnouncerPackAttributeId": "NoAP",
-        "VoiceLineAttributeId": "SV01"
-      },
-      "IsSilenced": false,
-      "IsVoiceSilenced": false,
-      "IsBlizzardStaff": false,
-      "HasActiveBoost": false,
-      "AccountLevel": 230,
-      "PartyValue": 30750561767449,
-      "ComputerDifficulty": "elite"
-    },
-    {
-      "Name": "Strawberries",
-      "BattleTagName": "Strawberries#8888",
-      "PlayerToonId": "1-Hero-1-78787878",
-      "PlayerShortcutId": "T:44444444#460",
-      "PlayerSlotType": "human",
-      "PlayerType": "human",
-      "PlayerHero": {
-        "HeroAttributeId": "Thra",
-        "HeroLevel": 8,
-        "HeroMasteryTier": null
-      },
-      "PlayerLoadout": {
-        "SkinAndSkinTintAttributeId": "Thr6",
-        "MountAndMountTintAttributeId": "BEA9",
-        "BannerAttributeId": "BN17",
-        "SprayAttributeId": "SYDF",
-        "AnnouncerPackAttributeId": "NoAP",
-        "VoiceLineAttributeId": "TH01"
-      },
-      "IsSilenced": false,
-      "IsVoiceSilenced": false,
-      "IsBlizzardStaff": false,
-      "HasActiveBoost": false,
-      "AccountLevel": 859,
-      "PartyValue": 30750561767449,
-      "ComputerDifficulty": "elite"
-    },
-    {
-      "Name": "Lemon",
-      "BattleTagName": "Lemon#9999",
-      "PlayerToonId": "1-Hero-1-77777777",
-      "PlayerShortcutId": "T:65555555#822",
-      "PlayerSlotType": "human",
-      "PlayerType": "human",
-      "PlayerHero": {
         "HeroAttributeId": "Monk",
-        "HeroLevel": 10,
-        "HeroMasteryTier": null
+        "HeroLevel": 15,
+        "HeroMasteryTier": null,
+        "HeroMasteryRingTier": null
       },
       "PlayerLoadout": {
-        "SkinAndSkinTintAttributeId": "MnkC",
-        "MountAndMountTintAttributeId": "CLW4",
-        "BannerAttributeId": "BNc8",
-        "SprayAttributeId": "SY8p",
-        "AnnouncerPackAttributeId": "ADVA",
+        "SkinAndSkinTintAttributeId": "Mnk5",
+        "MountAndMountTintAttributeId": "HorD",
+        "BannerAttributeId": "BN7b",
+        "SprayAttributeId": "SYDF",
+        "AnnouncerPackAttributeId": "NoAP",
         "VoiceLineAttributeId": "MO01"
       },
       "IsSilenced": false,
       "IsVoiceSilenced": false,
       "IsBlizzardStaff": false,
-      "HasActiveBoost": false,
-      "AccountLevel": 252,
-      "PartyValue": 30750561767449,
-      "ComputerDifficulty": "elite"
+      "HasActiveBoost": true,
+      "IsBanChooser": false,
+      "IsReplayOwner": false,
+      "AccountLevel": 625,
+      "PartyValue": null,
+      "PortraitUnlockableId": 1417353399,
+      "PortraitBorderUnlockableId": 4198120300,
+      "ComputerDifficulty": "elite",
+      "HeroMasteryTier": [
+        {
+          "HeroAttributeId": "Arts",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Barb",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Crus",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Genn",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Maie",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Malf",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Monk",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Samu",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Sylv",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Tyrl",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Uthe",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Vari",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Wiza",
+          "TierLevel": 1
+        }
+      ],
+      "LicenseIds": []
     },
     {
-      "Name": "Olive",
-      "BattleTagName": "Olive#0000",
-      "PlayerToonId": "1-Hero-1-123123123",
-      "PlayerShortcutId": "T:2132132131#111",
+      "Name": "Grapes",
+      "BattleTagName": "Grapes#3333",
+      "PlayerToonId": "1-Hero-1-4343434",
+      "PlayerShortcutId": "T:42424242#111",
       "PlayerSlotType": "human",
       "PlayerType": "human",
       "PlayerHero": {
-        "HeroAttributeId": "HOGG",
-        "HeroLevel": 20,
-        "HeroMasteryTier": null
+        "HeroAttributeId": "Andu",
+        "HeroLevel": 6,
+        "HeroMasteryTier": null,
+        "HeroMasteryRingTier": null
       },
       "PlayerLoadout": {
-        "SkinAndSkinTintAttributeId": "HoC1",
-        "MountAndMountTintAttributeId": "IHo2",
-        "BannerAttributeId": "BN8d",
-        "SprayAttributeId": "SY7U",
-        "AnnouncerPackAttributeId": "ACwb",
-        "VoiceLineAttributeId": "HO01"
+        "SkinAndSkinTintAttributeId": "ANI1",
+        "MountAndMountTintAttributeId": "BAN2",
+        "BannerAttributeId": "BN17",
+        "SprayAttributeId": "SY75",
+        "AnnouncerPackAttributeId": "ILLI",
+        "VoiceLineAttributeId": "AD01"
       },
       "IsSilenced": false,
       "IsVoiceSilenced": false,
       "IsBlizzardStaff": false,
-      "HasActiveBoost": true,
-      "AccountLevel": 3236,
+      "HasActiveBoost": false,
+      "IsBanChooser": false,
+      "IsReplayOwner": false,
+      "AccountLevel": 263,
+      "PartyValue": 36713016694103,
+      "PortraitUnlockableId": 3905124832,
+      "PortraitBorderUnlockableId": null,
+      "ComputerDifficulty": "elite",
+      "HeroMasteryTier": [
+        {
+          "HeroAttributeId": "Tyrd",
+          "TierLevel": 1
+        }
+      ],
+      "LicenseIds": []
+    },
+    {
+      "Name": "Mango",
+      "BattleTagName": "Mango#4444",
+      "PlayerToonId": "1-Hero-1-7878788",
+      "PlayerShortcutId": "T:604777777#900",
+      "PlayerSlotType": "human",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroAttributeId": "Crus",
+        "HeroLevel": 1,
+        "HeroMasteryTier": null,
+        "HeroMasteryRingTier": null
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTintAttributeId": "UCr3",
+        "MountAndMountTintAttributeId": "Hors",
+        "BannerAttributeId": "BN17",
+        "SprayAttributeId": "SYDF",
+        "AnnouncerPackAttributeId": "NoAP",
+        "VoiceLineAttributeId": "CR01"
+      },
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "IsBanChooser": false,
+      "IsReplayOwner": false,
+      "AccountLevel": 159,
+      "PartyValue": 36713016694103,
+      "PortraitUnlockableId": 969664431,
+      "PortraitBorderUnlockableId": 956270533,
+      "ComputerDifficulty": "elite",
+      "HeroMasteryTier": [
+        {
+          "HeroAttributeId": "Thra",
+          "TierLevel": 1
+        }
+      ],
+      "LicenseIds": []
+    },
+    {
+      "Name": "Orange",
+      "BattleTagName": "Orange#5555",
+      "PlayerToonId": "1-Hero-1-5454545",
+      "PlayerShortcutId": "T:98989898#900",
+      "PlayerSlotType": "human",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroAttributeId": "Demo",
+        "HeroLevel": 9,
+        "HeroMasteryTier": null,
+        "HeroMasteryRingTier": null
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTintAttributeId": "DemB",
+        "MountAndMountTintAttributeId": "HlB0",
+        "BannerAttributeId": "BN48",
+        "SprayAttributeId": "SY07",
+        "AnnouncerPackAttributeId": "NoAP",
+        "VoiceLineAttributeId": "DH03"
+      },
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "IsBanChooser": false,
+      "IsReplayOwner": false,
+      "AccountLevel": 90,
       "PartyValue": null,
-      "ComputerDifficulty": "elite"
+      "PortraitUnlockableId": 652069880,
+      "PortraitBorderUnlockableId": 3641434478,
+      "ComputerDifficulty": "elite",
+      "HeroMasteryTier": [],
+      "LicenseIds": []
+    },
+    {
+      "Name": "Grapefruit",
+      "BattleTagName": "Grapefruit#6666",
+      "PlayerToonId": "1-Hero-1-22222",
+      "PlayerShortcutId": "T:120000000#100",
+      "PlayerSlotType": "human",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroAttributeId": "Abat",
+        "HeroLevel": 2,
+        "HeroMasteryTier": null,
+        "HeroMasteryRingTier": null
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTintAttributeId": "",
+        "MountAndMountTintAttributeId": "",
+        "BannerAttributeId": "BN17",
+        "SprayAttributeId": "SYDF",
+        "AnnouncerPackAttributeId": "NoAP",
+        "VoiceLineAttributeId": "AB01"
+      },
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "IsBanChooser": false,
+      "IsReplayOwner": false,
+      "AccountLevel": 110,
+      "PartyValue": null,
+      "PortraitUnlockableId": 2082266764,
+      "PortraitBorderUnlockableId": 956270533,
+      "ComputerDifficulty": "elite",
+      "HeroMasteryTier": [],
+      "LicenseIds": []
+    },
+    {
+      "Name": "Avacado",
+      "BattleTagName": "Avacado#7777",
+      "PlayerToonId": "1-Hero-1-777777",
+      "PlayerShortcutId": "T:777777777#540",
+      "PlayerSlotType": "human",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroAttributeId": "Uthe",
+        "HeroLevel": 17,
+        "HeroMasteryTier": null,
+        "HeroMasteryRingTier": null
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTintAttributeId": "Uth3",
+        "MountAndMountTintAttributeId": "MOT0",
+        "BannerAttributeId": "BN11",
+        "SprayAttributeId": "0017",
+        "AnnouncerPackAttributeId": "NoAP",
+        "VoiceLineAttributeId": "UT01"
+      },
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "IsBanChooser": false,
+      "IsReplayOwner": false,
+      "AccountLevel": 817,
+      "PartyValue": null,
+      "PortraitUnlockableId": 2923068056,
+      "PortraitBorderUnlockableId": 956270533,
+      "ComputerDifficulty": "elite",
+      "HeroMasteryTier": [
+        {
+          "HeroAttributeId": "Alar",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Anub",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Arth",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Arts",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Barb",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Crus",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Diab",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Garr",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Illi",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "KelT",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "L90E",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Lost",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Medi",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Mura",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Prob",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Tyrd",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Uthe",
+          "TierLevel": 1
+        }
+      ],
+      "LicenseIds": []
+    },
+    {
+      "Name": "Strawberries",
+      "BattleTagName": "Strawberries#8888",
+      "PlayerToonId": "1-Hero-1-111111",
+      "PlayerShortcutId": "T:44444444#460",
+      "PlayerSlotType": "human",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroAttributeId": "ORPH",
+        "HeroLevel": 20,
+        "HeroMasteryTier": null,
+        "HeroMasteryRingTier": 3
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTintAttributeId": "Orp4",
+        "MountAndMountTintAttributeId": "PHX0",
+        "BannerAttributeId": "BNc3",
+        "SprayAttributeId": "SY6X",
+        "AnnouncerPackAttributeId": "AORP",
+        "VoiceLineAttributeId": "OR04"
+      },
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "IsBanChooser": false,
+      "IsReplayOwner": true,
+      "AccountLevel": 4841,
+      "PartyValue": null,
+      "PortraitUnlockableId": 1135058772,
+      "PortraitBorderUnlockableId": 956270533,
+      "ComputerDifficulty": "elite",
+      "HeroMasteryTier": [
+        {
+          "HeroAttributeId": "Alex",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Amaz",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Andu",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Anub",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Arth",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Arts",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Auri",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Azmo",
+          "TierLevel": 4
+        },
+        {
+          "HeroAttributeId": "Barb",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Butc",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Chro",
+          "TierLevel": 4
+        },
+        {
+          "HeroAttributeId": "Crus",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "DEAT",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "DECK",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "DVA0",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Deha",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Demo",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Diab",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Drya",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "FENX",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Faer",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Fals",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Fire",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Genj",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Genn",
+          "TierLevel": 4
+        },
+        {
+          "HeroAttributeId": "Guld",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "HANA",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "HMEI",
+          "TierLevel": 4
+        },
+        {
+          "HeroAttributeId": "IMPE",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Illi",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Jain",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Junk",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Kael",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "KelT",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Kerr",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "L90E",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Leor",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "LiLi",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Luci",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "MALT",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "MEPH",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Maie",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "MalG",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Malf",
+          "TierLevel": 4
+        },
+        {
+          "HeroAttributeId": "Medi",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Monk",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Mura",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Murk",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "NXHU",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Necr",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Nova",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "ORPH",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Ragn",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Rayn",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Rehg",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "STUK",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Samu",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Stit",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "Sylv",
+          "TierLevel": 4
+        },
+        {
+          "HeroAttributeId": "Tass",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Thra",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Tink",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Tra0",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Tych",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Tyrd",
+          "TierLevel": 5
+        },
+        {
+          "HeroAttributeId": "Tyrl",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Uthe",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "VALE",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Vari",
+          "TierLevel": 3
+        },
+        {
+          "HeroAttributeId": "WHIT",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Witc",
+          "TierLevel": 4
+        },
+        {
+          "HeroAttributeId": "Wiza",
+          "TierLevel": 4
+        },
+        {
+          "HeroAttributeId": "ZULJ",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Zaga",
+          "TierLevel": 4
+        },
+        {
+          "HeroAttributeId": "Zary",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Zera",
+          "TierLevel": 1
+        }
+      ],
+      "LicenseIds": []
+    },
+    {
+      "Name": "Lemon",
+      "BattleTagName": "Lemon#9999",
+      "PlayerToonId": "1-Hero-1-999999",
+      "PlayerShortcutId": "T:65555555#822",
+      "PlayerSlotType": "human",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroAttributeId": "Illi",
+        "HeroLevel": 17,
+        "HeroMasteryTier": null,
+        "HeroMasteryRingTier": null
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTintAttributeId": "Ill5",
+        "MountAndMountTintAttributeId": "SNF1",
+        "BannerAttributeId": "BN17",
+        "SprayAttributeId": "SYDF",
+        "AnnouncerPackAttributeId": "NoAP",
+        "VoiceLineAttributeId": "IL03"
+      },
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "IsBanChooser": false,
+      "IsReplayOwner": false,
+      "AccountLevel": 963,
+      "PartyValue": 36845556551796,
+      "PortraitUnlockableId": 976153667,
+      "PortraitBorderUnlockableId": 2008600194,
+      "ComputerDifficulty": "elite",
+      "HeroMasteryTier": [
+        {
+          "HeroAttributeId": "Alex",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Arts",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Auri",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Azmo",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Barb",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Demo",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Drya",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Fals",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Genn",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Guld",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Illi",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Jain",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Kael",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "KelT",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Kerr",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "MEPH",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Mdvh",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "ORPH",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Stit",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Sylv",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Tra0",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Tych",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Tyrd",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Witc",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Wiza",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "ZULJ",
+          "TierLevel": 1
+        }
+      ],
+      "LicenseIds": []
+    },
+    {
+      "Name": "Olive",
+      "BattleTagName": "Olive#0000",
+      "PlayerToonId": "1-Hero-1-666666",
+      "PlayerShortcutId": "T:2132132131#111",
+      "PlayerSlotType": "human",
+      "PlayerType": "human",
+      "PlayerHero": {
+        "HeroAttributeId": "Mura",
+        "HeroLevel": 20,
+        "HeroMasteryTier": null,
+        "HeroMasteryRingTier": 1
+      },
+      "PlayerLoadout": {
+        "SkinAndSkinTintAttributeId": "Mur3",
+        "MountAndMountTintAttributeId": "JUH0",
+        "BannerAttributeId": "BN3c",
+        "SprayAttributeId": "SY62",
+        "AnnouncerPackAttributeId": "ADEC",
+        "VoiceLineAttributeId": "MR05"
+      },
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "IsBanChooser": false,
+      "IsReplayOwner": false,
+      "AccountLevel": 883,
+      "PartyValue": 36845556551796,
+      "PortraitUnlockableId": 3850124305,
+      "PortraitBorderUnlockableId": 956270533,
+      "ComputerDifficulty": "elite",
+      "HeroMasteryTier": [
+        {
+          "HeroAttributeId": "Andu",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Arts",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Crus",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Diab",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Faer",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Fals",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Jain",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "L90E",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "LiLi",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Luci",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Malf",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Medi",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Mura",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Rehg",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Sylv",
+          "TierLevel": 2
+        },
+        {
+          "HeroAttributeId": "Tych",
+          "TierLevel": 1
+        },
+        {
+          "HeroAttributeId": "Vari",
+          "TierLevel": 1
+        }
+      ],
+      "LicenseIds": []
     }
   ],
   "Observers": [],
   "TeamBans": {
     "blue": [
-      "",
-      "",
-      ""
+      "Zaga",
+      "Faer",
+      "LiLi"
     ],
     "red": [
-      "",
-      "",
-      ""
+      "HXAL",
+      "NXHU",
+      "Deha"
     ]
   },
   "DisabledHeroes": [],
+  "LicenseIdCatalog": null,
   "IsBattleLobbyParsed": true
 }
