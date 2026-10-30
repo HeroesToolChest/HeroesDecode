@@ -6,6 +6,10 @@ public sealed class JsonAdditonalOptions
 
     public bool HasGameEvents { get; set; }
 
+    public bool HasLicenseCatalog { get; set; }
+
+    public bool HasPlayerLicenseIds { get; set; }
+
     public bool IncludeAllMessageEvents { get; set; }
 
     public bool NoJsonDislay { get; set; }

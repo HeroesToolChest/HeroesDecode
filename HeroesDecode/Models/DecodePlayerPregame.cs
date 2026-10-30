@@ -26,9 +26,21 @@ public sealed class DecodePlayerPregame
 
     public bool? HasActiveBoost { get; set; }
 
+    public bool IsBanChooser { get; set; }
+
+    public bool IsReplayOwner { get; set; }
+
     public int? AccountLevel { get; set; }
 
     public long? PartyValue { get; set; }
 
+    public long? PortraitUnlockableId { get; set; }
+
+    public long? PortraitBorderUnlockableId { get; set; }
+
     public ComputerDifficulty ComputerDifficulty { get; set; }
+
+    public List<HeroMasteryTier> HeroMasteryTier { get; set; } = [];
+
+    public IList<long> LicenseIds { get; set; } = [];
 }

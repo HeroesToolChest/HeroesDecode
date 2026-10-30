@@ -34,9 +34,21 @@ public sealed class DecodePlayer
 
     public bool? HasActiveBoost { get; set; }
 
+    public bool IsPlatformMac { get; set; }
+
+    public bool IsBanChooser { get; set; }
+
+    public bool IsReplayOwner { get; set; }
+
     public int? AccountLevel { get; set; }
 
     public long? PartyValue { get; set; }
+
+    public long? PortraitLicenseId { get; set; }
+
+    public long? PortraitUnlockableId { get; set; }
+
+    public long? PortraitBorderUnlockableId { get; set; }
 
     public ComputerDifficulty ComputerDifficulty { get; set; }
 
@@ -45,6 +57,8 @@ public sealed class DecodePlayer
     public List<HeroTalent> HeroTalents { get; set; } = [];
 
     public List<DecodePlayerDisconnect> Disconnects { get; set; } = [];
+
+    public IList<long> LicenseIds { get; set; } = [];
 
     public ScoreResult? ScoreResult { get; set; }
 }

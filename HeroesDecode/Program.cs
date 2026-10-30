@@ -85,6 +85,13 @@ Option<bool> hasLicenseCatalogOption = new("--has-license-catalog")
     Required = false,
 };
 
+Option<bool> hasPlayerLicenseIdsOption = new("--has-player-license-ids")
+{
+    Description = "Add the player license ids to the output json",
+    DefaultValueFactory = _ => false,
+    Required = false,
+};
+
 Option<bool> includeAllMessageEventsOption = new("--include-all-message-events")
 {
     Description = "Include all the message type events (default is only chat type messages)",
@@ -122,6 +129,7 @@ Command getReplayAsJsonCommand = new("get-json", "Get the data from the replay a
     hasTrackerEventsOption,
     hasGameEventsOption,
     hasLicenseCatalogOption,
+    hasPlayerLicenseIdsOption,
     includeAllMessageEventsOption,
     noJsonDisplayOption,
     jsonOuputDirectoryOption,
@@ -131,6 +139,7 @@ Command getReplayPregameAsJsonCommand = new("get-pregame-json", "Get the data fr
 {
     battlelobbyPathOption,
     hasLicenseCatalogOption,
+    hasPlayerLicenseIdsOption,
     noJsonDisplayOption,
     jsonOuputDirectoryOption,
 };
@@ -176,6 +185,7 @@ getReplayAsJsonCommand.SetAction(async (parseResult, cancellationToken) =>
     bool hasTrackerEvents = parseResult.GetValue(hasTrackerEventsOption);
     bool hasGameEvents = parseResult.GetValue(hasGameEventsOption);
     bool hasLicenseCatalog = parseResult.GetValue(hasLicenseCatalogOption);
+    bool hasPlayerLicenseIds = parseResult.GetValue(hasPlayerLicenseIdsOption);
     bool includeAllMessageEvents = parseResult.GetValue(includeAllMessageEventsOption);
     bool noJsonDisplay = parseResult.GetValue(noJsonDisplayOption);
     string? jsonOuputDirectory = parseResult.GetValue(jsonOuputDirectoryOption);
@@ -192,12 +202,14 @@ getReplayAsJsonCommand.SetAction(async (parseResult, cancellationToken) =>
                 ShouldParseTrackerEvents = parseTrackerEvents,
                 ShouldParseTrackerUnitEvents = parseTrackerUnitEvents,
                 ShouldParseMessageEvents = parseMessageEvents,
-                ShouldParseLicenseCatalog = hasLicenseCatalog,
+                ShouldParseLicenseCatalog = hasLicenseCatalog || hasPlayerLicenseIds,
             },
             new JsonAdditonalOptions()
             {
                 HasTrackerEvents = hasTrackerEvents,
                 HasGameEvents = hasGameEvents,
+                HasLicenseCatalog = hasLicenseCatalog,
+                HasPlayerLicenseIds = hasPlayerLicenseIds,
                 IncludeAllMessageEvents = includeAllMessageEvents,
                 NoJsonDislay = noJsonDisplay,
                 OutputDirectory = jsonOuputDirectory,
@@ -209,6 +221,7 @@ getReplayPregameAsJsonCommand.SetAction(async (parseResult, cancellationToken) =
 {
     string battlelobbyPath = parseResult.GetValue(battlelobbyPathOption)!;
     bool hasLicenseCatalog = parseResult.GetValue(hasLicenseCatalogOption);
+    bool hasPlayerLicenseIds = parseResult.GetValue(hasPlayerLicenseIdsOption);
     bool noJsonDisplay = parseResult.GetValue(noJsonDisplayOption);
     string? jsonOuputDirectory = parseResult.GetValue(jsonOuputDirectoryOption);
 
@@ -219,10 +232,15 @@ getReplayPregameAsJsonCommand.SetAction(async (parseResult, cancellationToken) =
             new ParsePregameOptions()
             {
                 AllowPTR = true,
-                ShouldParseLicenseCatalog = hasLicenseCatalog,
+                ShouldParseLicenseCatalog = hasLicenseCatalog || hasPlayerLicenseIds,
             },
-            noJsonDisplay,
-            jsonOuputDirectory);
+            new JsonAdditonalOptions()
+            {
+                HasLicenseCatalog = hasLicenseCatalog,
+                HasPlayerLicenseIds = hasPlayerLicenseIds,
+                NoJsonDislay = noJsonDisplay,
+                OutputDirectory = jsonOuputDirectory,
+            });
     });
 });
 
@@ -333,6 +351,15 @@ static async Task JsonParse(string replayPath, ParseOptions parseOptions, JsonAd
     if (!jsonAdditonalOptions.HasGameEvents)
         jsonReplay.GameEvents.Clear();
 
+    if (!jsonAdditonalOptions.HasLicenseCatalog)
+        jsonReplay.LicenseIdCatalog = null;
+
+    if (!jsonAdditonalOptions.HasPlayerLicenseIds)
+    {
+        foreach (DecodePlayer player in jsonReplay.Players.Concat(jsonReplay.Observers))
+            player.LicenseIds = [];
+    }
+
     if (!jsonAdditonalOptions.IncludeAllMessageEvents)
         jsonReplay.Messages = [.. jsonReplay.Messages.Where(x => x.MessageEventType == StormMessageEventType.SChatMessage)];
 
@@ -359,13 +386,22 @@ static async Task JsonParse(string replayPath, ParseOptions parseOptions, JsonAd
     }
 }
 
-static async Task JsonPregameParse(string replayPath, ParsePregameOptions parsePregameOptions, bool noJsonDisplay, string? outputDirectory)
+static async Task JsonPregameParse(string replayPath, ParsePregameOptions parsePregameOptions, JsonAdditonalOptions jsonAdditonalOptions)
 {
     StormReplayPregameResult stormReplayPregameResult = StormReplayPregame.Parse(replayPath, parsePregameOptions);
 
     JsonPregameResultLine(stormReplayPregameResult);
 
     DecodeReplayPregame jsonReplayPregame = stormReplayPregameResult.ReplayBattleLobby.ToDecodeReplayPregame();
+
+    if (!jsonAdditonalOptions.HasLicenseCatalog)
+        jsonReplayPregame.LicenseIdCatalog = null;
+
+    if (!jsonAdditonalOptions.HasPlayerLicenseIds)
+    {
+        foreach (DecodePlayerPregame player in jsonReplayPregame.Players.Concat(jsonReplayPregame.Observers))
+            player.LicenseIds = [];
+    }
 
     JsonSerializerOptions serializerOptions = new()
     {
@@ -377,14 +413,14 @@ static async Task JsonPregameParse(string replayPath, ParsePregameOptions parseP
         },
     };
 
-    if (!noJsonDisplay)
+    if (!jsonAdditonalOptions.NoJsonDislay)
         Console.WriteLine(JsonSerializer.Serialize(jsonReplayPregame, serializerOptions));
 
-    if (!string.IsNullOrWhiteSpace(outputDirectory))
+    if (!string.IsNullOrWhiteSpace(jsonAdditonalOptions.OutputDirectory))
     {
-        Directory.CreateDirectory(outputDirectory);
+        Directory.CreateDirectory(jsonAdditonalOptions.OutputDirectory);
 
-        using FileStream fileStream = File.Create(Path.Join(outputDirectory, Path.ChangeExtension(Path.GetFileName(replayPath), ".json")));
+        using FileStream fileStream = File.Create(Path.Join(jsonAdditonalOptions.OutputDirectory, Path.ChangeExtension(Path.GetFileName(replayPath), ".json")));
         await JsonSerializer.SerializeAsync(fileStream, jsonReplayPregame, serializerOptions);
         await fileStream.DisposeAsync();
     }

@@ -40,7 +40,7 @@ public sealed class DecodeReplayPregame
 
     public List<string> DisabledHeroes { get; set; } = [];
 
-    public bool IsBattleLobbyParsed { get; set; }
-
     public List<long>? LicenseIdCatalog { get; set; }
+
+    public bool IsBattleLobbyParsed { get; set; }
 }
