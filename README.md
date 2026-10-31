@@ -492,7 +492,7 @@ Parses a `replay.server.battlelobby` file and returns the parsed data in json fo
 
 The json file is named after the battlelobby file, with a `.json` extension (`replay.server.json`). The output directory is created if it does not exist.
 
-The `--has-license-catalog` and `--has-player-license-ids` options work the same as they do for `get-json`, and add `LicenseIdCatalog` and each player's `LicenseIds` to the json. They are described in [License ids](#license-ids). The players do not have a `PortraitLicenseId` in the pregame json.
+The `--has-license-catalog` and `--has-player-license-ids` options work the same as they do for `get-json`, and add `LicenseIdCatalog` and each player's `LicenseIds` to the json. They are described in [License ids](#license-ids).
 
 Example command to save the json with the license data.
 ```
