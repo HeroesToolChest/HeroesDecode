@@ -1,6 +1,7 @@
 {
   "ReplayBuild": 98348,
   "RandomValue": 4050547508,
+  "ReplayOwner": "1-Hero-1-111111",
   "PlayersAndAICount": 10,
   "PlayersAndObserversCount": 10,
   "ObserversCount": 0,
@@ -40,6 +41,8 @@
         "AnnouncerPackAttributeId": "NoAP",
         "VoiceLineAttributeId": "WI01"
       },
+      "HeroMasteryTier": [],
+      "Team": "blue",
       "IsSilenced": false,
       "IsVoiceSilenced": false,
       "IsBlizzardStaff": false,
@@ -51,7 +54,6 @@
       "PortraitUnlockableId": 2082266764,
       "PortraitBorderUnlockableId": 956270533,
       "ComputerDifficulty": "elite",
-      "HeroMasteryTier": [],
       "LicenseIds": []
     },
     {
@@ -75,17 +77,6 @@
         "AnnouncerPackAttributeId": "NoAP",
         "VoiceLineAttributeId": "MO01"
       },
-      "IsSilenced": false,
-      "IsVoiceSilenced": false,
-      "IsBlizzardStaff": false,
-      "HasActiveBoost": true,
-      "IsBanChooser": false,
-      "IsReplayOwner": false,
-      "AccountLevel": 625,
-      "PartyValue": null,
-      "PortraitUnlockableId": 1417353399,
-      "PortraitBorderUnlockableId": 4198120300,
-      "ComputerDifficulty": "elite",
       "HeroMasteryTier": [
         {
           "HeroAttributeId": "Arts",
@@ -140,6 +131,18 @@
           "TierLevel": 1
         }
       ],
+      "Team": "blue",
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": true,
+      "IsBanChooser": false,
+      "IsReplayOwner": false,
+      "AccountLevel": 625,
+      "PartyValue": null,
+      "PortraitUnlockableId": 1417353399,
+      "PortraitBorderUnlockableId": 4198120300,
+      "ComputerDifficulty": "elite",
       "LicenseIds": []
     },
     {
@@ -163,6 +166,13 @@
         "AnnouncerPackAttributeId": "ILLI",
         "VoiceLineAttributeId": "AD01"
       },
+      "HeroMasteryTier": [
+        {
+          "HeroAttributeId": "Tyrd",
+          "TierLevel": 1
+        }
+      ],
+      "Team": "blue",
       "IsSilenced": false,
       "IsVoiceSilenced": false,
       "IsBlizzardStaff": false,
@@ -174,12 +184,6 @@
       "PortraitUnlockableId": 3905124832,
       "PortraitBorderUnlockableId": null,
       "ComputerDifficulty": "elite",
-      "HeroMasteryTier": [
-        {
-          "HeroAttributeId": "Tyrd",
-          "TierLevel": 1
-        }
-      ],
       "LicenseIds": []
     },
     {
@@ -203,6 +207,13 @@
         "AnnouncerPackAttributeId": "NoAP",
         "VoiceLineAttributeId": "CR01"
       },
+      "HeroMasteryTier": [
+        {
+          "HeroAttributeId": "Thra",
+          "TierLevel": 1
+        }
+      ],
+      "Team": "blue",
       "IsSilenced": false,
       "IsVoiceSilenced": false,
       "IsBlizzardStaff": false,
@@ -214,12 +225,6 @@
       "PortraitUnlockableId": 969664431,
       "PortraitBorderUnlockableId": 956270533,
       "ComputerDifficulty": "elite",
-      "HeroMasteryTier": [
-        {
-          "HeroAttributeId": "Thra",
-          "TierLevel": 1
-        }
-      ],
       "LicenseIds": []
     },
     {
@@ -243,6 +248,8 @@
         "AnnouncerPackAttributeId": "NoAP",
         "VoiceLineAttributeId": "DH03"
       },
+      "HeroMasteryTier": [],
+      "Team": "blue",
       "IsSilenced": false,
       "IsVoiceSilenced": false,
       "IsBlizzardStaff": false,
@@ -254,7 +261,6 @@
       "PortraitUnlockableId": 652069880,
       "PortraitBorderUnlockableId": 3641434478,
       "ComputerDifficulty": "elite",
-      "HeroMasteryTier": [],
       "LicenseIds": []
     },
     {
@@ -278,6 +284,8 @@
         "AnnouncerPackAttributeId": "NoAP",
         "VoiceLineAttributeId": "AB01"
       },
+      "HeroMasteryTier": [],
+      "Team": "red",
       "IsSilenced": false,
       "IsVoiceSilenced": false,
       "IsBlizzardStaff": false,
@@ -289,7 +297,6 @@
       "PortraitUnlockableId": 2082266764,
       "PortraitBorderUnlockableId": 956270533,
       "ComputerDifficulty": "elite",
-      "HeroMasteryTier": [],
       "LicenseIds": []
     },
     {
@@ -313,17 +320,6 @@
         "AnnouncerPackAttributeId": "NoAP",
         "VoiceLineAttributeId": "UT01"
       },
-      "IsSilenced": false,
-      "IsVoiceSilenced": false,
-      "IsBlizzardStaff": false,
-      "HasActiveBoost": false,
-      "IsBanChooser": false,
-      "IsReplayOwner": false,
-      "AccountLevel": 817,
-      "PartyValue": null,
-      "PortraitUnlockableId": 2923068056,
-      "PortraitBorderUnlockableId": 956270533,
-      "ComputerDifficulty": "elite",
       "HeroMasteryTier": [
         {
           "HeroAttributeId": "Alar",
@@ -394,6 +390,18 @@
           "TierLevel": 1
         }
       ],
+      "Team": "red",
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "IsBanChooser": false,
+      "IsReplayOwner": false,
+      "AccountLevel": 817,
+      "PartyValue": null,
+      "PortraitUnlockableId": 2923068056,
+      "PortraitBorderUnlockableId": 956270533,
+      "ComputerDifficulty": "elite",
       "LicenseIds": []
     },
     {
@@ -417,17 +425,6 @@
         "AnnouncerPackAttributeId": "AORP",
         "VoiceLineAttributeId": "OR04"
       },
-      "IsSilenced": false,
-      "IsVoiceSilenced": false,
-      "IsBlizzardStaff": false,
-      "HasActiveBoost": false,
-      "IsBanChooser": false,
-      "IsReplayOwner": true,
-      "AccountLevel": 4841,
-      "PartyValue": null,
-      "PortraitUnlockableId": 1135058772,
-      "PortraitBorderUnlockableId": 956270533,
-      "ComputerDifficulty": "elite",
       "HeroMasteryTier": [
         {
           "HeroAttributeId": "Alex",
@@ -734,6 +731,18 @@
           "TierLevel": 1
         }
       ],
+      "Team": "red",
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "IsBanChooser": false,
+      "IsReplayOwner": true,
+      "AccountLevel": 4841,
+      "PartyValue": null,
+      "PortraitUnlockableId": 1135058772,
+      "PortraitBorderUnlockableId": 956270533,
+      "ComputerDifficulty": "elite",
       "LicenseIds": []
     },
     {
@@ -757,17 +766,6 @@
         "AnnouncerPackAttributeId": "NoAP",
         "VoiceLineAttributeId": "IL03"
       },
-      "IsSilenced": false,
-      "IsVoiceSilenced": false,
-      "IsBlizzardStaff": false,
-      "HasActiveBoost": false,
-      "IsBanChooser": false,
-      "IsReplayOwner": false,
-      "AccountLevel": 963,
-      "PartyValue": 36845556551796,
-      "PortraitUnlockableId": 976153667,
-      "PortraitBorderUnlockableId": 2008600194,
-      "ComputerDifficulty": "elite",
       "HeroMasteryTier": [
         {
           "HeroAttributeId": "Alex",
@@ -874,6 +872,18 @@
           "TierLevel": 1
         }
       ],
+      "Team": "red",
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "IsBanChooser": false,
+      "IsReplayOwner": false,
+      "AccountLevel": 963,
+      "PartyValue": 36845556551796,
+      "PortraitUnlockableId": 976153667,
+      "PortraitBorderUnlockableId": 2008600194,
+      "ComputerDifficulty": "elite",
       "LicenseIds": []
     },
     {
@@ -897,17 +907,6 @@
         "AnnouncerPackAttributeId": "ADEC",
         "VoiceLineAttributeId": "MR05"
       },
-      "IsSilenced": false,
-      "IsVoiceSilenced": false,
-      "IsBlizzardStaff": false,
-      "HasActiveBoost": false,
-      "IsBanChooser": false,
-      "IsReplayOwner": false,
-      "AccountLevel": 883,
-      "PartyValue": 36845556551796,
-      "PortraitUnlockableId": 3850124305,
-      "PortraitBorderUnlockableId": 956270533,
-      "ComputerDifficulty": "elite",
       "HeroMasteryTier": [
         {
           "HeroAttributeId": "Andu",
@@ -978,6 +977,18 @@
           "TierLevel": 1
         }
       ],
+      "Team": "red",
+      "IsSilenced": false,
+      "IsVoiceSilenced": false,
+      "IsBlizzardStaff": false,
+      "HasActiveBoost": false,
+      "IsBanChooser": false,
+      "IsReplayOwner": false,
+      "AccountLevel": 883,
+      "PartyValue": 36845556551796,
+      "PortraitUnlockableId": 3850124305,
+      "PortraitBorderUnlockableId": 956270533,
+      "ComputerDifficulty": "elite",
       "LicenseIds": []
     }
   ],
