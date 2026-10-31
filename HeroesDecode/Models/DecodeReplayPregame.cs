@@ -6,6 +6,8 @@ public sealed class DecodeReplayPregame
 
     public long RandomValue { get; set; }
 
+    public string? ReplayOwner { get; set; } = string.Empty;
+
     public int PlayersAndAICount { get; set; }
 
     public int PlayersAndObserversCount { get; set; }

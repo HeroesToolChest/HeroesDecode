@@ -18,6 +18,10 @@ public sealed class DecodePlayerPregame
 
     public PregamePlayerLoadout PlayerLoadout { get; set; } = new();
 
+    public List<HeroMasteryTier> HeroMasteryTier { get; set; } = [];
+
+    public StormTeam Team { get; set; }
+
     public bool IsSilenced { get; set; }
 
     public bool? IsVoiceSilenced { get; set; }
@@ -39,8 +43,6 @@ public sealed class DecodePlayerPregame
     public long? PortraitBorderUnlockableId { get; set; }
 
     public ComputerDifficulty ComputerDifficulty { get; set; }
-
-    public List<HeroMasteryTier> HeroMasteryTier { get; set; } = [];
 
     public IList<long> LicenseIds { get; set; } = [];
 }

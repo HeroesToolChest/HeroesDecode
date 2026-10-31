@@ -27,6 +27,7 @@ public static class PregameStormPlayerExtensions
             PlayerToonId = pregameStormPlayer.ToonHandle?.ToString(),
             PlayerSlotType = pregameStormPlayer.PlayerSlotType,
             PlayerType = pregameStormPlayer.PlayerType,
+            Team = pregameStormPlayer.Team,
         };
     }
 }

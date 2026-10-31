@@ -29,6 +29,7 @@ internal static class StormReplayPregameExtensions
                 ReadyMode = stormReplayPregame.ReadyMode,
                 Region = stormReplayPregame.Region,
                 ReplayBuild = stormReplayPregame.ReplayBuild,
+                ReplayOwner = stormReplayPregame.Owner?.ToonHandle?.ToString(),
                 TeamSize = stormReplayPregame.TeamSize,
                 TeamBans =
             {
