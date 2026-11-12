@@ -5,13 +5,13 @@
 
 Heroes Decode is a .NET command line tool that parses data from Heroes of the Storm replay files (.StormReplay) as well as parsing data from a match loading screen from the `.battlelobby` file.
 
-Basic data is displayed in the terminal. To get full data use the `get-json` command.
+Basic data is displayed in the terminal. To get the full data, use the `get-json` command.
 
 The parsing is done by the library [Heroes Storm Replay Parser](https://github.com/HeroesToolChest/Heroes.StormReplayParser).
 
 ## Installation
 ### Dotnet Global Tool (Recommended)
-Download and install the latest [.NET SDK](https://dotnet.microsoft.com/download). 
+Download and install the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0).
 
 Once installed, run the following command:
 ```
@@ -26,14 +26,14 @@ dotnet tool update --global HeroesDecode
 ### Zip File Download - Framework-Dependent Deployment (fdd)
 Portable to any operating system.
 
-Download and install the latest [.NET Runtime or SDK](https://dotnet.microsoft.com/download). 
+Download and install the [.NET 10 Runtime or SDK](https://dotnet.microsoft.com/download/dotnet/10.0).
 
 Download and extract the latest `HeroesDecode.*-fdd-any` archive file from the [releases](https://github.com/HeroesToolChest/HeroesDecode/releases) page.
 
 ### Zip File Download - Framework-Dependent Executable (fde)
 Runs only on a selected operating system and architecture.
 
-Download and install the latest [.NET Runtime or SDK](https://dotnet.microsoft.com/download). 
+Download and install the [.NET 10 Runtime or SDK](https://dotnet.microsoft.com/download/dotnet/10.0).
 
 Download and extract the latest `HeroesDecode.*-fde-<OS>-<ARCH>` archive file from the [releases](https://github.com/HeroesToolChest/HeroesDecode/releases) page for a selected operating system and architecture.
 
@@ -53,7 +53,7 @@ dotnet-heroes-decode -h
 
 If installed as a Framework-Dependent Deployment (fdd), run the following command from the extracted directory:
 ```
-dotnet heroesdecode.dll -h
+dotnet HeroesDecode.dll -h
 ```
 
 If installed as a Framework-Dependent Executable (fde) or Self-Contained Deployment (scd), run one of the following commands from the extracted directory:
@@ -62,11 +62,13 @@ If installed as a Framework-Dependent Executable (fde) or Self-Contained Deploym
 HeroesDecode -h
 
 # Windows (powershell):
-.\HeroesDecode -h 
+.\HeroesDecode -h
 
 # macOS or Linux:
 ./HeroesDecode -h
 ```
+
+The examples in this file use the Dotnet Global Tool command `dotnet-heroes-decode`. For the other installation methods, replace it with the matching command above.
 
 Output of the -h option
 ```
@@ -74,7 +76,7 @@ Description:
   View Heroes of the Storm replay file data
 
 Usage:
-  HeroesDecode [command] [options]
+  dotnet-heroes-decode [command] [options]
 
 Options:
   -p, --replay-path <replay-path> (REQUIRED)  File path of a Heroes of the Storm .StormReplay file or a directory
@@ -92,7 +94,7 @@ Commands:
 
 Example command to parse a replay file.
 ```
-dotnet heroesdecode.dll --replay-path "C:\ReplayFiles\2020-08-07 15.33.52 Lost Cavern.StormReplay"
+dotnet-heroes-decode --replay-path "C:\ReplayFiles\BattleFieldOfEternity.StormReplay"
 ```
 
 Example output from the previous command.
@@ -128,33 +130,34 @@ Player Level: 1000
    Hero Name: Jaina [HeroJaina]
   Hero Level: Auto
        Award: MostVengeancesPerformed
-	   
+
 [0]   Player: Banana#2222
 Player Level: 500
  Player Toon: 1-Hero-1-2121212
    Hero Name: Li-Ming [HeroWizard]
   Hero Level: 12
        Award: MVP
-	   
+
 [0]   Player: Grapes#3333
 Player Level: 1566
  Player Toon: 1-Hero-1-4343434
    Hero Name: Zul'jin [HeroZuljin]
   Hero Level: 100
        Award: MostHeroDamageDone
-	   
+
 [0]   Player: Mango#4444
 Player Level: 1961
  Player Toon: 1-Hero-1-7878788
    Hero Name: Tychus [HeroTychus]
   Hero Level: Auto
-  
+
 [-]   Player: Orange#5555
 Player Level: 633
  Player Toon: 1-Hero-1-5454545
    Hero Name: Stukov [HeroStukov]
   Hero Level: Auto
        Award: MostHealing
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Team Red
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -163,31 +166,32 @@ Player Level: 1885
  Player Toon: 1-Hero-1-22222
    Hero Name: Kharazim [HeroMonk]
   Hero Level: Auto
-  
+
 [5]   Player: Avacado#7777
 Player Level: 960
  Player Toon: 1-Hero-1-777777
    Hero Name: Raynor [HeroRaynor]
   Hero Level: 5
-  
+
 [5]   Player: Strawberries#8888
 Player Level: 637
  Player Toon: 1-Hero-1-111111
    Hero Name: Mephisto [HeroMephisto]
   Hero Level: 15
-  
+
 [-]   Player: Lemon#9999
 Player Level: 1466
  Player Toon: 1-Hero-1-999999
    Hero Name: Qhira [HeroNexusHunter]
   Hero Level: Auto
-  
+
 [-]   Player: Olive#0000
 Player Level: 2030
  Player Toon: 1-Hero-1-666666
    Hero Name: Johanna [HeroCrusader]
   Hero Level: Auto
        Award: MostTeamfightDamageTaken
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Observers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -197,20 +201,20 @@ Observers
 ## Options
 ### Replay Path (-p, --replay-path)
 
-Can be either the path to a replay file or a directory. If set as a directory recommended to set the option `--result-only`.
+Can be either the path to a replay file or a directory. If it is a directory, every `.StormReplay` file in it and its subdirectories is parsed, and setting the option `--result-only` is recommended.
 
-The file path can also be set to `[last]` to parse the latest created replay file in the directory.
+The file name can also be set to `[last]` to parse the most recently modified replay file in that directory. Subdirectories are not searched. The `get-json` command also accepts `[last]`.
 
 Example of using `[last]`.
 ```
---replay-path 'C:\ReplayFiles\[last]'
+--replay-path "C:\ReplayFiles\[last]"
 ```
 
 ***
 
 ### Result Only (--result-only)
 
-Only the result of the parsing as well as the file name and the replay version will be outputted. This will also override the options `--show-players-talents` and `--show-player-stats` to false.
+Only the result of the parsing as well as the file name and the replay version will be outputted. This will also override the options `--show-player-talents` and `--show-player-stats` to false.
 
 Example.
 ```
@@ -233,11 +237,11 @@ Talents
  Level 13: AnaHealingDartSmellingSalts
  Level 16: AnaDetachableBoxMagazine
  Level 20: AnaDynamicOptics
- ```
- 
+```
+
 ***
 
-### Show Player Stats(-s, --show-player-stats)
+### Show Player Stats (-s, --show-player-stats)
 
 Shows the player's statistics.
 
@@ -274,7 +278,6 @@ Other
   Merc Camp Captures: 0
 Watch Tower Captures: 0
           Town Kills: 0
-          Town Kills: 0
         Minion Kills: 0
         Regen Globes: 0
 ```
@@ -286,7 +289,7 @@ Description:
   View Heroes of the Storm battlelobby file data.
 
 Usage:
-  HeroesDecode pregame [options]
+  dotnet-heroes-decode pregame [options]
 
 Options:
   -p, --battlelobby-path <battlelobby-path> (REQUIRED)  File path of a Heroes of the Storm .battlelobby file or a directory
@@ -295,7 +298,9 @@ Options:
 
 Parses a `replay.server.battlelobby` file. The `.battlelobby` file is created at the start of the loading screen.
 
-On Windows, the default location is `C:\<USER PATH>\AppData\Local\Temp\Heroes of the Storm\TempWriteReplayP1\replay.server.battlelobby`. The `Temp\Heroes of the Storm` directory is deleted after the game (not the match) has closed.
+If `--battlelobby-path` is a directory, the `replay.server.battlelobby` file in that directory is parsed.
+
+On Windows, the default location is `C:\Users\<USER>\AppData\Local\Temp\Heroes of the Storm\TempWriteReplayP1\replay.server.battlelobby`. The `Temp\Heroes of the Storm` directory is deleted after the game (not the match) has closed.
 
 Example output:
 ```
@@ -386,15 +391,15 @@ Description:
   Get the data from the replay as json
 
 Usage:
-  HeroesDecode get-json [options]
+  dotnet-heroes-decode get-json [options]
 
 Options:
   -p, --replay-path <replay-path> (REQUIRED)  File path of a Heroes of the Storm .StormReplay file or a directory
-  --parse-message-events                      Allow the parsing of the message events [default: True]
-  --parse-tracker-events                      Allow the parsing of tracker events [default: True]
-  --parse-tracker-unit-events                 Allow the parsing of tracker unit events [default: True]
-  --parse-game-events                         Allow the parsing of the game events [default: True]
-  --keep-game-events                          Keep the game events after parsing; if false, they are still parsed for the data that comes from them, but are not kept [default: True]
+  --parse-message-events                      Allow the parsing of the message events [default: true]
+  --parse-tracker-events                      Allow the parsing of tracker events [default: true]
+  --parse-tracker-unit-events                 Allow the parsing of tracker unit events [default: true]
+  --parse-game-events                         Allow the parsing of the game events [default: true]
+  --keep-game-events                          Keep the game events after parsing; if false, they are still parsed for the data that comes from them, but are not kept [default: true]
   --has-tracker-events                        Add the tracker events to the output json
   --has-game-events                           Add the game events to the output json
   --has-license-catalog                       Add the license catalog to the output json
@@ -404,11 +409,11 @@ Options:
   -o, --output-directory <output-directory>   Set the directory for the output json file
   -?, -h, --help                              Show help and usage information
 ```
-Returns the parsed data in json format. By default, it will be returned to the terminal. When `--output-directory` is set, it is also saved to a file.
+Returns the parsed data in json format. By default, it is displayed in the terminal. When `--output-directory` is set, it is also saved to a file.
 
 The json file is named after the replay file, with a `.json` extension. The output directory is created if it does not exist.
 
-If `--replay-path` is a directory, every `.StormReplay` file in it and its subdirectories is parsed, and each one gets its own json file. Setting `--no-json-display` is recommended in this case.
+If `--replay-path` is a directory, every `.StormReplay` file in it and its subdirectories is parsed, and when `--output-directory` is set, each one gets its own json file. Setting `--no-json-display` is recommended in this case.
 
 #### Parsing options
 These options decide what is parsed from the replay. Turning one off makes parsing faster and use less memory, but the data that comes from it will be empty, `null`, or `false` in the json.
@@ -444,17 +449,17 @@ When either option is set, each player's `PortraitLicenseId` is also set. It is 
 #### Examples
 Faster parse that leaves out the unit tracker events and the game events list, but keeps the rest of the data.
 ```
-get-json --replay-path "C:\ReplayFiles\2020-08-07 15.33.52 Lost Cavern.StormReplay" --parse-tracker-unit-events false --keep-game-events false
+dotnet-heroes-decode get-json --replay-path "C:\ReplayFiles\2020-08-07 15.33.52 Lost Cavern.StormReplay" --parse-tracker-unit-events false --keep-game-events false
 ```
 
 Saves the json of every replay in a directory, with the tracker events and game events added.
 ```
-get-json --replay-path "C:\ReplayFiles" --has-tracker-events --has-game-events --no-json-display --output-directory "C:\JsonOutput"
+dotnet-heroes-decode get-json --replay-path "C:\ReplayFiles" --has-tracker-events --has-game-events --no-json-display --output-directory "C:\JsonOutput"
 ```
 
 Adds the license catalog and the players' license ids to the json.
 ```
-get-json --replay-path "C:\ReplayFiles\2020-08-07 15.33.52 Lost Cavern.StormReplay" --has-license-catalog --has-player-license-ids
+dotnet-heroes-decode get-json --replay-path "C:\ReplayFiles\2020-08-07 15.33.52 Lost Cavern.StormReplay" --has-license-catalog --has-player-license-ids
 ```
 
 #### Example json
@@ -478,7 +483,7 @@ Description:
   Get the data from the replay battlelobby as json
 
 Usage:
-  HeroesDecode get-pregame-json [options]
+  dotnet-heroes-decode get-pregame-json [options]
 
 Options:
   -p, --battlelobby-path <battlelobby-path> (REQUIRED)  File path of a Heroes of the Storm .battlelobby file or a directory
@@ -488,15 +493,17 @@ Options:
   -o, --output-directory <output-directory>             Set the directory for the output json file
   -?, -h, --help                                        Show help and usage information
 ```
-Parses a `replay.server.battlelobby` file and returns the parsed data in json format. By default, it will be returned to the terminal. When `--output-directory` is set, it is also saved to a file.
+Parses a `replay.server.battlelobby` file and returns the parsed data in json format. By default, it is displayed in the terminal. When `--output-directory` is set, it is also saved to a file.
 
 The json file is named after the battlelobby file, with a `.json` extension (`replay.server.json`). The output directory is created if it does not exist.
+
+If `--battlelobby-path` is a directory, the `replay.server.battlelobby` file in that directory is parsed, the same as the `pregame` command.
 
 The `--has-license-catalog` and `--has-player-license-ids` options work the same as they do for `get-json`, and add `LicenseIdCatalog` and each player's `LicenseIds` to the json. They are described in [License ids](#license-ids).
 
 Example command to save the json with the license data.
 ```
-dotnet heroesdecode.dll get-pregame-json --battlelobby-path "C:\Users\<USER>\AppData\Local\Temp\Heroes of the Storm\TempWriteReplayP1\replay.server.battlelobby" --has-license-catalog --has-player-license-ids --output-directory "C:\JsonOutput"
+dotnet-heroes-decode get-pregame-json --battlelobby-path "C:\Users\<USER>\AppData\Local\Temp\Heroes of the Storm\TempWriteReplayP1\replay.server.battlelobby" --has-license-catalog --has-player-license-ids --output-directory "C:\JsonOutput"
 ```
 
 The [example json output file](https://github.com/HeroesToolChest/HeroesDecode/blob/main/JsonOutput/replay-pregame-battlelobby.json) is from the `replay.server.battlelobby` file of the same match as the `get-json` example and was generated with the default options. The player names, battletags, toon ids, and shortcut ids were replaced in the same way.
@@ -504,7 +511,7 @@ The [example json output file](https://github.com/HeroesToolChest/HeroesDecode/b
 ## Developing
 To build and compile the code, it is recommended to use the latest version of [Visual Studio 2026 or Visual Studio Code](https://visualstudio.microsoft.com/downloads/).
 
-Another option is to use the dotnet CLI tools from the latest [.NET SDK](https://dotnet.microsoft.com/download).
+Another option is to use the dotnet CLI tools from the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0).
 
 ## License
-[MIT license](/LICENSE)
+[MIT license](https://github.com/HeroesToolChest/HeroesDecode/blob/main/LICENSE)
