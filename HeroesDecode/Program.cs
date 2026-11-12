@@ -31,35 +31,35 @@ Option<string> battlelobbyPathOption = new("--battlelobby-path", "-p")
 
 Option<bool> parseMessageEventsOption = new("--parse-message-events")
 {
-    Description = "Allow the parsing of the message events [default: True]",
+    Description = "Allow the parsing of the message events",
     DefaultValueFactory = _ => true,
     Required = false,
 };
 
 Option<bool> parseTrackerEventsOption = new("--parse-tracker-events")
 {
-    Description = "Allow the parsing of tracker events [default: True]",
+    Description = "Allow the parsing of tracker events",
     DefaultValueFactory = _ => true,
     Required = false,
 };
 
 Option<bool> parseTrackerUnitEventsOption = new("--parse-tracker-unit-events")
 {
-    Description = "Allow the parsing of tracker unit events [default: True]",
+    Description = "Allow the parsing of tracker unit events",
     DefaultValueFactory = _ => true,
     Required = false,
 };
 
 Option<bool> parseGameEventsOption = new("--parse-game-events")
 {
-    Description = "Allow the parsing of the game events [default: True]",
+    Description = "Allow the parsing of the game events",
     DefaultValueFactory = _ => true,
     Required = false,
 };
 
 Option<bool> keepGameEventsOption = new("--keep-game-events")
 {
-    Description = "Keep the game events after parsing; if false, they are still parsed for the data that comes from them, but are not kept [default: True]",
+    Description = "Keep the game events after parsing; if false, they are still parsed for the data that comes from them, but are not kept",
     DefaultValueFactory = _ => true,
     Required = false,
 };
@@ -750,7 +750,6 @@ static void PlayerInfo(StormPlayer player, PartyIconColor? partyIcon)
                 Console.WriteLine($"{"Merc Damage:",StatisticsFieldWidth} {player.ScoreResult.CreepDamage}");
                 Console.WriteLine($"{"Merc Camp Captures:",StatisticsFieldWidth} {player.ScoreResult.MercCampCaptures}");
                 Console.WriteLine($"{"Watch Tower Captures:",StatisticsFieldWidth} {player.ScoreResult.WatchTowerCaptures}");
-                Console.WriteLine($"{"Town Kills:",StatisticsFieldWidth} {player.ScoreResult.TownKills}");
                 Console.WriteLine($"{"Town Kills:",StatisticsFieldWidth} {player.ScoreResult.TownKills}");
                 Console.WriteLine($"{"Minion Kills:",StatisticsFieldWidth} {player.ScoreResult.MinionKills}");
                 Console.WriteLine($"{"Regen Globes:",StatisticsFieldWidth} {player.ScoreResult.RegenGlobes}");
