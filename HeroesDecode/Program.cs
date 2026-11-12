@@ -144,34 +144,15 @@ Command getReplayPregameAsJsonCommand = new("get-pregame-json", "Get the data fr
     jsonOuputDirectoryOption,
 };
 
-pregameCommand.SetAction(parseResult =>
+pregameCommand.SetAction(async (parseResult, cancellationToken) =>
 {
     string battlelobbyPath = parseResult.GetValue(battlelobbyPathOption)!;
 
-    if (File.Exists(battlelobbyPath))
+    await ParseBattlelobbyPath(battlelobbyPath, async (filePath) =>
     {
-        PregameParse(battlelobbyPath);
-    }
-    else if (Directory.Exists(battlelobbyPath))
-    {
-        string filePath = Path.Join(battlelobbyPath, "replay.server.battlelobby");
-        if (File.Exists(filePath))
-        {
-            PregameParse(filePath);
-        }
-        else
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("No file found.");
-            Console.ResetColor();
-        }
-    }
-    else
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("No file or directory found.");
-        Console.ResetColor();
-    }
+        PregameParse(filePath);
+        await Task.CompletedTask;
+    });
 });
 
 getReplayAsJsonCommand.SetAction(async (parseResult, cancellationToken) =>
@@ -225,7 +206,7 @@ getReplayPregameAsJsonCommand.SetAction(async (parseResult, cancellationToken) =
     bool noJsonDisplay = parseResult.GetValue(noJsonDisplayOption);
     string? jsonOuputDirectory = parseResult.GetValue(jsonOuputDirectoryOption);
 
-    await ParseFilePath(battlelobbyPath, async (filePath) =>
+    await ParseBattlelobbyPath(battlelobbyPath, async (filePath) =>
     {
         await JsonPregameParse(
             filePath,
@@ -309,6 +290,34 @@ static async Task ParseFilePath(string replayPath, Func<string, Task> parse)
         {
             if (!string.IsNullOrEmpty(replayFile) && File.Exists(replayFile))
                 await parse(replayFile);
+        }
+    }
+    else
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("No file or directory found.");
+        Console.ResetColor();
+    }
+}
+
+static async Task ParseBattlelobbyPath(string battlelobbyPath, Func<string, Task> parse)
+{
+    if (File.Exists(battlelobbyPath))
+    {
+        await parse(battlelobbyPath);
+    }
+    else if (Directory.Exists(battlelobbyPath))
+    {
+        string filePath = Path.Join(battlelobbyPath, "replay.server.battlelobby");
+        if (File.Exists(filePath))
+        {
+            await parse(filePath);
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("No file found.");
+            Console.ResetColor();
         }
     }
     else
